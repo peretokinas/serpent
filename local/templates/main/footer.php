@@ -1,8 +1,6 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
 <?php 
   use Bitrix\Main\Localization\Loc;
-  
-  IncludeTemplateLangFile(__FILE__);
 ?>
   <footer>
     <div class="container">
@@ -28,67 +26,34 @@
                     </defs>
                 </svg>
             </a>
-            <nav class="footer-menu">
-                <ul class="footer-menu__items">
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">О бренде</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Шоурум</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Доставка и оплата</a>
-                    </li>
-                </ul>
-                <ul class="footer-menu__items">
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Частые вопросы</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Новости</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Контакты</a>
-                    </li>
-                </ul>
-                <ul class="footer-menu__items">
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Политика конфиденциальности</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Пользовательское соглашение</a>
-                    </li>
-                    <li class="footer-menu__item">
-                        <a href="" class="footer-menu__link">Карта сайта</a>
-                    </li>
-                </ul>
-            </nav>
+            <?php
+              //Конструктор меню
+              $APPLICATION->IncludeComponent(
+                "swf:designer",
+                "menu_bottom",
+                [
+                 "IB"=>$arSettings["IB"]["designer_menu_bottom"],
+                 "DESIGNER_MENU"=>"Y",
+                ],
+              );
+            ?>
             <div class="footer-social">
-                <a href="#" class="footer-social__link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="18" viewBox="0 0 22 18" fill="none">
-                        <path d="M20.8416 0.219849C20.5763 -0.0455262 20.3109 -0.0455343 19.9128 0.0871535L1.46923 6.98692C1.07117 7.11961 0.938477 7.51767 0.938477 7.78305C0.938477 8.18111 1.20385 8.44648 1.46923 8.57917L6.77674 10.5695C6.77674 10.5695 6.90943 10.5695 6.90943 10.7022L8.2363 15.4789C8.36899 15.877 8.63437 16.0097 8.89974 16.1424C9.2978 16.1424 9.56318 16.0097 9.82856 15.7443L11.4208 13.6213L11.5535 13.4886H11.6862L16.5956 17.7346C16.7283 17.8673 16.9937 18 17.1264 18C17.2591 18 17.3918 18 17.3918 18C17.6571 17.8673 17.9225 17.6019 17.9225 17.3366L20.9743 1.14866C21.107 0.750596 21.107 0.352537 20.8416 0.219849ZM8.89974 15.2136L7.57286 10.4368C7.57286 10.4368 7.57286 10.4368 7.57286 10.3041C7.44018 10.0387 7.57286 9.64068 7.83824 9.50799L20.0455 0.883288L9.96124 11.1002L8.89974 15.2136C9.03243 15.3462 8.89974 15.3462 8.89974 15.2136Z" fill="white"/>
-                    </svg>
+                <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_TELEGRAM"]; ?> class="footer-social__link">
+                  <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_TELEGRAM"]["TEXT"])); ?>
                 </a>
-                <a href="#" class="footer-social__link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="16" viewBox="0 0 26 16" fill="none">
-                        <path d="M14.0799 16C5.35991 16 0.399912 10 0.159912 0H4.55991C4.71991 7.36 7.91991 10.4 10.4799 11.04V0H14.6399V6.32C17.1199 6.08 19.7599 3.2 20.7199 0H24.8799C24.1599 3.92 21.2799 6.8 19.2799 8C21.3599 8.96 24.6399 11.44 25.8399 16H21.2799C20.3199 12.96 17.8399 10.64 14.6399 10.32V16H14.0799Z" fill="white"/>
-                    </svg>
+                <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_VK"]; ?> class="footer-social__link">
+                  <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_VK"]["TEXT"])); ?>
                 </a>
-                <a href="#" class="footer-social__link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="20" viewBox="0 0 26 20" fill="none">
-                        <path d="M25.4566 3.74199C25.1576 2.62341 24.2765 1.7423 23.1579 1.4433C21.1305 0.899902 13 0.899902 13 0.899902C13 0.899902 4.86951 0.899902 2.84209 1.4433C1.72351 1.7423 0.8424 2.62341 0.5434 3.74199C0 5.76941 0 9.9999 0 9.9999C0 9.9999 0 14.2304 0.5434 16.2578C0.8424 17.3764 1.72351 18.2575 2.84209 18.5565C4.86951 19.0999 13 19.0999 13 19.0999C13 19.0999 21.1305 19.0999 23.1579 18.5565C24.2765 18.2575 25.1576 17.3764 25.4566 16.2578C26 14.2304 26 9.9999 26 9.9999C26 9.9999 26 5.76941 25.4566 3.74199ZM10.4 13.8999V6.0999L17.1548 9.9999L10.4 13.8999Z" fill="white"/>
-                    </svg>
+                <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_YOUTUBE"]; ?> class="footer-social__link">
+                  <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_YOUTUBE"]["TEXT"])); ?>
                 </a>
-                <a href="#" class="footer-social__link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M20.4972 3.48787C18.4482 1.44644 15.7237 0.21605 12.8311 0.0258747C9.93853 -0.1643 7.07512 0.69871 4.77425 2.45415C2.47338 4.2096 0.891948 6.73777 0.324526 9.56776C-0.242895 12.3977 0.242384 15.3366 1.68997 17.8368L-0.000732422 24L6.33331 22.3444C8.08466 23.297 10.048 23.7973 12.0437 23.7995C14.4082 23.8009 16.72 23.1039 18.6865 21.7968C20.6529 20.4897 22.1857 18.6313 23.0907 16.4567C23.9958 14.2821 24.2325 11.8891 23.7708 9.5805C23.3091 7.27195 22.1699 5.15162 20.4972 3.48787ZM12.0437 21.785C10.2629 21.7849 8.51496 21.308 6.98296 20.4043L6.62078 20.1892L2.86096 21.1706L3.86466 17.5248L3.62754 17.1497C2.45693 15.2928 1.9394 13.1012 2.1563 10.9196C2.37321 8.73796 3.31225 6.68994 4.82581 5.09748C6.33938 3.50503 8.34163 2.45844 10.5178 2.12224C12.694 1.78605 14.9207 2.17931 16.8479 3.2402C18.7751 4.3011 20.2935 5.96948 21.1644 7.98306C22.0353 9.99663 22.2094 12.2412 21.6592 14.364C21.109 16.4868 19.8657 18.3673 18.1249 19.7101C16.384 21.0528 14.2443 21.7816 12.0421 21.7818L12.0437 21.785Z" fill="white"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.05734 6.92072C8.83321 6.42599 8.59771 6.41629 8.38658 6.4082H7.81327C7.66202 6.41216 7.51323 6.44725 7.37627 6.51124C7.23931 6.57524 7.11714 6.66677 7.01745 6.78006C6.68121 7.09729 6.41467 7.48046 6.23465 7.90539C6.05462 8.33031 5.96503 8.78777 5.97152 9.24889C5.97152 10.704 7.04181 12.1235 7.19123 12.3208C7.34065 12.518 9.2571 15.6206 12.2926 16.8122C14.8132 17.8017 15.3264 17.6044 15.8754 17.5559C16.4243 17.5074 17.6408 16.8365 17.8893 16.1429C18.1378 15.4493 18.1394 14.8494 18.0647 14.7298C17.99 14.6101 17.7902 14.5309 17.4914 14.3822C17.1925 14.2334 15.7243 13.5156 15.4515 13.4121C15.1786 13.3086 14.9789 13.2634 14.7791 13.5609C14.5793 13.8583 14.0093 14.5309 13.8339 14.7266C13.6585 14.9222 13.4863 14.9497 13.1842 14.8009C12.3041 14.452 11.4917 13.9531 10.7838 13.3264C10.1322 12.7266 9.57341 12.0342 9.12555 11.2715C8.95015 10.974 9.10606 10.8123 9.2571 10.6652C9.40815 10.5181 9.55432 10.3176 9.70536 10.1446C9.82786 9.9942 9.92795 9.82704 10.0026 9.64824C10.0422 9.56627 10.0608 9.47575 10.0565 9.38487C10.0523 9.29398 10.0254 9.20558 9.97821 9.12763C9.9035 8.97889 9.32856 7.51085 9.05734 6.92072Z" fill="white"/>
-                    </svg>
+                <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_WHATSAPP"]; ?> class="footer-social__link">
+                  <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_WHATSAPP"]["TEXT"])); ?>
                 </a>
             </div>
         </div>
         <div class="footer-line"></div>
-        <div class="footer-copy">© 2023 The serpent</div>
+        <div class="footer-copy"><?php echo Loc::getMessage("COMPANY"); ?></div>
     </div>
   </footer>
 <?php //Этот кусок кода я хз нахрена нужен, так как он был после футера может потом понадобится ?>

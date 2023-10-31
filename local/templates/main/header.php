@@ -15,6 +15,14 @@
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/slimselect.js");
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/swiper-bundle.min.js");
 
+//Конструктор настроек
+$APPLICATION->IncludeComponent(
+  "swf:designer",
+  "settings",
+  [
+    "IB"=>$arSettings["IB"]["designer_settings"],
+  ],
+  );
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
@@ -47,8 +55,8 @@
   <header class="header-white">
       <div class="container">
           <div class="header-top">
-              <a href="tel:+7 (900) 512-89-12" class="header-phone">
-                  +7 (900) 512-89-12
+              <a href="tel:<?php echo Loc::getMessage("TITLE_PHONE_TEL"); ?>" class="header-phone">
+                <?php echo Loc::getMessage("TITLE_PHONE"); ?>
               </a>
               <div class="header-burger">
                   <div class="line"></div>
@@ -76,35 +84,17 @@
                       </defs>
                   </svg>
               </a>
-              <div class="header-event">
-                  <a href="#" class="header-event__link header-event__link-search">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
-                          <path d="M9.35441 18.013C13.9684 18.013 17.7088 14.2726 17.7088 9.65861C17.7088 5.0446 13.9684 1.3042 9.35441 1.3042C4.7404 1.3042 1 5.0446 1 9.65861C1 14.2726 4.7404 18.013 9.35441 18.013Z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-                          <path d="M4.93481 9.65852C4.93481 8.48634 5.40047 7.36206 6.22933 6.5332C7.05819 5.70434 8.18238 5.23877 9.35457 5.23877" stroke="white" stroke-linecap="square" stroke-linejoin="round"/>
-                          <path d="M15.553 15.249L20.9999 20.696" stroke="white" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="round"/>
-                      </svg>
-                  </a>
-                  <a href="#" class="header-event__link auth-event">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
-                          <path d="M10.8388 11.4031C13.6893 11.4031 16.0001 9.09236 16.0001 6.24186C16.0001 3.39135 13.6893 1.08057 10.8388 1.08057C7.98828 1.08057 5.67749 3.39135 5.67749 6.24186C5.67749 9.09236 7.98828 11.4031 10.8388 11.4031Z" stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                          <path d="M1.48389 20.9194C1.48389 15.6614 5.74195 11.4033 11 11.4033C16.2581 11.4033 20.5161 15.6614 20.5161 20.9194" stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                      </svg>
-                  </a>
-                  <a href="#" class="header-event__link">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="22" viewBox="0 0 26 22" fill="none">
-                          <path d="M12.9999 20.9997C12.9999 20.9997 3.91288 13.8277 2.33188 10.6157C1.69932 9.47176 1.41267 8.16875 1.50676 6.86499C1.60085 5.56123 2.07164 4.31288 2.8619 3.27167V3.27167C3.31442 2.65935 3.88705 2.14574 4.5448 1.76224C5.20255 1.37873 5.93161 1.13339 6.6874 1.0412C7.44318 0.949006 8.20983 1.01193 8.94048 1.22607C9.67113 1.44022 10.3504 1.8011 10.9369 2.28668L12.9999 3.99466L15.0629 2.28668C15.6493 1.8011 16.3286 1.44022 17.0593 1.22607C17.79 1.01193 18.5566 0.949006 19.3124 1.0412C20.0682 1.13339 20.7972 1.37873 21.455 1.76224C22.1127 2.14574 22.6854 2.65935 23.1379 3.27167V3.27167C23.9281 4.31288 24.3989 5.56123 24.493 6.86499C24.5871 8.16875 24.3005 9.47176 23.6679 10.6157C22.0859 13.8277 12.9999 20.9997 12.9999 20.9997Z" stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                      </svg>
-                      <span class="header-event__count">
-                        12
-                    </span>
-                  </a>
-                  <a href="#" class="header-event__link">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24" fill="none">
-                          <path d="M21 6.54541H1V22.9091H21V6.54541Z" stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                          <path d="M7.36377 10.3436V4.7272C7.36377 3.76277 7.74688 2.83784 8.42883 2.15589C9.11078 1.47393 10.0357 1.09082 11.0001 1.09082C11.9646 1.09082 12.8895 1.47393 13.5714 2.15589C14.2534 2.83784 14.6365 3.76277 14.6365 4.7272V10.3436" stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                      </svg>
-                  </a>
-              </div>
+              <?php
+              //Конструктор меню
+              $APPLICATION->IncludeComponent(
+                "swf:designer",
+                "menu_top_2",
+                  [
+                  "IB"=>$arSettings["IB"]["designer_menu_top_2"],
+                  "DESIGNER_MENU"=>"Y",
+                  ],
+                );
+              ?>
           </div>
           <div class="header_bottom">
               <div class="header_bottom__container">
@@ -123,46 +113,17 @@
                           </svg>
                       </a>
                   </div>
-                  <nav class="header-menu">
-                      <ul class="header-menu__items">
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link header-menu__link-new"><span>Новинки</span>
-                                  <span class="tag">new</span>
-                              </a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link header-menu__link-hit"><span>Хиты</span>
-                                  <span class="tag">hit</span>
-                              </a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link header-menu__link-sale"><span>скидки</span>
-                                  <span class="tag">sale</span>
-                              </a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Слитные купальники</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Раздельные купальники</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Подарочные карты</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>О бренде</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Новости</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Шоу-рум</span></a>
-                          </li>
-                          <li class="header-menu__item">
-                              <a href="#" class="header-menu__link"><span>Контакты</span></a>
-                          </li>
-                      </ul>
-                  </nav>
+                <?php
+                //Конструктор меню
+                $APPLICATION->IncludeComponent(
+                  "swf:designer",
+                  "menu_top_1",
+                  [
+                    "IB"=>$arSettings["IB"]["designer_menu_top_1"],
+                    "DESIGNER_MENU"=>"Y",
+                  ],
+                );
+              ?>
               </div>
           </div>
       </div>

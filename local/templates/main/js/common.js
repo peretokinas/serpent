@@ -1,10 +1,10 @@
 window.addEventListener('load', function (){
 
     document.querySelector('.header-burger').addEventListener('click', function (){
-        if(document.body.classList.contains('menu-active')){
-            document.body.classList.remove('menu-active')
+        if(document.querySelector('header').classList.contains('menu-active')){
+            document.querySelector('header').classList.remove('active')
         }else{
-            document.body.classList.add('menu-active')
+            document.querySelector('header').classList.add('active')
         }
     })
 
@@ -334,15 +334,25 @@ window.addEventListener('load', function (){
                 let elementContent = this.nextElementSibling,
                     elementContentHeight = elementContent.querySelector('.accordion-content__block').clientHeight;
                 if(this.closest('.accordion-item').classList.contains('active')){
-                    this.closest('.accordion-item').classList.remove('active');
-                    elementContent.style.height = 0;
+                    //Не работает от версталы - хз почему, некогда искать.
+                    // this.closest('.accordion-item').classList.remove('active');
+                    // elementContent.style.height = 0;
+                    
+                    //Кастом кода версталы
+                    var tmp_elem_ar=document.getElementsByTagName("body");
+                    // console.log(tmp_elem_ar);
+                    let siblingElement = getSiblings(tmp_elem_ar);
+                    siblingElement.forEach((item) => {
+                      item.classList.remove('active');
+                      item.querySelector('.accordion-content').style.height = 0;
+                    });
+                    //Кастом кода версталы ЭНД
                 }else{
                     let siblingElement =  getSiblings(accordionElement)
                     siblingElement.forEach((item) => {
-                        item.classList.remove('active')
+                        item.classList.remove('active');
                         item.querySelector('.accordion-content').style.height = 0;
                     })
-                    accordionElement.classList.add('active');
                     elementContent.style.height = elementContentHeight + 'px';
                 }
             })
@@ -353,8 +363,17 @@ window.addEventListener('load', function (){
 
         // Setup siblings array and get the first sibling
         var siblings = [];
-        var sibling = elem.parentNode.firstChild;
-
+        
+        var sibling=elem;
+        
+        if (typeof elem != "undefined") {
+          if (typeof elem.parentNode != "undefined") {
+            if (typeof elem.parentNode.firstChild != "undefined") {
+              sibling=elem.parentNode.firstChild;
+            }
+          }
+        }
+        
         // Loop through each sibling and push to the array
         while (sibling) {
             if (sibling.nodeType === 1 && sibling !== elem) {

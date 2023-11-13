@@ -16,13 +16,26 @@
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/swiper-bundle.min.js");
 
 //Конструктор настроек
-$APPLICATION->IncludeComponent(
-  "swf:designer",
-  "settings",
-  [
-    "IB"=>$arSettings["IB"]["designer_settings"],
-  ],
+  $APPLICATION->IncludeComponent(
+    "swf:designer",
+    "settings",
+    [
+      "IB"=>$arSettings["IB"]["designer_settings"],
+    ],
   );
+?>
+<?php
+$headerClass = "";
+$headersWhite = ["/" => "class='header-white'","article_" => "class='header-white'","kupalnik" => "class='header-white'"];
+
+$lastPartUrl = basename($_SERVER['REQUEST_URI']);
+if($lastPartUrl != "")
+  $headerUrl = substr($lastPartUrl, 0, -1);
+else
+  $headerUrl = $_SERVER['REQUEST_URI'];
+
+if(isset($headersWhite[$headerUrl]))
+   $headerClass = $headersWhite[$headerUrl];
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
@@ -52,7 +65,8 @@ $APPLICATION->IncludeComponent(
     <?php //favicon end?>
   </head>
   <body>
-  <header class="header-white">
+  <!--<div id="panel"><?php $APPLICATION->ShowPanel();?></div>-->
+  <header <?php echo $headerClass; ?>>
       <div class="container">
           <div class="header-top">
               <a href="tel:<?php echo Loc::getMessage("TITLE_PHONE_TEL"); ?>" class="header-phone">
@@ -63,7 +77,7 @@ $APPLICATION->IncludeComponent(
                   <div class="line"></div>
                   <div class="line"></div>
               </div>
-              <a href="#" class="header-logo">
+              <a href="/" class="header-logo">
                   <svg xmlns="http://www.w3.org/2000/svg" width="136" height="54" viewBox="0 0 136 54" fill="none">
                       <g clip-path="url(#clip0_577_2259)">
                           <path d="M24.6684 0.439688C25.2021 0.0134279 25.9239 0.132078 26.5538 0.105711C30.178 0.15405 33.8088 0.0332028 37.4309 0.167233C37.0153 0.63524 36.6719 1.39548 35.9632 1.42624C34.5022 1.4592 33.0389 1.42624 31.5888 1.42624C31.1155 1.82656 30.7119 2.30329 30.3945 2.83685C28.6885 5.74377 27.5052 8.92534 25.7882 11.8257C25.2743 12.7045 24.3425 13.2077 23.4895 13.7087C24.4497 13.645 25.412 13.5988 26.3744 13.612C26.1098 14.0361 25.8932 14.5238 25.4755 14.8227C24.2528 14.9457 23.0105 14.8732 21.7812 14.8424C22.4002 14.0602 23.3123 13.5417 23.8176 12.6606C25.5673 9.71414 26.8294 6.5084 28.5201 3.51799C29.0625 2.51825 30.0512 1.89644 31.0485 1.42184C29.0166 1.47458 26.9825 1.39328 24.9527 1.4592C24.1872 1.4592 23.6579 2.07442 23.0389 2.42817C23.4802 1.68735 24.0295 1.01709 24.6684 0.439688Z" fill="white"/>

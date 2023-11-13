@@ -1,20 +1,25 @@
 <?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();?>
 <?php
   CModule::IncludeModule('iblock');
-  
+
   //Получаем все элементы входящего инфоблока
   $arFilter=[
     'IBLOCK_ID'=>$arParams["IB"],
     'ACTIVE'=>'Y',
   ];
-  $res=CIBlockElement::GetList([], $arFilter);
-  $arRes=[];
-  while ($ob=$res->GetNextElement()) {
-    $arRes[]=[
-      "arFields"=>$ob->GetFields(),
-      "arProps"=>$ob->GetProperties(),
-    ];
-  }
+//Доп фильтры
+if ($arParams["ELEMENT_CODE"]!="") {
+  $arFilter["CODE"]=$arParams["ELEMENT_CODE"];
+}
+
+$res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
+$arRes=[];
+while ($ob=$res->GetNextElement()) {
+  $arRes[]=[
+    "arFields"=>$ob->GetFields(),
+    "arProps"=>$ob->GetProperties(),
+  ];
+}
   
   //Помещаем в результ
   if ($arParams["ALL_RECORDS"]=="Y") {

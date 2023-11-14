@@ -1,0 +1,15 @@
+.cast_hide {
+  display: none !important;
+  /* opacity: 0.2 !important; */
+}
+.cast_product-slide__color-circle.checked {
+  border-width: 1px;
+  border-color: #263740;
+}
+
+.product-slide {
+  margin-right: 0px !important;
+}
+.catalog-items {
+  gap: 20px;
+}

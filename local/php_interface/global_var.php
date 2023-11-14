@@ -9,14 +9,19 @@
       "articles_1"=>9,
       "contacts"=>10,
       "faq"=>11,
+      "reviews_prod"=>14,
       "1c_catalog"=>12,
       "1c_offers"=>13,
     ],
     "LINK_STATIC"=>[
       "articles_list"=>"/articles/",
+      "catalog"=>"/catalog/",
     ],
     "SHOP"=>[
       "BASE_PRICE_CODE"=>3,
+      "SECTION"=>[
+        "kupalniki"=>"Купальники",
+      ],
     ],
     "COLOR_1"=>[
       "Голубой"=>"#42aaff",

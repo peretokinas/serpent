@@ -10,6 +10,11 @@
     'ACTIVE'=>'Y',
   ];
   
+  //Доп фильтры
+  if ($arParams["DETAIL_CODE"]!="") {
+    $arFilter["CODE"]=$arParams["DETAIL_CODE"];
+  }
+  
   $res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
   $arRes=[];
   while ($ob=$res->GetNextElement()) {
@@ -79,7 +84,34 @@
     $arProd[$key]["OFFERS"]=$arSku[$val["arFields"]["ID"]];
   }
   
-  $arResult["ITEMS"]=$arProd;
+  $arResult_items=$arProd;
+  
+  $arResult["ITEMS"]=[];
+  $arResult["ITEMS_PODOB_1"]=[];
+  
+  //Группируем подобные 1
+  if ($arParams["GROUP_PODOB_1"]=="Y") {
+    foreach ($arResult_items AS $key=>$val) {
+      $name_ex=explode(", ",$val["arFields"]["NAME"]);
+      if (isset($arResult["ITEMS_PODOB_1"][$name_ex[0]])) {
+        $arResult["ITEMS_PODOB_1"][$name_ex[0]][]=$val;
+      } else {
+        $arResult["ITEMS"][]=$val;
+        $arResult["ITEMS_PODOB_1"][$name_ex[0]]=[];
+      }
+    }
+  }
+  
+  //Если есть лимит слайдера - оставляем только это кол-во в массиве ITEMS
+  if (isset($arParams["SLIDER_LIMIT"])) {
+    if ($arParams["SLIDER_LIMIT"]!="") {
+      $arItemsNew=[];
+      for ($i=0;$i<(int)$arParams["SLIDER_LIMIT"];$i++) {
+        $arItemsNew[]=$arResult["ITEMS"][$i];
+      }
+      $arResult["ITEMS"]=$arItemsNew;
+    }
+  }
   
   //Дергаем шаблон
   $this->IncludeComponentTemplate();

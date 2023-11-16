@@ -19,6 +19,7 @@
     ],
     "SHOP"=>[
       "BASE_PRICE_CODE"=>3,
+      "BASE_CURR_CODE"=>"RUB",
       "SECTION"=>[
         "kupalniki"=>"Купальники",
       ],

@@ -14,6 +14,10 @@
     public static function get_num_form_1($num){
       return number_format($num,1,'.','');
     }
+    //Получение форматированного числа (цена) вид 1
+    public static function get_num_form_2($num){
+      return number_format($num,0,'.',' ');
+    }
     //Склонение числительных
     public static function num_word($value, $words, $show = true) {
       $num = $value % 100;

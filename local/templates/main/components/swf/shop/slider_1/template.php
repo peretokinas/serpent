@@ -8,24 +8,26 @@
       <div class="title"><?php echo $arParams["SLIDER_TITLE"];?></div>
     </div>
     <div class="section-top__event">
-      <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/" class="link-all">
-        <?php
-          $tmp_title_var="SHOP_SLIDER_1_ALL_CATALOG";
-          if (isset($arParams["ALL_CATALOG_CAST_TITLE"])) {
-            if ($arParams["ALL_CATALOG_CAST_TITLE"]!="") {
-              $tmp_title_var=$arParams["ALL_CATALOG_CAST_TITLE"];
+      <?php if($arParams["NO_LINK_CATALOG_TITLE"]!="Y"):?>
+        <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/" class="link-all">
+          <?php
+            $tmp_title_var="SHOP_SLIDER_1_ALL_CATALOG";
+            if (isset($arParams["ALL_CATALOG_CAST_TITLE"])) {
+              if ($arParams["ALL_CATALOG_CAST_TITLE"]!="") {
+                $tmp_title_var=$arParams["ALL_CATALOG_CAST_TITLE"];
+              }
             }
-          }
-        ?>
-        <?php echo Loc::getMessage($tmp_title_var);?>
-        <span class="link-all__icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14"
-             fill="none">
-            <path d="M0.897903 13.0747L7.00006 6.99994L0.899482 0.923639" stroke="#263740"
-                stroke-width="2"/>
-          </svg>
-        </span>
-      </a>
+          ?>
+          <?php echo Loc::getMessage($tmp_title_var);?>
+          <span class="link-all__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14"
+               fill="none">
+              <path d="M0.897903 13.0747L7.00006 6.99994L0.899482 0.923639" stroke="#263740"
+                  stroke-width="2"/>
+            </svg>
+          </span>
+        </a>
+      <?php endif;?>
       <?php if($arParams["BUTT_CENTER"]!="Y"):?>
         <div class="section-top__arrow">
           <div class="swiper-button-prev swiper-arrow">

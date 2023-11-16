@@ -14,7 +14,7 @@
         [
           "ITEMS"=>[
           [
-            "NAME"=>"Главная",
+            "NAME"=>Loc::getMessage("PAGE_NAME_GENERAL"),
             "LINK"=>"/",
           ],
           [
@@ -78,18 +78,21 @@
           </div>-->
           <div class="product-slider__container swiper">
             <div class="swiper-wrapper">
-              <?php
-                if($arElem["arFields"]["DETAIL_PICTURE"]!="") {
-                  $tmp_src=CFile::GetPath($arElem["arFields"]["DETAIL_PICTURE"]);
-                } else {
-                  $tmp_src=SITE_TEMPLATE_PATH."/img/no-photo.jpg";
-                }
-              ?>
-              <?php for($i=0;$i<2;$i++):?>
-                <div class="swiper-slide swiper-slide__big">
-                  <img src="<?php echo $tmp_src;?>" alt="">
-                </div>
-              <?php endfor;?>
+              <?php if(is_array($arElem["arPhotos"])):?>
+                <?php if(count($arElem["arPhotos"])>0):?>
+                  <?php foreach($arElem["arPhotos"] AS $key_ph=>$val_ph):?>
+                    <div class="swiper-slide swiper-slide__big">
+                      <img src="<?php echo $val_ph;?>" alt="">
+                    </div>
+                  <?php endforeach;?>
+                <?php else:?>
+                  <?php for($i=0;$i<2;$i++):?>
+                    <div class="swiper-slide swiper-slide__big">
+                      <img src="<?php echo SITE_TEMPLATE_PATH."/img/no-photo.jpg";?>" alt="">
+                    </div>
+                  <?php endfor;?>
+                <?php endif;?>
+              <?php endif;?>
             </div>
           </div>
           <div class="swiper-button-next swiper-arrow">
@@ -214,60 +217,78 @@
           <div class="product-container__flex-content">
             <div class="product-label"><?php echo Loc::getMessage("SHOP_DETAIL_COLOR");?></div>
             <div class="product-slide__color">
-              <div class="product-slide__color-item">
-                <input type="radio" name="color-39" checked="">
-                <span class="product-slide__color-circle">
-                  <span style="background: #263740"></span>
-                </span>
-              </div>
+              <?php
+                $name_podob="";
+                $ex_name_podob=explode($arParams["GROUP_PODOB_1_RAZD"],$arElem["arFields"]["NAME"]);
+                $name_podob=$ex_name_podob[0];
+                
+                //Получаем подобные товару
+                $arPodob=[];
+                $arPodob=$arResult["ITEMS_PODOB_1"][$name_podob];
+                //Добавляем сам товар
+                $arPodob[]=$arElem;
+                //Сортируем, чтобы цвета всегда были идентичные
+                for ($i=0;$i<count($arPodob)-1;$i++) {
+                  for ($j=$i+1;$j<count($arPodob);$j++) {
+                    if ($arPodob[$j]["arFields"]["ID"]<$arPodob[$i]["arFields"]["ID"]) {
+                      $buf=$arPodob[$i];
+                      $arPodob[$i]=$arPodob[$j];
+                      $arPodob[$j]=$buf;
+                    }
+                  }
+                }
+              ?>
+              <?php foreach($arPodob AS $key_p=>$val_p):?>
+                <?php
+                  $tmp_bg=$arParams["SETT_COLOR_1"][$val_p["arProps"][$arParams["GROUP_PODOB_1_PROP"]]["VALUE"]];
+                  if ($val_p["arFields"]["ID"]==$arElem["arFields"]["ID"]) {
+                    $tmp_check="checked";
+                  } else {
+                    $tmp_check="";
+                  }
+                ?>
+                <a href="<?php echo $val_p["arFields"]["DETAIL_PAGE_URL"];?>" class="catalog_go_to_page_action cast_a_nostyle">
+                  <div class="product-slide__color-item">
+                    <input type="radio" name="color-39" <?php echo $tmp_check;?>>
+                    <span class="product-slide__color-circle">
+                      <span style="background: <?php echo $tmp_bg;?>"></span>
+                    </span>
+                  </div>
+                </a>
+              <?php endforeach;?>
             </div>
             <div class="product-container__line"></div>
             <div class="product-size__head">
               <div class="product-size__left">
-                <div class="product-label">Размер</div>
-                <!--<div class="product-size__status">Скоро закончится</div>-->
+                <div class="product-label"><?php echo Loc::getMessage("SHOP_DETAIL_SIZE");?></div>
+                <!--<div class="product-size__status"><?php echo Loc::getMessage("SHOP_DETAIL_SIZE_SKORO_ZAKONCHITSA");?></div>-->
               </div>
-              <a href="#" class="product-size__table" data-modal-trigger="modal-size">таблица размеров</a>
+              <a href="#" class="product-size__table" data-modal-trigger="modal-size"><?php echo Loc::getMessage("SHOP_DETAIL_SIZE_TABLE");?></a>
             </div>
             <div class="product-size__items">
-              <div class="product-size__item">
-                <input type="radio" name="size" disabled>
-                <span class="product-size__item-value">
-              <span>ХS 36</span>
-            </span>
-              </div>
-              <div class="product-size__item">
-                <input type="radio" name="size" disabled>
-                <span class="product-size__item-value">
-              <span>S 40</span>
-            </span>
-              </div>
-              <div class="product-size__item">
-                <input type="radio" name="size">
-                <span class="product-size__item-value">
-              <span>M 44</span>
-            </span>
-              </div>
-              <div class="product-size__item">
-                <input type="radio" name="size" disabled>
-                <span class="product-size__item-value">
-              <span>L 48</span>
-            </span>
-              </div>
-              <div class="product-size__item">
-                <input type="radio" name="size">
-                <span class="product-size__item-value">
-              <span>XL 52</span>
-            </span>
-              </div>
+              <?php foreach($arElem["OFFERS"] AS $key_off=>$val_off):?>
+                <?php
+                  if ($key_off==0) {
+                    $tmp_active="checked";
+                  } else {
+                    $tmp_active="";
+                  }
+                ?>
+                <div class="product-size__item">
+                  <input prod-id=<?php echo $val_off["arFields"]["ID"];?> class="select_sku_size_action" type="radio" name="size" <?php echo $tmp_active;?>>
+                  <span class="product-size__item-value">
+                    <span><?php echo $val_off["arProps"]["RAZMER"]["VALUE"];?></span>
+                  </span>
+                </div>
+              <?php endforeach;?>
             </div>
             <div class="product-container__line"></div>
             <div class="product-container__event">
               <div class="product-container__price">
-                <span>10 500 </span> ₽
+                <span><?php echo round($val_off["arPrice"][$arParams["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span> ₽
               </div>
               <div class="product-container__event-block">
-                <a href="#" class="btn">
+                <a href="" class="btn but_add_to_cart add_to_cart_action">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24"
                      fill="none">
                     <path d="M21 6.54541H1V22.9091H21V6.54541Z" stroke="white" stroke-width="1.4"
@@ -275,7 +296,7 @@
                     <path d="M7.36328 10.3436V4.7272C7.36328 3.76277 7.74639 2.83784 8.42834 2.15589C9.11029 1.47393 10.0352 1.09082 10.9996 1.09082C11.9641 1.09082 12.889 1.47393 13.5709 2.15589C14.2529 2.83784 14.636 3.76277 14.636 4.7272V10.3436"
                         stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
                   </svg>
-                  Добавить в корзину
+                  <?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD");?>
                 </a>
                 <div class="product-favorite">
                   <input type="checkbox">
@@ -393,7 +414,7 @@
           <h2>Программа лояльности</h2>
           <div class="block-text">
             Вступайте в <span class="fw-600">SerpentClub</span> и при покупе данного товара Вам начислится
-            ХХХ балов, которые можно будет потратить на следующие покупки.
+            500 баллов, которые можно будет потратить на следующие покупки.
             <br>Что бы подключиться к программе лояльности
           </div>
           <div class="lk-balls__modal" data-modal-trigger="modal-how_work">
@@ -415,9 +436,10 @@
     <?php
       //Похожие товары
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arParams["arSettings"],
           "IB_CAT"=>$arParams["IB_CAT"],
           "IB_SKU"=>$arParams["IB_SKU"],
           "IB_REW"=>"",
@@ -430,16 +452,20 @@
           "SECTION_CODE_PRINT"=>$arParams["SECTION_CODE_PRINT"],
           "SECTION_NAME_PRINT"=>$arParams["SECTION_NAME_PRINT"],
           "LINK_CATALOG"=>$arParams["LINK_CATALOG"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_POHOJIE"),
           "SLIDER_LIMIT"=>rand(3,10),
+          "ALL_CATALOG_CAST_TITLE"=>"",
+          "BUTT_CENTER"=>"Y",
         ],
       );
       
       //Все товары линии
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arParams["arSettings"],
           "IB_CAT"=>$arParams["IB_CAT"],
           "IB_SKU"=>$arParams["IB_SKU"],
           "IB_REW"=>"",
@@ -452,8 +478,11 @@
           "SECTION_CODE_PRINT"=>$arParams["SECTION_CODE_PRINT"],
           "SECTION_NAME_PRINT"=>$arParams["SECTION_NAME_PRINT"],
           "LINK_CATALOG"=>$arParams["LINK_CATALOG"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_LINE"),
           "SLIDER_LIMIT"=>rand(3,10),
+          "ALL_CATALOG_CAST_TITLE"=>"",
+          "BUTT_CENTER"=>"Y",
         ],
       );
     ?>

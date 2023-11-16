@@ -38,9 +38,10 @@
     <?php
       //Новинки
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arSettings,
           "IB_CAT"=>$arSettings["IB"]["1c_catalog"],
           "IB_SKU"=>$arSettings["IB"]["1c_offers"],
           "IB_REW"=>"",
@@ -53,18 +54,20 @@
           "SECTION_CODE_PRINT"=>"kupalniki",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_NEWS"),
           "SLIDER_LIMIT"=>rand(3,10),
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
-          "BUTT_CENTER"=>"N",
+          "BUTT_CENTER"=>"Y",
         ],
       );
       
       //Хиты продаж
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arSettings,
           "IB_CAT"=>$arSettings["IB"]["1c_catalog"],
           "IB_SKU"=>$arSettings["IB"]["1c_offers"],
           "IB_REW"=>"",
@@ -77,10 +80,11 @@
           "SECTION_CODE_PRINT"=>"kupalniki",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_HIT"),
           "SLIDER_LIMIT"=>rand(3,10),
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
-          "BUTT_CENTER"=>"N",
+          "BUTT_CENTER"=>"Y",
         ],
       );
     ?>

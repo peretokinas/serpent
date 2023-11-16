@@ -1,5 +1,7 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?php 
+  use Bitrix\Main\Localization\Loc;
+
   $tmpArPodob_1=$arParams["tmpArPodob_1"];
   $val=$arParams["val"];
   $val_general=$arParams["val_general"];
@@ -15,6 +17,7 @@
   }
 ?>
 <div class="cast_card_<?php echo $val["arFields"]["ID"];?> <?php echo $class_gen;?>">
+  <?php echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
   <div class="product-slide__pic">
     <div class="product-favorite">
       <input type="checkbox">
@@ -53,16 +56,17 @@
     </div>-->
     <div class="product-slide__swiper swiper">
       <div class="swiper-wrapper">
-        <?php
-          if($val["arFields"]["DETAIL_PICTURE"]!="") {
-            $tmp_src=CFile::GetPath($val["arFields"]["DETAIL_PICTURE"]);
-          } else {
-            $tmp_src=SITE_TEMPLATE_PATH."/img/no-photo.jpg";
-          }
-        ?>
-        <div class="swiper-slide">
-          <img src="<?php echo $tmp_src;?>" alt="">
-        </div>
+        <?php if(count($val["arPhotos"])>0):?>
+          <?php foreach($val["arPhotos"] AS $key_ph=>$val_ph):?>
+            <div class="swiper-slide">
+              <img src="<?php echo $val_ph;?>" alt="">
+            </div>
+          <?php endforeach;?>
+        <?php else:?>
+          <div class="swiper-slide">
+            <img src="<?php echo SITE_TEMPLATE_PATH."/img/no-photo.jpg";?>" alt="">
+          </div>
+        <?php endif;?>
       </div>
       <div class="swiper-arrow swiper-arrow__left">
         <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14"
@@ -124,7 +128,7 @@
     <div class="product-slide__size">
       <div class="product-slide__size-default">
         <div class="product-slide__size-default-text">
-          Размер
+          <?php echo Loc::getMessage("SHOP_CATALOG_SIZE");?>
           <span><?php echo $val["OFFERS"][0]["arProps"]["RAZMER"]["VALUE"];?></span>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="7"
@@ -151,7 +155,7 @@
     <div class="product-slide__content">
       <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="product-slide__title"><?php echo $val["arFields"]["NAME"];?></a>
       <div class="product-slide__price">
-        <div class="product-slide__new-price"><span><?php echo $val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"];?></span> ₽</div>
+        <span><?php echo swf_util::get_num_form_2($val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span> <?php echo Loc::getMessage("CURR_RUB");?>
       </div>
     </div>
     <div class="product-basket">

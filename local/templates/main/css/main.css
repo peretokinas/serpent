@@ -13,3 +13,14 @@
 .catalog-items {
   gap: 20px;
 }
+
+.cast_a_nostyle {
+  border: none;
+}
+
+.basket-item img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: auto;
+}

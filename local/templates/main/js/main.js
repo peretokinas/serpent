@@ -52,4 +52,36 @@ $(document).ready(function(){
       },
     });
   });
+  
+  //Переход по ссылке подобного в детальной карточке
+  $("body").on("click",".catalog_go_to_page_action",function(){
+    location.href=$(this).attr("href");
+  });
+  
+  //Добавление товара в корзину
+  $("body").on("click",".add_to_cart_action",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    var obj_cont=$(this).parent().parent().parent();
+    var obj_sku=obj_cont.find(".product-size__items");
+    var obj_input_sku=obj_sku.find("input:checked");
+    
+    var prod_id=obj_input_sku.attr("prod-id");
+    
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"add_to_cart",
+        "prod_id":prod_id,
+        "prod_qua":1,
+      },
+      success: function(data) {
+        
+      },
+    });
+    
+  });
 });

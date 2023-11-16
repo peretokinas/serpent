@@ -45,11 +45,11 @@
                 </p>
                 <div class="showroom-photo">
                     <div class="showroom-photo__column">
-                        <img src="img/article/showroom-1.jpg" alt="">
+                        <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/article/showroom-1.jpg" alt="">
                     </div>
                     <div class="showroom-photo__column">
-                        <img src="img/article/showroom-2.jpg" alt="">
-                        <img src="img/article/showroom-3.jpg" alt="">
+                        <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/article/showroom-2.jpg" alt="">
+                        <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/article/showroom-3.jpg" alt="">
                     </div>
                 </div>
                 <div class="h1">Шоурум</div>
@@ -68,7 +68,7 @@
                     Звоните: <a href="tel:79789140140">+7-978-9-140-140</a>
                 </p>
                 <div class="showroom-flex">
-                    <img src="img/article/showroom-4.jpg" alt="">
+                    <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/article/showroom-4.jpg" alt="">
                     <div class="showroom-content">
                         <p>
                             В честь 177-летия князя Льва Голицына приглашаем всех гостей и жителей Крыма на бесплатную обзорную
@@ -130,7 +130,7 @@
                             Звоните: <a href="tel:79789140140">+7-978-9-140-140</a>
                         </p>
                     </div>
-                    <img src="img/article/showroom-6.jpg" alt="">
+                    <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/article/showroom-6.jpg" alt="">
                 </div>
                 <p>
                     В честь 177-летия князя Льва Голицына приглашаем всех гостей и жителей Крыма на бесплатную обзорную

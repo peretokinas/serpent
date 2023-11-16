@@ -449,9 +449,10 @@
     <?php
       //Новинки
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arSettings,
           "IB_CAT"=>$arSettings["IB"]["1c_catalog"],
           "IB_SKU"=>$arSettings["IB"]["1c_offers"],
           "IB_REW"=>"",
@@ -464,6 +465,7 @@
           "SECTION_CODE_PRINT"=>"kupalniki",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_NEWS"),
           "SLIDER_LIMIT"=>rand(3,10),
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
@@ -473,9 +475,10 @@
       
       //Хиты продаж
       $APPLICATION->IncludeComponent(
-        "swf:catalog",
+        "swf:shop",
         "slider_1",
         [
+          "arSettings"=>$arSettings,
           "IB_CAT"=>$arSettings["IB"]["1c_catalog"],
           "IB_SKU"=>$arSettings["IB"]["1c_offers"],
           "IB_REW"=>"",
@@ -488,6 +491,7 @@
           "SECTION_CODE_PRINT"=>"kupalniki",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
+          "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_HIT"),
           "SLIDER_LIMIT"=>rand(3,10),
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
@@ -549,7 +553,7 @@
         <a href="#" class="btn btn_mobile btn_white">Зарегистрироваться</a>
         <form action="#" class="sale-form">
           <input type="text" placeholder="e-mail" class="sale-input">
-          <button class="btn btn_white">Подписатся</button>
+          <button class="btn btn_white">Подписаться</button>
         </form>
       </div>
     </div>

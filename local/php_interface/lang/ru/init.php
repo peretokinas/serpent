@@ -9,6 +9,9 @@
   $MESS["FORM_SUBMIT"]="Перезвонить мне";
   $MESS["PAGE_NAME_GENERAL"]="Главная";
   $MESS["PAGE_NAME_CART"]="Корзина";
+  //Тексты ошибок
+  $MESS["ERR_TXT_1"]="Значение должно быть заполнено";
+  $MESS["ERR_TXT_2"]="Во время создания заказа произошла ошибка. Пожалуйста попробуйте позже или обратитесь в службу поддержки сайта";
   //Магазин Каталог
   $MESS["SHOP_CATALOG_SIZE"]="Размер";
   //Магазин Деталка
@@ -35,6 +38,7 @@
   $MESS["SHOP_DETAIL_SIZE_TABLE"]="Таблица размеров";
   $MESS["SHOP_DETAIL_SIZE_SKORO_ZAKONCHITSA"]="Скоро закончится";
   $MESS["SHOP_DETAIL_CART_ADD"]="Добавить в корзину";
+  $MESS["SHOP_DETAIL_CART_ADD_SUCCESS"]="Товар добавлен в корзину";
   //Корзина
   $MESS["SHOP_CART_CONT_DANN"]="Контактные данные";
   $MESS["SHOP_CART_SIZE"]="Размер";
@@ -48,6 +52,10 @@
   $MESS["SHOP_CART_SPOSOB_POLUCH"]="Способ получения";
   $MESS["SHOP_CART_NULL"]="Ваша корзина пуста";
   $MESS["SHOP_CART_GO_CATALOG"]="Вернутся к покупкам";
+  $MESS["SHOP_CART_SPOSOB_OPLATI"]="Способ оплаты";
+  $MESS["SHOP_CART_COMMENT"]="Комментарий к заказу";
+  $MESS["SHOP_CART_COMMENT_PLACEHOLDER"]="Ваш комментарий...";
+  $MESS["SHOP_CART_ORDER_CREATE_SUCCESS"]="Заказ успешно создан";
   //Слайдер-срез каталога 1
   $MESS["SHOP_SLIDER_1_ALL_CATALOG"]="Все купальники";
   $MESS["SHOP_SLIDER_1_ALL_MODEL"]="Все модели";
@@ -58,4 +66,6 @@
   $MESS["SHOP_SLIDER_1_HIT"]="Хит продаж";
   $MESS["SHOP_SLIDER_1_HIT_ALL"]="Все хиты продаж";
   $MESS["SHOP_SLIDER_1_IN_CART"]="Дополните свой образ";
+  //Личный кабинет
+  $MESS["LK_SUPPORT"]="Связаться с поддержкой";
 ?>

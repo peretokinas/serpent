@@ -24,4 +24,12 @@ $arUrlRewrite=array (
       'PATH' => '/catalog/index.php',
       'SORT' => 100,
     ),
+  3 =>
+    array (
+      'CONDITION' => '#^/cabinet/([a-zA-Z0-9-_]+)/.*#',
+      'RULE' => 'SECTION_CODE=$1',
+      'ID' => '',
+      'PATH' => '/cabinet/index.php',
+      'SORT' => 50,
+    ),
 );

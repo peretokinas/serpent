@@ -8,6 +8,20 @@
   
   //Каталог
   
+  //Проверка наличия товара в корзине текущего пользователя
+  if ($_POST["type"]=="test_in_cart") {
+    $basket=swf_catalog::get_cart();
+    
+    $result=0;
+    foreach ($basket AS $key=>$val) {
+      if ($key==$_POST["prod_id"]) {
+        $result=1;
+      }
+    }
+    
+    echo $result;
+  }
+  
   //Добавление товара в корзину
   if ($_POST["type"]=="add_to_cart") {
     
@@ -36,5 +50,19 @@
     $arFields["PROPS"]=[];
 
     CSaleBasket::Add($arFields);
+  }
+  
+  //Оформление заказа
+  if ($_POST["type"]=="order_create") {
+    //Отправляем в метод создания заказа
+    unset($_POST["type"]);
+    unset($tmpArParam);
+    $tmpArParam=[
+      "arOrder"=>$_POST,
+      "arSettings"=>$arSettings,
+    ];
+    $result=swf_catalog::order_create($tmpArParam);
+    
+    echo $result;
   }
 ?>

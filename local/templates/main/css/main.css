@@ -6,6 +6,10 @@
   border-width: 1px;
   border-color: #263740;
 }
+.cast_error_text_1 {
+  color: red;
+  font-size: 12px;
+}
 
 .product-slide {
   margin-right: 0px !important;

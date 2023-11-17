@@ -138,15 +138,25 @@
         </svg>
       </div>
       <div class="product-slide__size-items">
+        <?php
+          $basket_addet=0;
+        ?>
         <?php foreach($val["OFFERS"] AS $key_off=>$val_off):?>
           <?php
             if ($key_off==0) {
               $tmp_active="active";
+              
+              //Проверяем добавлено ли отображаемое предложение в корзину.
+              foreach ($arParams["BASKET"] AS $key_basket=>$val_basket) {
+                if ($val_off["arFields"]["ID"]==$key_basket) {
+                  $basket_addet=1;
+                }
+              }
             } else {
               $tmp_active="";
             }
           ?>
-          <div class="product-slide__size-item <?php echo $tmp_active;?>"><?php echo $val_off["arProps"]["RAZMER"]["VALUE"];?></div>
+          <div prod-id="<?php echo $val_off["arFields"]["ID"];?>" class="product-slide__size-item <?php echo $tmp_active;?>"><?php echo $val_off["arProps"]["RAZMER"]["VALUE"];?></div>
         <?php endforeach;?>
       </div>
     </div>
@@ -155,10 +165,17 @@
     <div class="product-slide__content">
       <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="product-slide__title"><?php echo $val["arFields"]["NAME"];?></a>
       <div class="product-slide__price">
-        <span><?php echo swf_util::get_num_form_2($val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span> <?php echo Loc::getMessage("CURR_RUB");?>
+        <span><?php echo swf_util::get_num_form_2($val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
       </div>
     </div>
-    <div class="product-basket">
+    <?php
+      if ($basket_addet==1) {
+        $basket_class_but="product-basket__added";
+      } else {
+        $basket_class_but="add_to_cart_section_action";
+      }
+    ?>
+    <div class="product-basket <?php echo $basket_class_but;?>">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
         viewBox="0 0 18 20" fill="none">
         <path d="M17.0011 5.63635H1.0011V18.7273H17.0011V5.63635Z" stroke="white"

@@ -4,6 +4,9 @@
   
   //Получаем корзину текущего пользователя
   $basket=swf_catalog::get_cart();
+  
+  //Клеим корзину в результат
+  $arResult["BASKET"]=$basket;
 
   //Получаем все товары
   $arFilter=[
@@ -161,7 +164,27 @@
     $arResult["ITEMS"]=$arItemsNew;
   }
   
-  $arResult["BASKET"]=$basket;
+  //Получаем способы доставки
+  $arResult["DELIV"]=[];
+  $res=\Bitrix\Sale\Delivery\Services\Table::getList(
+    [
+      'filter'=>['ACTIVE'=>'Y'],
+    ],
+  );
+  while($arRes=$res->fetch()){
+    $arResult["DELIV"][$arRes["ID"]]=$arRes;
+  }
+  
+  //Получаем платежные системы
+  $arResult["PAY"]=[];
+  $res=\Bitrix\Sale\PaySystem\Manager::getList(
+    [
+      'filter'=>['ACTIVE'=>'Y'],
+    ],
+  );
+  while($arRes=$res->fetch()){
+    $arResult["PAY"][$arRes["ID"]]=$arRes;
+  }
   
   //Дергаем шаблон
   $this->IncludeComponentTemplate();

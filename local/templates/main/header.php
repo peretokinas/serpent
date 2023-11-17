@@ -65,7 +65,6 @@ if(isset($headersWhite[$headerUrl]))
     <?php //favicon end?>
   </head>
   <body>
-  <!--<div id="panel"><?php $APPLICATION->ShowPanel();?></div>-->
   <header <?php echo $headerClass; ?>>
       <div class="container">
           <div class="header-top">

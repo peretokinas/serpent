@@ -28,23 +28,27 @@
     <div class="container">
       <h1><?php echo Loc::getMessage("PAGE_NAME_CART");?></h1>
       <div class="basket-page">
-        <form action="#" class="basket-form">
+        <form method="POST" class="basket-form basket_form_action">
           <div class="basket-section">
             <div class="basket-section__head">
               <div class="basket-section__head-number">1</div>
               <h3><?php echo Loc::getMessage("SHOP_CART_CONT_DANN");?></h3>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="Имя">
+              <input name="f_name" name="" type="text" placeholder="Имя">
+              <div class="cast_error_text_1 cast_hide"></div>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="фамилия">
+              <input name="f_fam" type="text" placeholder="фамилия">
+              <div class="cast_error_text_1 cast_hide"></div>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="телефон">
+              <input name="f_phone" type="text" placeholder="телефон">
+              <div class="cast_error_text_1 cast_hide"></div>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="Адрес электронной почты">
+              <input name="f_email" type="text" placeholder="Адрес электронной почты">
+              <div class="cast_error_text_1 cast_hide"></div>
             </div>
           </div>
           <div class="basket-section">
@@ -53,8 +57,10 @@
               <h3><?php echo Loc::getMessage("SHOP_CART_SPOSOB_POLUCH");?></h3>
             </div>
             <div class="tabs-container">
-              <a href="#" data-tab="showroom" class="tabs-head active">Забрать из шоурума</a>
-              <a href="#" data-tab="courier" class="tabs-head">
+              <input name="f_deliv" type="hidden" value="3">
+              <a href="#" data-tab="showroom" class="tabs-head active deliv_selected_action" deliv-id="3" ><?php echo $arResult["DELIV"][3]["DESCRIPTION"];?></a>
+              <div class="cast_error_text_1 cast_hide"></div>
+              <!--<a href="#" data-tab="courier" class="tabs-head">
                 Курьером
                 <svg xmlns="http://www.w3.org/2000/svg" width="57" height="16" viewBox="0 0 57 16"
                    fill="none">
@@ -69,7 +75,7 @@
                   <path d="M9.09332 12.1165H6.65421C2.85102 12.1165 5.61308 3.86737 8.81553 3.86737H12.6684C13.285 3.86737 14.3758 3.9845 14.911 2.42285L15.7421 0H10.4597C7.59824 0 5.37143 1.02885 3.76117 2.75585C0.981042 5.7092 0.0392773 10.3252 0.705514 12.5322C1.34013 14.5738 3.06331 15.9173 5.76214 15.9518L7.86022 15.9678H10.4461L11.0807 14.025C11.5482 12.6471 10.4913 12.1165 9.09332 12.1165ZM38.7781 8.697L39.5753 6.05827H31.0723C29.6586 6.05827 29.0239 6.45558 28.78 7.28692L27.9851 9.92565H36.4881C37.9018 9.92565 38.5342 9.52835 38.7781 8.697ZM26.7158 13.3452L25.9209 15.9839H34.4216C35.8196 15.9839 36.47 15.5866 36.7139 14.7553L37.5111 12.1165H29.0081C27.6102 12.1165 26.9756 12.5161 26.7158 13.3452ZM40.7633 2.6548L41.5582 0.0160758H33.0552C31.6415 0.0160758 31.0069 0.413377 30.7629 1.24473L29.9657 3.88345H38.4687C39.8689 3.88345 40.5013 3.48615 40.7633 2.6548ZM27.9196 3.1876C27.5627 0.7303 26.2777 0.0183723 23.1566 0.0183723H17.4653L14.1499 9.92565H16.248C17.4992 9.92565 18.1338 9.94173 18.8 8.11598L20.1822 3.86737H22.2938C24.0983 3.86737 23.6918 6.1754 22.7817 8.41453C21.9686 10.3896 20.5548 12.1326 18.8475 12.1326H15.3198C13.906 12.1326 13.2556 12.5299 12.9959 13.3613L12.1174 16H14.701L17.2372 15.9839C19.4798 15.9678 21.3182 15.8025 23.4637 13.8252C25.7402 11.7192 28.3758 6.3063 27.9196 3.1876ZM56.5 0H51.5744L46.9401 5.02942C46.4026 5.61045 45.8515 6.19147 45.314 6.87125H45.2643L47.5747 0H43.5592L38.1457 15.9839H42.1612L43.8844 10.9545L45.6731 9.41122L47.0869 13.9584C47.525 15.3685 47.9812 15.9839 48.9568 15.9839H52.0283L48.8755 7.05497L56.5 0Z"
                       fill="#B3A8A4"/>
                 </svg>
-              </a>
+              </a>-->
             </div>
             <div class="tab-block">
               <div class="tab-content active" data-id="showroom">
@@ -103,7 +109,7 @@
                   </div>
                 </div>
               </div>
-              <div class="tab-content" data-id="courier">
+              <!--<div class="tab-content" data-id="courier">
                 <div class="main-tab">
                   <h3>Ваш адрес</h3>
                   <div class="form-item">
@@ -230,33 +236,34 @@
                     <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/basket/map.jpg" alt="">
                   </div>
                 </div>
-              </div>
+              </div>-->
             </div>
           </div>
           <div class="basket-section">
             <div class="basket-section__head">
               <div class="basket-section__head-number">3</div>
-              <h3>Способ оплаты</h3>
+              <h3><?php echo Loc::getMessage("SHOP_CART_SPOSOB_OPLATI");?></h3>
             </div>
             <div class="pay-flex">
               <div class="pay-way">
                 <div class="pay-way__item pay-way__item-personally active">
-                  <input type="radio" name="pay" value="personally" checked>
-                  При получении
+                  <input type="radio" name="f_pay" value="10" checked>
+                  <div class="cast_error_text_1 cast_hide"></div>
+                  <?php echo $arResult["PAY"][10]["PSA_NAME"];?>
                 </div>
-                <div class="pay-way__item pay-way__item-card">
-                  <input type="radio" name="pay" value="card">
+                <!--<div class="pay-way__item pay-way__item-card">
+                  <input type="radio" name="f_pay" value="card">
                   Картой на сайте
-                </div>
+                </div>-->
                 <div class="pay-slider"></div>
               </div>
-              <div class="pay-sign">+</div>
+              <!--<div class="pay-sign">+</div>
               <div class="pay-balls">
                 <input type="checkbox" class="pay-bills-check">
                 Списать балы
-              </div>
+              </div>-->
             </div>
-            <div class="balls-flex__hidden">
+            <!--<div class="balls-flex__hidden">
               <div class="balls-flex">
                 <div class="balls-label">
                   Укажите колличество баллов
@@ -271,15 +278,16 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
           </div>
           <div class="basket-section">
             <div class="basket-section__head">
               <div class="basket-section__head-number">4</div>
-              <h3>Комментарий к заказу</h3>
+              <h3><?php echo Loc::getMessage("SHOP_CART_COMMENT");?></h3>
             </div>
             <div class="form-item">
-              <input type="text" placeholder="Ваш комментарий...">
+              <input name="f_comment" type="text" placeholder="<?php echo Loc::getMessage("SHOP_CART_COMMENT_PLACEHOLDER");?>">
+              <div class="cast_error_text_1 cast_hide"></div>
             </div>
           </div>
         </form>
@@ -404,7 +412,7 @@
                 <b><?php echo swf_util::get_num_form_2($sum_full);?> </b> <?php echo Loc::getMessage("CURR_RUB");?>
               </span>
             </div>
-            <a href="#" class="btn btn_basket"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
+            <a href="" class="btn btn_basket basket_form_submit_action"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
           </div>
         </div>
       </div>

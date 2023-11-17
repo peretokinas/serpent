@@ -75,6 +75,7 @@
                 "swf:catalog.card",
                 "card_1",
                 [
+                  "BASKET"=>$arResult["BASKET"],
                   "arParamsDef"=>$arParams,
                   "tmpArPodob_1"=>$tmpArPodob_1,
                   "val"=>$val,
@@ -88,6 +89,7 @@
                   "swf:catalog.card",
                   "card_1",
                   [
+                    "BASKET"=>$arResult["BASKET"],
                     "arParamsDef"=>$arParams,
                     "tmpArPodob_1"=>$tmpArPodob_1,
                     "val"=>$val_p1,

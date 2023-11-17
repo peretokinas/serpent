@@ -12,6 +12,7 @@
       "reviews_prod"=>14,
       "1c_catalog"=>12,
       "1c_offers"=>13,
+      "cabinet_1"=>15
     ],
     "LINK_STATIC"=>[
       "articles_list"=>"/articles/",

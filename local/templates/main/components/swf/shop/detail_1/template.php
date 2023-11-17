@@ -285,10 +285,10 @@
             <div class="product-container__line"></div>
             <div class="product-container__event">
               <div class="product-container__price">
-                <span><?php echo round($val_off["arPrice"][$arParams["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span> ₽
+                <span><?php echo round($arElem["OFFERS"][0]["arPrice"][$arParams["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
               </div>
               <div class="product-container__event-block">
-                <a href="" class="btn but_add_to_cart add_to_cart_action">
+                <a text-success-add="<?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD_SUCCESS");?>" href="" class="btn but_add_to_cart add_to_cart_action">
                   <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24"
                      fill="none">
                     <path d="M21 6.54541H1V22.9091H21V6.54541Z" stroke="white" stroke-width="1.4"

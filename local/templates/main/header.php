@@ -2,18 +2,24 @@
 <?php
   use Bitrix\Main\Localization\Loc;
   use Bitrix\Main\Page\Asset;
-
+  
+  //Наше
   Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/css/main.css");
+  //От версталы
   Asset::getInstance()->addCss(SITE_TEMPLATE_PATH."/css/main.min.css");
 
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/jquery-3.5.1.min.js");
-  Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/main.js");
+  
+  //От версталы
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/common.js");
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/fancybox.umd.js");
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/nouislider.js");
-  Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/scripts.min.js");
+  // Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/scripts.min.js"); - ЭТО дубль common.js
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/slimselect.js");
   Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/swiper-bundle.min.js");
+  //Наше
+  Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/main.js");
+  Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/js/auth.js");
 
 //Конструктор настроек
   $APPLICATION->IncludeComponent(

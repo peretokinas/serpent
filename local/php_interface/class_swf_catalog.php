@@ -16,7 +16,11 @@
       $arOrder=$arParams["arOrder"];
       
       $siteId="s1";
-      $fuser=$USER->GetID();
+      if ($USER->IsAuthorized()) {
+        $fuser=$USER->GetID();
+      } else {
+        $fuser=0;
+      }
       $currencyCode=$arSettings["SHOP"]["BASE_CURR_CODE"];
       
       //Обязательность заполнения
@@ -38,78 +42,86 @@
       ];
       $arValid=swf_catalog_util::valid_null($tmpArParam);
       
-      if ($arValid["status"]==1) {
-        //Создаем заказ
-        $order=\Bitrix\Sale\Order::create($siteId,$fuser,$currencyCode);
-        
-        //Получаем корзину
-        $basket=Sale\Basket::loadItemsForFUser(Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
-        
-        //Назначаем корзину заказу
-        $order->setBasket($basket);
-        //Устанавливаем тип плательщика
-        $order->setField("PERSON_TYPE_ID",1);
-        //Устанавливаем комментарий
-        $order->setField("USER_DESCRIPTION",$arOrder["f_comment"]);
-        //Устанавливаем службу доставки
-          //Получаем коллекцию отгрузки из заказа
-          $shipmentCollection=$order->getShipmentCollection();
-          //Создаем итем
-          $shipment=$shipmentCollection->createItem();
-          //Получаем обьект службы доставки по id
-          $service=\Bitrix\Sale\Delivery\Services\Manager::getById($arOrder["f_deliv"]);
-          //Заливаем в созданный итем
-          $deliveryData = [
-            'DELIVERY_ID' => $service['ID'],
-            'DELIVERY_NAME' => $service['NAME'],
-            'ALLOW_DELIVERY' => 'Y',
-            'PRICE_DELIVERY' => $service["CONFIG"]["MAIN"]['PRICE'],
-            'CUSTOM_PRICE_DELIVERY' => 'Y'
-          ];
-          $shipment->setFields($deliveryData);
-          //Добавляем в отгрузку корзину
-          $shipmentItemCollection=$shipment->getShipmentItemCollection();
-          foreach ($basket as $basketItem1) {
-            $item1=$shipmentItemCollection->createItem($basketItem1);
-            $item1->setQuantity($basketItem1->getQuantity());
-          }
-        //Устанавливаем платежную систему
-        $paymentCollection=$order->getPaymentCollection();
-        $payment=$paymentCollection->createItem(
-          \Bitrix\Sale\PaySystem\Manager::getObjectById($arOrder["f_pay"])
-        );
-        $payment->setField("SUM", $order->getPrice());
-        $payment->setField("CURRENCY", $order->getCurrency());
-        //Устанавливаем свойства заказа
-        $propertyCollection = $order->getPropertyCollection();
-          //ФИО
-          $phoneProp=$propertyCollection->getItemByOrderPropertyId(1);
-          $phoneProp->setValue($arOrder["f_fam"]." ".$arOrder["f_nam"]);
-          //Email
-          $phoneProp=$propertyCollection->getItemByOrderPropertyId(2);
-          $phoneProp->setValue($arOrder["f_email"]);
-          //Телефон
-          $phoneProp=$propertyCollection->getItemByOrderPropertyId(3);
-          $phoneProp->setValue($arOrder["f_phone"]);
+      if ($fuser!=0) {
+        if ($arValid["status"]==1) {
+          //Создаем заказ
+          $order=\Bitrix\Sale\Order::create($siteId,$fuser,$currencyCode);
           
-        //Сохраняем заказ
-        $order->doFinalAction(true);
-        $result_save=$order->save();
-        
-        if ($result_save->isSuccess()) {
-          $result=[
-            "status"=>1,
-            "text"=>Loc::getMessage("SHOP_CART_ORDER_CREATE_SUCCESS"),
-          ];
+          //Получаем корзину
+          $basket=Sale\Basket::loadItemsForFUser(Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
+          
+          //Назначаем корзину заказу
+          $order->setBasket($basket);
+          //Устанавливаем тип плательщика
+          $order->setField("PERSON_TYPE_ID",1);
+          //Устанавливаем комментарий
+          $order->setField("USER_DESCRIPTION",$arOrder["f_comment"]);
+          //Устанавливаем службу доставки
+            //Получаем коллекцию отгрузки из заказа
+            $shipmentCollection=$order->getShipmentCollection();
+            //Создаем итем
+            $shipment=$shipmentCollection->createItem();
+            //Получаем обьект службы доставки по id
+            $service=\Bitrix\Sale\Delivery\Services\Manager::getById($arOrder["f_deliv"]);
+            //Заливаем в созданный итем
+            $deliveryData = [
+              'DELIVERY_ID' => $service['ID'],
+              'DELIVERY_NAME' => $service['NAME'],
+              'ALLOW_DELIVERY' => 'Y',
+              'PRICE_DELIVERY' => $service["CONFIG"]["MAIN"]['PRICE'],
+              'CUSTOM_PRICE_DELIVERY' => 'Y'
+            ];
+            $shipment->setFields($deliveryData);
+            //Добавляем в отгрузку корзину
+            $shipmentItemCollection=$shipment->getShipmentItemCollection();
+            foreach ($basket as $basketItem1) {
+              $item1=$shipmentItemCollection->createItem($basketItem1);
+              $item1->setQuantity($basketItem1->getQuantity());
+            }
+          //Устанавливаем платежную систему
+          $paymentCollection=$order->getPaymentCollection();
+          $payment=$paymentCollection->createItem(
+            \Bitrix\Sale\PaySystem\Manager::getObjectById($arOrder["f_pay"])
+          );
+          $payment->setField("SUM", $order->getPrice());
+          $payment->setField("CURRENCY", $order->getCurrency());
+          //Устанавливаем свойства заказа
+          $propertyCollection = $order->getPropertyCollection();
+            //ФИО
+            $phoneProp=$propertyCollection->getItemByOrderPropertyId(1);
+            $phoneProp->setValue($arOrder["f_fam"]." ".$arOrder["f_nam"]);
+            //Email
+            $phoneProp=$propertyCollection->getItemByOrderPropertyId(2);
+            $phoneProp->setValue($arOrder["f_email"]);
+            //Телефон
+            $phoneProp=$propertyCollection->getItemByOrderPropertyId(3);
+            $phoneProp->setValue($arOrder["f_phone"]);
+            
+          //Сохраняем заказ
+          $order->doFinalAction(true);
+          $result_save=$order->save();
+          
+          if ($result_save->isSuccess()) {
+            $result=[
+              "status"=>1,
+              "text"=>Loc::getMessage("SHOP_CART_ORDER_CREATE_SUCCESS"),
+            ];
+          } else {
+            $result=[
+              "status"=>1,
+              "text"=>Loc::getMessage("ERR_TXT_2"),
+            ];
+          }
         } else {
-          $result=[
-            "status"=>1,
-            "text"=>Loc::getMessage("ERR_TXT_2"),
-          ];
+          //Ошибка валидации
+          $result=$arValid;
         }
-        
       } else {
-        $result=$arValid;
+        //Пользователь не авторизован
+        $result=[
+          "status"=>2,
+          "text"=>Loc::getMessage("ERR_TXT_3"),
+        ];
       }
       
       $result=json_encode($result);

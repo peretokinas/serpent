@@ -147,6 +147,8 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
+    var obj_this=$(this);
+    
     //Класс поля ошибки
     var class_err="cast_error_text_1";
     
@@ -161,7 +163,6 @@ $(document).ready(function(){
       async: false,
       data: form_data,
       success: function(data) {
-        console.log(data);
         var obj_json=$.parseJSON(data);
         
         //Скрываем все ошибочные поля
@@ -171,18 +172,25 @@ $(document).ready(function(){
         
         if (obj_json["status"]=="1") {
           alert(obj_json["text"]);
-          location.href="/cabinet/";
+          location.href="/cabinet/page_order/";
         } else {
-          $.each(obj_json["error"], function(key,val){
-            //Находим нужное поле для вывода ошибки
-            var obj_err=$("[name='"+key+"'").parent().find("."+class_err);
-            obj_err.html(val);
-            obj_err.removeClass("cast_hide");
-            //Скролим вверх
-            $([document.documentElement, document.body]).animate({
-              scrollTop: $("body").offset().top
-            }, 1000);
-          });
+          if (obj_json["status"]=="0") {
+            //Ошибки валидации
+            $.each(obj_json["error"], function(key,val){
+              //Находим нужное поле для вывода ошибки
+              var obj_err=$("[name='"+key+"'").parent().find("."+class_err);
+              obj_err.html(val);
+              obj_err.removeClass("cast_hide");
+              //Скролим вверх
+              $([document.documentElement, document.body]).animate({
+                scrollTop: $("body").offset().top
+              }, 1000);
+            });
+          } else {
+            //Ошибка авторизации
+            alert(obj_json["text"]);
+            location.reload();
+          }
         }
       },
     });

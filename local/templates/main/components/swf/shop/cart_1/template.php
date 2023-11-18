@@ -1,6 +1,8 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?php
   use Bitrix\Main\Localization\Loc;
+  
+  global $USER;
 ?>
 <main>
   <?php if(count($arResult["BASKET"])>0):?>
@@ -412,7 +414,14 @@
                 <b><?php echo swf_util::get_num_form_2($sum_full);?> </b> <?php echo Loc::getMessage("CURR_RUB");?>
               </span>
             </div>
-            <a href="" class="btn btn_basket basket_form_submit_action"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
+            <?php
+              if ($USER->IsAuthorized()) {
+                $tmp_but_class="basket_form_submit_action";
+              } else {
+                $tmp_but_class="auth-event";
+              }
+            ?>
+            <a href="" class="btn btn_basket <?php echo $tmp_but_class;?>"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
           </div>
         </div>
       </div>

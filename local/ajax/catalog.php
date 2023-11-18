@@ -6,7 +6,7 @@
   CModule::IncludeModule("iblock");
   CModule::IncludeModule("catalog");
   
-  //Каталог
+  //Каталог (Магазин)
   
   //Проверка наличия товара в корзине текущего пользователя
   if ($_POST["type"]=="test_in_cart") {

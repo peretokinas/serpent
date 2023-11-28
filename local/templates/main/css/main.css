@@ -10,6 +10,15 @@
   color: red;
   font-size: 12px;
 }
+.cast_no_fined_search {
+  width: 100%;
+  margin-top: 150px;
+  text-align: center;
+}
+.cast_goto_link_podob_in_slider_2_action {
+  text-decoration: none;
+  border-bottom: none;
+}
 
 .product-slide {
   margin-right: 0px !important;
@@ -27,4 +36,7 @@
   height: 120px;
   object-fit: contain;
   margin: auto;
+}
+.product-slider img {
+  max-height: 700px;
 }

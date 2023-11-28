@@ -7,12 +7,38 @@
   
   //Клеим корзину в результат
   $arResult["BASKET"]=$basket;
-
+  
+  //Проверяем наличие поискового текста
+  $search_text="";
+  if (isset($arParams["SEARCH_TEXT"])) {
+    if ($arParams["SEARCH_TEXT"]!="") {
+      $search_text=trim($arParams["SEARCH_TEXT"]);
+    }
+  }
+  
+  //Переведем в транслит
+  $search_text_translit=swf_util::translit($search_text);
+  
+  //Если текст русский - ищем по корню
+  if (swf_util::isRus($search_text)){
+    $stemmer=new LinguaStemRu();
+    $search_text=$stemmer->stem_word($search_text);
+  }
+  
   //Получаем все товары
   $arFilter=[
     'IBLOCK_ID'=>$arParams["IB_CAT"],
     'ACTIVE'=>'Y',
   ];
+  
+  //Клеим поисковой параметр
+  if ($search_text!="") {
+    $arFilter[]=[
+      'LOGIC'=>'OR',
+      'NAME'=>"%".$search_text."%",
+      'NAME'=>"%".$search_text_translit."%",
+    ];
+  }
   
   $res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
   $arRes=[];

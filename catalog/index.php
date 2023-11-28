@@ -53,6 +53,7 @@
         "SLIDER_LIMIT"=>"",
         "ALL_CATALOG_CAST_TITLE"=>"",
         "BUTT_CENTER"=>"",
+        "SEARCH_TEXT"=>$_GET["search"],
       ],
     );
   }

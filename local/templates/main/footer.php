@@ -57,6 +57,16 @@
       </div>
     </footer>
     <?php 
+      //Модальное окно с формой поиска
+      $APPLICATION->IncludeComponent(
+        "swf:catalog.search",
+        "form_1",
+        [
+          "arSettings"=>$arSettings,
+        ],
+      );
+    ?>
+    <?php 
       //Модальное окно с формой авторизации
       $APPLICATION->IncludeComponent(
         "swf:auth",

@@ -19,6 +19,7 @@
       "catalog"=>"/catalog/",
     ],
     "SHOP"=>[
+      "API_KEY_PHONE_SENDER"=>"bfe361e91574187e5c6cf0e58b340b74",
       "BASE_PRICE_CODE"=>3,
       "BASE_CURR_CODE"=>"RUB",
       "SECTION"=>[

@@ -12,12 +12,13 @@
   <div class="auth-modal__entry">
     <div class="auth-modal__title"><?php echo Loc::getMessage("SHOP_AUTH_FORM_TITLE");?></div>
     <div class="auth-modal__tabs">
-      <div class="auth-modal__tab active" data-id="modal-entry"><?php echo Loc::getMessage("SHOP_AUTH_FORM_ENTER");?></div>
-      <div class="auth-modal__tab" data-id="modal-registry"><?php echo Loc::getMessage("SHOP_AUTH_FORM_REGISTER");?></div>
+      <div class="auth-modal__tab active select_type_event_auth_action" data-id="modal-entry" type-event="enter"><?php echo Loc::getMessage("SHOP_AUTH_FORM_ENTER");?></div>
+      <div class="auth-modal__tab select_type_event_auth_action" data-id="modal-registry" type-event="register"><?php echo Loc::getMessage("SHOP_AUTH_FORM_REGISTER");?></div>
       <div class="auth-modal__slider"></div>
     </div>
-    <form action="#">
-      <input type="tel" class="auth-input" placeholder="<?php echo Loc::getMessage("SHOP_AUTH_FORM_PHONE");?>">
+    <form method="POST">
+      <input name="f_type_event" type="hidden" value="enter" />
+      <input name="f_phone" type="tel" class="auth-input" placeholder="<?php echo Loc::getMessage("SHOP_AUTH_FORM_PHONE");?>">
       <button class="btn btn-entry auth_btn_send_auth_form_action"><?php echo Loc::getMessage("SHOP_AUTH_FORM_NEXT");?></button>
     </form>
   </div>
@@ -51,21 +52,21 @@
       Введите последние 4 цифры
       номера телефона:
     </div>
-    <form action="#">
+    <form method="POST">
       <div class="code-input">
-        <input type="text" placeholder="0">
-        <input type="text" placeholder="0">
+        <input name="f_code_1" type="text" placeholder="0">
+        <input name="f_code_2" type="text" placeholder="0">
         <div class="code-input__delimiter">-</div>
-        <input type="text" placeholder="0">
-        <input type="text" placeholder="0">
+        <input name="f_code_3" type="text" placeholder="0">
+        <input name="f_code_4" type="text" placeholder="0">
       </div>
-      <button class="btn btn-entry">Продолжить</button>
+      <button class="btn btn-entry auth_btn_send_auth_code_action">Продолжить</button>
       <div class="code-timer">
         Повторно запросить код можно через: <span>1:30</span>
       </div>
     </form>
   </div>
-  <div class="auth-modal__two auth-modal__entry-code">
+  <!--<div class="auth-modal__two auth-modal__entry-code">
     <div class="auth-back">
       <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
         <path d="M5.96037 10.9386L0.999471 5.99996L5.95909 1.06008" stroke="#263740"/>
@@ -108,5 +109,5 @@
         Повторно запросить код можно через: <span>1:30</span>
       </div>
     </form>
-  </div>
+  </div>-->
 </div>

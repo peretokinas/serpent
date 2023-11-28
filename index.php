@@ -3,6 +3,8 @@
   use Bitrix\Main\Localization\Loc;
 
   $APPLICATION->SetTitle("Серпент");
+  
+  $link_static_slider="/catalog/kupalniki/";
 ?>
 <main>
   <?php
@@ -79,7 +81,7 @@
           <div class="swiper-slide">
             <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-9.jpg" alt="">
           </div>
-          <a href="#" class="swiper-slide swiper-slide__all-slider">
+          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
                   все модели
@@ -99,7 +101,7 @@
           <div class="title mb-60">Слитные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
-              <a href="#" class="link-circle">
+              <a href="<?php echo $link_static_slider;?>" class="link-circle">
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                       fill="none">
@@ -150,7 +152,7 @@
           <div class="swiper-slide">
             <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/underwear-3.jpg" alt="">
           </div>
-          <a href="#" class="swiper-slide swiper-slide__all-slider">
+          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
                   все модели
@@ -173,7 +175,7 @@
           <div class="title mb-60">Слитные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
-              <a href="#" class="link-circle">
+              <a href="<?php echo $link_static_slider;?>" class="link-circle">
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                       fill="none">
@@ -228,7 +230,7 @@
       <div class="underwear-column underwear-column__right">
         <div class="underwear-column__context">
           <div class="title mb-40">Нижнее белье</div>
-          <a href="#" class="link-circle">
+          <a href="<?php echo $link_static_slider;?>" class="link-circle">
             <span class="link-circle__text">
               все модели
             </span>
@@ -258,7 +260,7 @@
           <div class="swiper-slide">
             <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-6.jpg" alt="">
           </div>
-          <a href="#" class="swiper-slide swiper-slide__all-slider">
+          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
                   все модели
@@ -278,7 +280,7 @@
           <div class="title mb-60">Раздельные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
-              <a href="#" class="link-circle">
+              <a href="<?php echo $link_static_slider;?>" class="link-circle">
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                       fill="none">
@@ -331,7 +333,7 @@
           <p>С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х —
             сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в
             стиле главной</p>
-          <a href="#" class="link-circle">
+          <a href="<?php echo $link_static_slider;?>" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                   fill="none">
@@ -361,7 +363,7 @@
           <p>С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х —
             сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в
             стиле главной</p>
-          <a href="#" class="link-circle">
+          <a href="<?php echo $link_static_slider;?>" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                   fill="none">
@@ -397,7 +399,7 @@
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-3.jpg" alt="">
             </div>
           </div>
-          <a href="#" class="swiper-slide swiper-slide__all" style="background-image: url('img/main/swim-t-4.jpg')">
+          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-4.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
                 все модели
@@ -429,7 +431,7 @@
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-8.jpg" alt="">
             </div>
           </div>
-          <a href="#" class="swiper-slide swiper-slide__all" style="background-image: url('img/main/swim-t-9.jpg')">
+          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-9.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
                 все модели
@@ -541,7 +543,7 @@
           <div class="surprise-banner__description">Подари близкому человеку приятные ощущения комфорта.
             Прикоснитесь к лету с идеальным образом!
           </div>
-          <a href="#" class="btn">Купить сертификат</a>
+          <!--<a href="#" class="btn">Купить сертификат</a>-->
         </div>
       </div>
       <div class="sale-block">
@@ -550,8 +552,8 @@
         <div class="sale-block__description">Подпишитесь на рассылку новостей, чтобы получить информацию о
           новостях и акциях
         </div>
-        <a href="#" class="btn btn_mobile btn_white">Зарегистрироваться</a>
-        <form action="#" class="sale-form">
+        <a href="" class="btn btn_mobile btn_white auth-event">Зарегистрироваться</a>
+        <form action="" class="sale-form">
           <input type="text" placeholder="e-mail" class="sale-input">
           <button class="btn btn_white">Подписаться</button>
         </form>
@@ -594,7 +596,7 @@
             </svg>
           </div>
         </div>
-        <a href="/articles" class="link-all">
+        <a href="/articles/" class="link-all">
           все статьи
           <span class="link-all__icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14" fill="none">
@@ -699,7 +701,7 @@
           explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
           consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
           dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
-          tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem <a href="#">подробнее</a>
+          tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem <a href="/brand/">подробнее</a>
         </p>
       </div>
       <div class="brand-video">

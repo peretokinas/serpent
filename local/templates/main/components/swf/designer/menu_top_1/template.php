@@ -5,12 +5,20 @@
       <?php foreach($arResult["arTree"] AS $key=>$val):?>
         <li class="header-menu__item">
           <?php
-            if(strpos($val["CODE"],"#") !== false)
+            if(strpos($val["CODE"],"#") !== false) {
               $dop_slash = "";
-            else
+              if ($_SERVER["REQUEST_URI"]=="/") {
+                $dop_slash_start = "";
+              } else {
+                $dop_slash_start = "/";
+              }
+            }
+            else {
               $dop_slash = "/";
+              $dop_slash_start = "/";
+            }
           ?>
-          <a href="/<?php echo $val["CODE"];?><?php echo $dop_slash;?>" class="header-menu__link <?php echo $val["CLASS_CSS"];?>"><span><?php echo $val["NAME"];?></span>
+          <a href="<?php echo $dop_slash_start;?><?php echo $val["CODE"];?><?php echo $dop_slash;?>" class="header-menu__link <?php echo $val["CLASS_CSS"];?>"><span><?php echo $val["NAME"];?></span>
            <?php if(!empty($val["CLASS_CSS"])):?>
               <span class="tag"><?php echo $val["DOP_TITLE"];?></span>
            <?php endif;?>

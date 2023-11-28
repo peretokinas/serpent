@@ -339,7 +339,7 @@
                 </div>
                 <div class="basket-event">
                   <div class="count">
-                    <div class="count-sign">
+                    <div type-exec="add" class="count-sign shop_cart_num_change_action">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14"
                          fill="none">
                         <path d="M1.39941 6.94336L12.6568 6.99965" stroke="#263740" stroke-width="1.4"
@@ -348,8 +348,8 @@
                             stroke-linecap="square"/>
                       </svg>
                     </div>
-                    <input type="text" class="count-input" value="<?php echo $val["PROD_QUA"];?>">
-                    <div class="count-sign">
+                    <input type="text" item-id="<?php echo $val["ID"];?>" prod-id="<?php echo $val["PROD_ID"];?>" class="count-input shop_cart_num_input" value="<?php echo $val["PROD_QUA"];?>">
+                    <div type-exec="del" class="count-sign shop_cart_num_change_action">
                       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12"
                          fill="none">
                         <path d="M1.34326 6H12.657" stroke="#263740" stroke-width="1.4"
@@ -358,14 +358,14 @@
                     </div>
                   </div>
                   <div class="basket-event__product">
-                    <a href="#" class="favorites">
+                    <a href="#" class="favorites cast_js_in_progress">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" viewBox="0 0 20 18"
                          fill="none">
                         <path d="M10.0002 17C10.0002 17 2.73044 11.2623 1.46561 8.69266C0.95956 7.77752 0.730235 6.73509 0.805508 5.69207C0.880781 4.64905 1.25742 3.65035 1.88963 2.81736V2.81736C2.25166 2.3275 2.70977 1.91661 3.23598 1.6098C3.76219 1.30299 4.34545 1.10671 4.95008 1.03296C5.55472 0.959204 6.16805 1.00954 6.75258 1.18086C7.33711 1.35218 7.88057 1.64089 8.34974 2.02936L10.0002 3.39577L11.6506 2.02936C12.1198 1.64089 12.6632 1.35218 13.2477 1.18086C13.8323 1.00954 14.4456 0.959204 15.0502 1.03296C15.6549 1.10671 16.2381 1.30299 16.7643 1.6098C17.2906 1.91661 17.7487 2.3275 18.1107 2.81736V2.81736C18.7429 3.65035 19.1195 4.64905 19.1948 5.69207C19.2701 6.73509 19.0408 7.77752 18.5347 8.69266C17.2691 11.2623 10.0002 17 10.0002 17Z"
                             stroke="#263740" stroke-miterlimit="10"/>
                       </svg>
                     </a>
-                    <a href="#" class="delete">
+                    <a href="#" class="delete shop_cart_position_delete_action">
                       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
                          fill="none">
                         <path d="M15.0969 3.82373C15.0969 3.82373 14.6706 11.2772 14.3296 14.5033C14.3296 15.8383 13.3917 16.9508 12.3686 16.9508C12.3686 16.9508 12.3686 16.9508 12.2834 16.9508C10.0666 16.9508 7.84986 17.062 5.6331 16.9508C4.60998 16.9508 3.75738 15.9495 3.67212 14.6146C3.41634 11.3885 2.90479 3.93498 2.90479 3.93498"
@@ -387,7 +387,7 @@
             <div class="basket-line">
               <span><?php echo Loc::getMessage("SHOP_CART_SUMM_ORDER");?></span>
               <span>
-                <b><?php echo swf_util::get_num_form_2($sum_cart);?></b> <?php echo Loc::getMessage("CURR_RUB");?>
+                <b class="shop_cart_summ_input"><?php echo swf_util::get_num_form_2($sum_cart);?></b> <?php echo Loc::getMessage("CURR_RUB");?>
               </span>
             </div>
             <div class="basket-line">
@@ -411,7 +411,7 @@
             <div class="basket-line__final">
               <span class="fw-600"><?php echo Loc::getMessage("SHOP_CART_ITOG");?></span>
               <span>
-                <b><?php echo swf_util::get_num_form_2($sum_full);?> </b> <?php echo Loc::getMessage("CURR_RUB");?>
+                <b class="shop_cart_summ_input"><?php echo swf_util::get_num_form_2($sum_full);?> </b> <?php echo Loc::getMessage("CURR_RUB");?>
               </span>
             </div>
             <?php

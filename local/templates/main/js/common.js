@@ -503,7 +503,8 @@ window.addEventListener('load', function (){
   }
 
   if(document.querySelector('.header-event__link-search')){
-    document.querySelector('.header-event__link-search').addEventListener('click', function (){
+    document.querySelector('.header-event__link-search').addEventListener('click', function (e){
+      e.preventDefault();
       if(document.querySelector('.search-modal').classList.contains('active')){
         document.querySelector('.search-modal').classList.remove('active')
       }else{

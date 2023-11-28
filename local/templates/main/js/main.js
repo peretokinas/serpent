@@ -1,4 +1,56 @@
 $(document).ready(function(){
+  //Переход по ссылке подобного по цвету из модалки поиска
+  $('body').on("click",".cast_goto_link_podob_in_slider_2_action",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    location.href=$(this).attr("href");
+  });
+  
+  //Кнопка очистки фильтров
+  $('body').on("click",".filter-reset",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    location.href="/catalog/kupalniki/";
+  });
+  
+  //Плавный переход по якорям
+  $('body').on("click",'a[href*=\\#]:not([href=\\#])',function(){
+    event.preventDefault();
+    event.stopPropagation();
+    var el_id=$(this).attr('href');
+    if (el_id[0]=="/") {
+      location.href=el_id;
+    } else {
+      $("html").animate({scrollTop: $(el_id).offset().top}, 2000);
+    }
+  });
+  
+  //Заглушка
+  $("body").on("click",".cast_js_in_progress",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    alert("Интеграция в процессе");
+  });
+  
+  //Форма подписаться на рассылку
+  $("body").on("submit",".sale-form",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    alert("Интеграция в процессе");
+  });
+  
+  //Добавление в избранное с карточки - секции каталога
+  $("body").on("click",".product-favorite",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    alert("Интеграция в процессе");
+  });
+  
   //Выбор размера в карточке секции каталога
   $("body").on("click",".product-slide__size-items",function(){
     var prod_id=$(this).find(".product-slide__size-item.active").attr("prod-id");
@@ -28,16 +80,20 @@ $(document).ready(function(){
   
   //Клик по выбору размера в карточке секции каталога
   $("body").on("click",".product-slide__size-default",function(){
-    event.preventDefault();
-    event.stopPropagation();
+    //Заработало без данного кода, видимо перекрылась какая-то ошибка в js-ах от версталы, скорее всего после того как я убрал дубль common.js коммент в хедере
     
-    var parent=$(this).parent();
+    // event.preventDefault();
+    // event.stopPropagation();
     
-    if (parent.hasClass("active")) {
-      parent.removeClass("active");
-    } else {
-      parent.addClass("active");
-    }
+    // var parent=$(this).parent();
+    
+    // console.log(parent.attr("class"));
+    
+    // if (parent.hasClass("active")) {
+      // parent.removeClass("active");
+    // } else {
+      // parent.addClass("active");
+    // }
   });
   
   //Клик по подобному 1 в карточке секции каталога
@@ -140,6 +196,67 @@ $(document).ready(function(){
         obj_but.addClass("product-basket__added");
       },
     }); 
+  });
+  
+  //Удаление товара из корзины
+  $("body").on("click",".shop_cart_position_delete_action",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    //Отключаем событие
+    $(this).removeClass("shop_cart_position_delete_action");
+    
+    var num_obj=$(this).parent().parent().find(".shop_cart_num_input");
+    var prod_id=num_obj.attr("prod-id");
+    var item_id=num_obj.attr("item-id");
+    var type_exec="del_item";
+    var item_obj=$(this).parent().parent().parent();
+    
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"cart_num_change",
+        "prod_id":prod_id,
+        "item_id":item_id,
+        "prod_qua":1,
+        "type_exec":type_exec,
+      },
+      success: function(data) {
+        //Релодим корзину
+        location.reload();
+      },
+    });
+  });
+  
+  //Изменение кол-ва товара в корзине
+  $("body").on("click",".shop_cart_num_change_action",function(){
+    var num_obj=$(this).parent().find(".shop_cart_num_input");
+    var prod_id=num_obj.attr("prod-id");
+    var item_id=num_obj.attr("item-id");
+    var type_exec=$(this).attr("type-exec");
+    
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"cart_num_change",
+        "prod_id":prod_id,
+        "item_id":item_id,
+        "prod_qua":1,
+        "type_exec":type_exec,
+      },
+      success: function(data) {
+        var obj_json=$.parseJSON(data);
+    
+        //Обновляем кол-во итема
+        num_obj.val(obj_json["new_qua"]);
+        //Обновляем общую сумму
+        $(".shop_cart_summ_input").html(obj_json["cart_summ"]);
+      },
+    });
   });
   
   //Оформление заказа

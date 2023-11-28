@@ -8,6 +8,51 @@
   //Методы каталога
 
   class swf_catalog {
+    //Изменение кол-ва товара в корзине + удаление итема
+    public static function cart_num_change($arParams) {
+      $arResult=[];
+      
+      $basket=Sale\Basket::loadItemsForFUser(
+        Sale\Fuser::getId(), 
+        Bitrix\Main\Context::getCurrent()->getSite(),
+      );
+      
+      if ($arParams["type_exec"]=="del_item") {
+        //Удаление итема
+        $basket->getItemById($arParams["item_id"])->delete();
+        $basket->save();
+        
+        $arResult["del_item"]="1";
+      } else {
+        //Изменение кол-ва
+        if ($item=$basket->getExistsItem('catalog', $arParams["prod_id"])){
+          $new_qua=$item->getQuantity();
+          if ($arParams["type_exec"]=="add") {
+            $new_qua=$new_qua+$arParams["prod_qua"];
+          }
+          if ($arParams["type_exec"]=="del") {
+            $new_qua=$new_qua-$arParams["prod_qua"];
+          }
+          
+          if ($new_qua<=0) {
+            $new_qua=1;
+          }
+          
+          $item->setField('QUANTITY', $new_qua);
+          
+          $basket->save();
+          
+          $arResult["new_qua"]=$new_qua;
+        }
+      }
+      
+      $arResult["cart_summ"]=swf_util::get_num_form_2($basket->getPrice());
+      
+      $result=json_encode($arResult);
+      
+      return $result;
+    }
+    
     //Создание заказа
     public static function order_create($arParams) {
       global $USER;
@@ -89,7 +134,7 @@
           $propertyCollection = $order->getPropertyCollection();
             //ФИО
             $phoneProp=$propertyCollection->getItemByOrderPropertyId(1);
-            $phoneProp->setValue($arOrder["f_fam"]." ".$arOrder["f_nam"]);
+            $phoneProp->setValue($arOrder["f_fam"]." ".$arOrder["f_name"]);
             //Email
             $phoneProp=$propertyCollection->getItemByOrderPropertyId(2);
             $phoneProp->setValue($arOrder["f_email"]);
@@ -251,7 +296,8 @@
           
           if ($str_sravn==$art) {
             $rand_hash=swf_util::rand_hash_1();
-            $arResult[]=$catalog_ext.$scan_dir[$i]."?".$rand_hash;
+            // $arResult[]=$catalog_ext.$scan_dir[$i]."?".$rand_hash;
+            $arResult[]=$catalog_ext.$scan_dir[$i];
           }
         }
       }

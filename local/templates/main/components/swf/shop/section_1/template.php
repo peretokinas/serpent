@@ -1,9 +1,55 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php
+  //Проверяем поиск или нет
+  if (isset($_GET["search"])) {
+    $poisk=true;
+  } else {
+    $poisk=false;
+  }
+?>
 <main>
-  <div class="catalog-container" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg.jpg')">
-    <div class="catalog-container__tablet" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg-tablet.jpg')"></div>
-    <div class="catalog-container__mobile" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg-mobile.jpg')"></div>
-    <div class="container">
+  <?php //Страница каталога?>
+  <?php if(!$poisk):?>
+    <div class="catalog-container" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg.jpg')">
+      <div class="catalog-container__tablet" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg-tablet.jpg')"></div>
+      <div class="catalog-container__mobile" style="background-image: url('<?php echo SITE_TEMPLATE_PATH;?>/img/catalog/bg-mobile.jpg')"></div>
+      <div class="container">
+        <?php
+          //Хлебные крошки
+          $APPLICATION->IncludeComponent(
+            "swf:breadcrumbs",
+            "main_1",
+            [
+              "ITEMS"=>[
+              [
+                "NAME"=>"Главная",
+                "LINK"=>"/",
+              ],
+              [
+                "NAME"=>"Каталог",
+                "LINK"=>"",
+              ]
+              ],
+            ],
+          );
+        ?>
+      </div>
+      <div class="container">
+        <div class="article-page__title">Купальники</div>
+      </div>
+    </div>
+  <?php endif;?>
+  <div class="container">
+    <?php //Страница поиска?>
+    <?php if($poisk):?>
+      <?php
+        $count_search=count($arResult["ITEMS"]);
+        $arCountNames=[
+          "товар",
+          "товара",
+          "товаров",
+        ];
+      ?>
       <?php
         //Хлебные крошки
         $APPLICATION->IncludeComponent(
@@ -16,19 +62,18 @@
               "LINK"=>"/",
             ],
             [
-              "NAME"=>"Каталог",
+              "NAME"=>"Результаты поиска",
               "LINK"=>"",
             ]
             ],
           ],
         );
       ?>
-    </div>
-    <div class="container">
-      <div class="article-page__title">Купальники</div>
-    </div>
-  </div>
-  <div class="container">
+      <div class="search-head">
+        <h1>Результаты поиска</h1>
+        <div class="search-head__count">Найдено <?php echo swf_util::num_word($count_search,$arCountNames);?></div>
+      </div>
+    <?php endif;?>
     <div class="catalog-block">
       <div class="filter-mobile">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -413,28 +458,15 @@
       </div>
       <div class="blackout"></div>
       <div class="catalog-items">
-        <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
-          <?php
-            //Обнуляем подобные 1
-            $tmpArPodob_1=[];
-            $ex_name=explode($arParams["GROUP_PODOB_1_RAZD"],$val["arFields"]["NAME"]);
-            $tmpArPodob_1=$arResult["ITEMS_PODOB_1"][$ex_name[0]];
-            
-            //Грузим карточку
-            $APPLICATION->IncludeComponent(
-              "swf:catalog.card",
-              "card_1",
-              [
-                "BASKET"=>$arResult["BASKET"],
-                "arParamsDef"=>$arParams,
-                "tmpArPodob_1"=>$tmpArPodob_1,
-                "val"=>$val,
-                "HIDE_PODOB_CLASS"=>"",
-              ],
-            );
-            
-            //Грузим карточки подобных
-            foreach ($tmpArPodob_1 AS $key_p1=>$val_p1) {
+        <?php if(count($arResult["ITEMS"])>0):?>
+          <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
+            <?php
+              //Обнуляем подобные 1
+              $tmpArPodob_1=[];
+              $ex_name=explode($arParams["GROUP_PODOB_1_RAZD"],$val["arFields"]["NAME"]);
+              $tmpArPodob_1=$arResult["ITEMS_PODOB_1"][$ex_name[0]];
+              
+              //Грузим карточку
               $APPLICATION->IncludeComponent(
                 "swf:catalog.card",
                 "card_1",
@@ -442,14 +474,33 @@
                   "BASKET"=>$arResult["BASKET"],
                   "arParamsDef"=>$arParams,
                   "tmpArPodob_1"=>$tmpArPodob_1,
-                  "val"=>$val_p1,
-                  "HIDE_PODOB_CLASS"=>"cast_hide",
-                  "val_general"=>$val
+                  "val"=>$val,
+                  "HIDE_PODOB_CLASS"=>"",
                 ],
               );
-            }
-          ?>
-        <?php endforeach;?>
+              
+              //Грузим карточки подобных
+              foreach ($tmpArPodob_1 AS $key_p1=>$val_p1) {
+                $APPLICATION->IncludeComponent(
+                  "swf:catalog.card",
+                  "card_1",
+                  [
+                    "BASKET"=>$arResult["BASKET"],
+                    "arParamsDef"=>$arParams,
+                    "tmpArPodob_1"=>$tmpArPodob_1,
+                    "val"=>$val_p1,
+                    "HIDE_PODOB_CLASS"=>"cast_hide",
+                    "val_general"=>$val
+                  ],
+                );
+              }
+            ?>
+          <?php endforeach;?>
+        <?php else:?>
+          <div class="cast_no_fined_search">
+            <p>По вашему запросу ничего не найдено</p>
+          </div>
+        <?php endif;?>
       </div>
     </div>
   </div>

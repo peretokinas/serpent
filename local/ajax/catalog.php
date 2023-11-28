@@ -22,6 +22,16 @@
     echo $result;
   }
   
+  //Изменение кол-ва товара в корзине
+  if ($_POST["type"]=="cart_num_change") {
+    unset($tmpArParam);
+    $tmpArParam=$_POST;
+    
+    $result=swf_catalog::cart_num_change($tmpArParam);
+    
+    print_r($result);
+  }
+  
   //Добавление товара в корзину
   if ($_POST["type"]=="add_to_cart") {
     

@@ -164,23 +164,6 @@
                   </span>
                 </div>
               </div>
-              <div class="filter-size__td">40</div>
-              <div class="filter-size__td">xxs</div>
-              <div class="filter-size__td">80</div>
-              <div class="filter-size__td">62</div>
-              <div class="filter-size__td">86</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">
-                <div class="filter-size__input">
-                  <input type="checkbox">
-                  <span class="filter-size__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
-                      <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
               <div class="filter-size__td">42</div>
               <div class="filter-size__td">xs</div>
               <div class="filter-size__td">84</div>
@@ -272,74 +255,6 @@
               <div class="filter-size__td">86</div>
               <div class="filter-size__td">110</div>
             </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">
-                <div class="filter-size__input">
-                  <input type="checkbox">
-                  <span class="filter-size__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
-                      <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div class="filter-size__td">54</div>
-              <div class="filter-size__td">3xl</div>
-              <div class="filter-size__td">108</div>
-              <div class="filter-size__td">90</div>
-              <div class="filter-size__td">114</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">
-                <div class="filter-size__input">
-                  <input type="checkbox">
-                  <span class="filter-size__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
-                      <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div class="filter-size__td">56</div>
-              <div class="filter-size__td">4xl</div>
-              <div class="filter-size__td">112</div>
-              <div class="filter-size__td">94</div>
-              <div class="filter-size__td">118</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">
-                <div class="filter-size__input">
-                  <input type="checkbox">
-                  <span class="filter-size__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
-                      <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div class="filter-size__td">58</div>
-              <div class="filter-size__td">5xl</div>
-              <div class="filter-size__td">116</div>
-              <div class="filter-size__td">98</div>
-              <div class="filter-size__td">122</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">
-                <div class="filter-size__input">
-                  <input type="checkbox">
-                  <span class="filter-size__icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
-                      <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div class="filter-size__td">60</div>
-              <div class="filter-size__td">6xl</div>
-              <div class="filter-size__td">120</div>
-              <div class="filter-size__td">102</div>
-              <div class="filter-size__td">126</div>
-            </div>
           </div>
           <div class="btn_final">
             <a href="#" class="btn">Готово</a>
@@ -347,7 +262,7 @@
         </div>
         <div class="filter-container" data-id="color">
           <div class="filter-head">
-            Цена
+            Цвет
             <div class="filter-close">
               <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
                 <path d="M1 1L9 9" stroke="#263740" stroke-linecap="round"/>
@@ -356,48 +271,15 @@
             </div>
           </div>
           <div class="filter-color">
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #E6B886"></span>
-                Бежевый
+            <?php foreach($arParams["arSettings"]["COLOR_1"] AS $key_2=>$val_2):?>
+              <div class="filter-color__item">
+                <input type="checkbox">
+                <div class="filter-color__element">
+                  <span style="background: <?php echo $val_2;?>"></span>
+                  <?php echo $key_2;?>
+                </div>
               </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #353535"></span>
-                Черный
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #347118"></span>
-                Зеленый
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #FF8500"></span>
-                Оранжевый
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #F7F7F5"></span>
-                Белый
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                <span style="background: #FF0000"></span>
-                Красный
-              </div>
-            </div>
+            <?php endforeach;?>
           </div>
           <div class="btn_final">
             <a href="#" class="btn">Готово</a>

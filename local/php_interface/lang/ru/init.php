@@ -28,7 +28,7 @@
   $MESS["SHOP_DETAIL_OPISANIE_NO"]="Дополнительное описание отсутствует";
   $MESS["SHOP_DETAIL_SOSTAV"]="Состав";
   $MESS["SHOP_DETAIL_SOSTAV_OSN_MAT"]="Основной материал";
-  $MESS["SHOP_DETAIL_UHOD"]="Уход (Источник данных неопределен)";
+  $MESS["SHOP_DETAIL_UHOD"]="Уход";
   $MESS["SHOP_DETAIL_REVIEWS"]="Отзывы";
   $MESS["SHOP_DETAIL_REVIEWS_SKLON_1"]="отзыв";
   $MESS["SHOP_DETAIL_REVIEWS_SKLON_2"]="отзыва";

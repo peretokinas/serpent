@@ -81,6 +81,23 @@
     $arIdsAll[]=$arFields["ID"];
   }
   
+  //Сортируем прдложения по "весу размера"
+  foreach ($arRes AS $key=>$val) {
+    for ($i=0;$i<count($val)-1;$i++) {
+      for ($j=$i+1;$j<count($val);$j++) {
+        $ves_1=$arParams["arSettings"]["SIZE_WEIGHT"][$val[$i]["arProps"][$arParams["arSettings"]["SIZE_PROP_CODE"]]["VALUE"]];
+        
+        $ves_2=$arParams["arSettings"]["SIZE_WEIGHT"][$val[$j]["arProps"][$arParams["arSettings"]["SIZE_PROP_CODE"]]["VALUE"]];
+        
+        if ($ves_1>$ves_2) {
+          $buf=$arRes[$key][$i];
+          $arRes[$key][$i]=$arRes[$key][$j];
+          $arRes[$key][$j]=$buf;
+        }
+      }
+    }
+  }
+  
   $arSku=$arRes;
   
   //Получаем все цены для всех собранных id товаров и ТП

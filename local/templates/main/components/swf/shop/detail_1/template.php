@@ -136,25 +136,30 @@
             <div class="product-table__td"><span><?php echo $arElem["arProps"]["SOSTAV"]["VALUE"];?></span></div>
           </div>
         </div>
-        <div class="product-container__line"></div>
-        <div class="product-label"><?php echo Loc::getMessage("SHOP_DETAIL_UHOD");?></div>
-        <div class="product-table">
-          <div class="product-table__tr">
-            <div class="product-table__td">
-              <span>Рыба 1</span>
-            </div>
+        <?php if($arElem["arProps"]["UKHOD"]["VALUE"]!=""):?>
+          <div class="product-container__line"></div>
+          <?php
+            $arUhod=explode("~",$arElem["arProps"]["UKHOD"]["VALUE"]);
+          ?>
+          <div class="product-label"><?php echo Loc::getMessage("SHOP_DETAIL_UHOD");?></div>
+          <div class="product-table">
+            <?php foreach($arUhod AS $key_3=>$val_3):?>
+              <?php
+                $tmp_print_val="";
+                if ($val_3!="") {
+                  $tmp_print_val=htmlspecialcharsBack($val_3);
+                }
+              ?>
+              <?php if($tmp_print_val!=""):?>
+                <div class="product-table__tr">
+                  <div class="product-table__td">
+                    <span><?php echo $tmp_print_val;?></span>
+                  </div>
+                </div>
+              <?php endif;?>
+            <?php endforeach;?>
           </div>
-          <div class="product-table__tr">
-            <div class="product-table__td">
-              <span>Рыба 2</span>
-            </div>
-          </div>
-          <div class="product-table__tr">
-            <div class="product-table__td">
-              <span>Рыба 3</span>
-            </div>
-          </div>
-        </div>
+        <?php endif;?>
         <?php
           //Отзывы
           $APPLICATION->IncludeComponent(
@@ -535,13 +540,6 @@
               <div class="filter-size__td">обхват бедер, см</div>
             </div>
             <div class="filter-size__tr">
-              <div class="filter-size__td">40</div>
-              <div class="filter-size__td">xxs</div>
-              <div class="filter-size__td">80</div>
-              <div class="filter-size__td">62</div>
-              <div class="filter-size__td">86</div>
-            </div>
-            <div class="filter-size__tr">
               <div class="filter-size__td">42</div>
               <div class="filter-size__td">xs</div>
               <div class="filter-size__td">84</div>
@@ -582,34 +580,6 @@
               <div class="filter-size__td">104</div>
               <div class="filter-size__td">86</div>
               <div class="filter-size__td">110</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">54</div>
-              <div class="filter-size__td">3xl</div>
-              <div class="filter-size__td">108</div>
-              <div class="filter-size__td">90</div>
-              <div class="filter-size__td">114</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">56</div>
-              <div class="filter-size__td">4xl</div>
-              <div class="filter-size__td">112</div>
-              <div class="filter-size__td">94</div>
-              <div class="filter-size__td">118</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">58</div>
-              <div class="filter-size__td">5xl</div>
-              <div class="filter-size__td">116</div>
-              <div class="filter-size__td">98</div>
-              <div class="filter-size__td">122</div>
-            </div>
-            <div class="filter-size__tr">
-              <div class="filter-size__td">60</div>
-              <div class="filter-size__td">6xl</div>
-              <div class="filter-size__td">120</div>
-              <div class="filter-size__td">102</div>
-              <div class="filter-size__td">126</div>
             </div>
           </div>
         </div>

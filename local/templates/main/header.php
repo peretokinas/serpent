@@ -49,7 +49,7 @@ if(isset($headersWhite[$headerUrl]))
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=yes"/>
     <?php $APPLICATION->ShowHead();?>
     <title><?php $APPLICATION->ShowTitle()?></title>
     <?//favicon start?>

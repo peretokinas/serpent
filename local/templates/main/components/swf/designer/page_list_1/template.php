@@ -54,7 +54,7 @@ $PREVIEW_PICTURE = CFile::GetPath($val["arFields"]["PREVIEW_PICTURE"]);
             <?php endforeach; ?>
           <?php endif; ?>
         </div>
-        <div class="navigation-container">
+        <!--<div class="navigation-container">
             <nav class="navigation">
                 <ul class="navigation-items">
                     <li class="navigation-item">
@@ -95,6 +95,6 @@ $PREVIEW_PICTURE = CFile::GetPath($val["arFields"]["PREVIEW_PICTURE"]);
                 </svg>
                 Показать еще
             </a>
-        </div>
+        </div>-->
     </div>
 </main>

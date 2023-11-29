@@ -24,7 +24,7 @@
       );
     ?>
   </div>
-  <div class="article-content">
+  <div class="article-content cast_p_interval_1">
     <div class="container">
       <div class="h1">Магазин</div>
       <p>
@@ -83,7 +83,7 @@
             "swf:galery",
             "gal_1",
             [
-              "arGal"=>$_SESSION["arDеsignerSett"]["SETT_SHOWROOM_GAL"]
+              "arGal"=>$_SESSION["arDеsignerSett"]["SETT_SHOWROOM_GAL"],
             ],
           );
         ?>

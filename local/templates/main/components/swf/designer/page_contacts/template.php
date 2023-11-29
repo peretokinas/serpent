@@ -27,7 +27,8 @@
      );
     ?>
   </div>
-  <div class="container">
+ 
+<div class="container">
     <h1>Контакты</h1>
     <div class="contact-container">
       <div class="contact-block">
@@ -76,6 +77,7 @@
       </div>
     </div>
   </div>
+
   <?php
   $APPLICATION->IncludeComponent(
     "swf:other",

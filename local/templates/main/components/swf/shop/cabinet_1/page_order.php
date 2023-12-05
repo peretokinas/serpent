@@ -28,7 +28,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-1.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-1.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>
@@ -52,7 +52,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-2.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-2.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>
@@ -76,7 +76,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-3.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-3.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>
@@ -127,7 +127,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-1.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-1.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>
@@ -151,7 +151,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-2.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-2.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>
@@ -175,7 +175,7 @@
         </div>
         <div class="basket-item">
             <a href="#" class="basket-item__pic">
-                <img src="img/lk/item-3.jpg" alt="">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/lk/item-3.jpg" alt="">
             </a>
             <div class="basket-item__content">
                 <a href="#" class="basket-item__title">Раздельный купальник “LARA”</a>

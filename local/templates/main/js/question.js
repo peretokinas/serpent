@@ -16,9 +16,9 @@ $(document).ready(function(){
         let response = JSON.parse(data);
         console.log(response)
         if (response.success ) {
-          alert('Спасибо! С вами свяжутся в ближайшее время!');
+          swf_modal_1('Спасибо! С вами свяжутся в ближайшее время!', "reload_page", "");
         }else {
-          alert(response.success);
+          swf_modal_1('Необходимо заполнить все поля', "", "");
         }
       },
       error: function (jqXHR, text, error) {

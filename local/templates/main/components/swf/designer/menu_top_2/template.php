@@ -13,9 +13,9 @@
         if ($val["NAME"]!="Авторизация") {
           $tmp_link="/".$val["CODE"]."/";
           $tmp_class_css="";
-          if ($val["CODE"]=="") {
+          // if ($val["CODE"]=="") {
             $tmp_class_css=$val["CLASS_CSS"];
-          }
+          // }
         } else {
           if ($USER->IsAuthorized()) {
             $tmp_link="/".$val["CODE"]."/";

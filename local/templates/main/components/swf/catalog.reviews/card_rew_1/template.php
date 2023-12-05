@@ -86,7 +86,7 @@
 </div>
 <div class="modal" data-modal-name="modal-reviews" data-modal-dismiss>
   <div class="modal-dialog">
-    <div class="modal-close" data-modal-dismiss>
+    <div class="modal-close modal-close-reviews" data-modal-dismiss>
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"
          data-modal-dismiss>
         <path d="M1 1L9 9" stroke="#263740" data-modal-dismiss stroke-linecap="round"/>

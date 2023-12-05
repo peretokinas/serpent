@@ -2,6 +2,20 @@
 <?php
   use Bitrix\Main\Localization\Loc;
 ?>
+    <?php //Общая модалка 1?>
+    <div class="swf-modal-1_action" data-modal-trigger="swf-modal-1"></div>
+    <div class="modal modal-message swf-modal-1" data-modal-name="swf-modal-1" data-modal-dismiss>
+      <div class="modal-dialog">
+        <div class="modal-close" data-modal-dismiss>
+          <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none"
+             data-modal-dismiss>
+            <path d="M1 1L9 9" stroke="#263740" data-modal-dismiss stroke-linecap="round"/>
+            <path d="M9 1L1 9" stroke="#263740" data-modal-dismiss stroke-linecap="round"/>
+          </svg>
+        </div>
+        <p>Данный текст будет заменен js-ом</p>
+      </div>
+    </div>
     <footer>
       <div class="container">
         <div class="footer-flex">

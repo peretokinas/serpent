@@ -142,21 +142,32 @@ window.addEventListener('load', function (){
       let swiperProductPic = new Swiper(item, {
         slidesPerView: 1,
         spaceBetween: 0,
-        loop: true,
-        navigation: {
-          nextEl: item.closest('.product-slide__swiper').querySelector('.swiper-arrow__right'),
-          prevEl: item.closest('.product-slide__swiper').querySelector('.swiper-arrow__left'),
-        },
+        loop: false,
+        effect: "fade",
+        crossFade: true,
         pagination: {
           el: item.closest('.product-slide__swiper').querySelector('.swiper-pagination'),
         },
-      });
-      if(window.innerWidth < 750){
-        if(swiperProductPic.$el[0].closest('.slider-container') != null){
-          swiperProductPic.allowTouchMove = false;
+        breakpoints: {
+          320: {
+            navigation: {
+              nextEl: item.closest('.product-slide__swiper').querySelector('.swiper-arrow__right'),
+              prevEl: item.closest('.product-slide__swiper').querySelector('.swiper-arrow__left'),
+            },
+          }
+        },
+        on: {
+          init: function (){
+            item.addEventListener('mouseover', () => {
+              this.pagination.bullets.forEach((bullet, index) => {
+                bullet.addEventListener('mouseover', function (){
+                  swiperProductPic.slideTo(index)
+                })
+              })
+            });
+          },
         }
-
-      }
+      });
     })
   }
   if(document.querySelector('.showroom-slider')){

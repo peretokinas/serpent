@@ -3,6 +3,8 @@
   use Bitrix\Main\Localization\Loc;
 
   $arElem=$arResult["ITEMS"][0];
+  
+  global $USER;
 ?>
 <main>
   <div class="container">
@@ -32,7 +34,7 @@
           <?php echo Loc::getMessage("SHOP_DETAIL_ARTICUL");?>
           <span><?php echo $arElem["arProps"]["CML2_ARTICLE"]["VALUE"];?></span>
         </div>
-        <a href="#" class="btn btn_gray">
+        <a href="#" class="btn btn_gray cast_js_in_progress">
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19" fill="none">
             <path d="M5.77223 7.50244H1.38867V18.0002H16.0005V7.50244H11.617" stroke="#263740"
                 stroke-width="1.4" stroke-miterlimit="10"/>
@@ -429,11 +431,15 @@
             </svg>
           </div>
           <div class="block-btn">
-            <a href="#" class="btn auth-event">Войдите</a>
-            <div class="btn-or">
-              <img src="img/btn-or.svg" alt="">
-            </div>
-            <a href="#" class="btn auth-event btn_black_b">Зарегистируйтесь</a>
+            <?php if($USER->IsAuthorized()):?>
+              <a href="/cabinet/page_order/" class="btn">Перейти в личный кабинет</a>
+            <?php else:?>
+              <a href="#" class="btn auth-event">Войдите</a>
+              <div class="btn-or">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/btn-or.svg" alt="">
+              </div>
+              <a href="#" class="btn auth-event btn_black_b">Зарегистируйтесь</a>
+            <?php endif;?>
           </div>
         </div>
       </div>

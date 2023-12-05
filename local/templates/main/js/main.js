@@ -1,4 +1,19 @@
 $(document).ready(function(){
+  //Закрытие отбивки с перезагрузкой страницы
+  $("body").on("click",".swf-modal-1-reload-page", function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    location.reload();
+  });
+  //Закрытие отбивки с переходом в ЛК
+  $("body").on("click",".swf-modal-1-goto-cabinet", function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    location.href="/cabinet/page_order/";
+  });
+  
   //Переход по ссылке подобного по цвету из модалки поиска
   $('body').on("click",".cast_goto_link_podob_in_slider_2_action",function(){
     event.preventDefault();
@@ -32,7 +47,7 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
-    alert("Интеграция в процессе");
+    swf_modal_1("Интеграция в процессе","","");
   });
   
   //Форма подписаться на рассылку
@@ -40,7 +55,7 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
-    alert("Интеграция в процессе");
+    swf_modal_1("Интеграция в процессе","","");
   });
   
   //Добавление в избранное с карточки - секции каталога
@@ -48,7 +63,7 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
-    alert("Интеграция в процессе");
+    swf_modal_1("Интеграция в процессе","","");
   });
   
   //Выбор размера в карточке секции каталога
@@ -128,9 +143,11 @@ $(document).ready(function(){
       data: form_data,
       success: function(data) {
         var obj_json=$.parseJSON(data);
-        alert(obj_json["text"]);
+        //Отбивка
         if (obj_json["status"]=="1") {
-          location.reload();
+          swf_modal_1(obj_json["text"],"reload_page","");
+        } else {
+          swf_modal_1(obj_json["text"],"","");
         }
       },
     });
@@ -165,7 +182,7 @@ $(document).ready(function(){
       },
       success: function(data) {
         if (text_success_add!="") {
-          alert(text_success_add);
+          swf_modal_1(text_success_add,"","");
         }
       },
     }); 
@@ -288,8 +305,7 @@ $(document).ready(function(){
         $("."+class_err).html("");
         
         if (obj_json["status"]=="1") {
-          alert(obj_json["text"]);
-          location.href="/cabinet/page_order/";
+          swf_modal_1(obj_json["text"],"goto_cabinet","");
         } else {
           if (obj_json["status"]=="0") {
             //Ошибки валидации
@@ -305,8 +321,7 @@ $(document).ready(function(){
             });
           } else {
             //Ошибка авторизации
-            alert(obj_json["text"]);
-            location.reload();
+            swf_modal_1(obj_json["text"],"reload_page","");
           }
         }
       },

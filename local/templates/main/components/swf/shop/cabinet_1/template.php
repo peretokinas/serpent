@@ -53,6 +53,8 @@
         [
           "IB"=>$arParams["arSettings"]["IB"]["cabinet_1"],
           "DESIGNER_MENU"=>"Y",
+          "ORDER_USER_LIST"=>$arResult["ORDER_USER_LIST"],
+          "FAVORITES"=>$arResult["FAVORITES"],
         ],
       );
       ?>

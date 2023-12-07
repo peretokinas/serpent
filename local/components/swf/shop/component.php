@@ -2,11 +2,42 @@
 <?php
   CModule::IncludeModule('iblock');
   
+  global $USER;
+  
   //Получаем корзину текущего пользователя
   $basket=swf_catalog::get_cart();
   
   //Клеим корзину в результат
   $arResult["BASKET"]=$basket;
+  
+  //Получаем избранные товары
+  $arFilter=[
+    'IBLOCK_ID'=>$arParams["arSettings"]["IB"]["favorites"],
+    'PROPERTY_ID_USER'=>$USER->GetID(),
+    'ACTIVE'=>'Y',
+  ];
+  
+  $arIdsFav=[];
+  $res=CIBlockElement::GetList(["ID"=>"DESC"], $arFilter);
+  while ($ob=$res->GetNextElement()) {
+    $arFields=$ob->GetFields();
+    $arProps=$ob->GetProperties();
+    
+    $arIdsFav[]=$arProps["ID_PROD"]["VALUE"];
+  }
+  
+  //Возвращаем в результате
+  $arResult["FAVORITES"]=$arIdsFav;
+  
+  //Клеим в результат заказы текущего пользователя при наличии спец опции
+  if ($arParams["GET_ORDERS_USER_NOW"]=="Y") {
+    unset($tmpArParam_1);
+    $tmpArParam_1["USER_ID"]=$USER->GetID();
+    $tmpArParam_1["SORT"]=[
+      "DATE_INSERT"=>"DESC",
+    ];
+    $arResult["ORDER_USER_LIST"]=swf_catalog::get_order_user($tmpArParam_1);
+  }
   
   //Проверяем наличие поискового текста
   $search_text="";
@@ -30,6 +61,11 @@
     'IBLOCK_ID'=>$arParams["IB_CAT"],
     'ACTIVE'=>'Y',
   ];
+  
+  //Если только избранные, то фильтруем по избранным
+  if ($arParams["FAVORITES"]=="Y") {
+    $arFilter["ID"]=$arResult["FAVORITES"];
+  }
   
   //Клеим поисковой параметр
   if ($search_text!="") {
@@ -227,6 +263,17 @@
   );
   while($arRes=$res->fetch()){
     $arResult["PAY"][$arRes["ID"]]=$arRes;
+  }
+  
+  //Собираем дополнительный массив ITEMS с индекс=id элемента, при наличии спец опции
+  $arResult["ITEMS_ON_ID"]=[];
+  if ($arParams["ITEMS_ON_ID_PROD"]=="Y") {
+    foreach ($arResult["ITEMS"] AS $key=>$val) {
+      $arResult["ITEMS_ON_ID"][$val["arFields"]["ID"]]=$val;
+      foreach ($val["OFFERS"] AS $key_1=>$val_1) {
+        $arResult["ITEMS_ON_ID"][$val_1["arFields"]["ID"]]=$val_1;
+      }
+    }
   }
   
   //Дергаем шаблон

@@ -80,6 +80,7 @@
                   "tmpArPodob_1"=>$tmpArPodob_1,
                   "val"=>$val,
                   "HIDE_PODOB_CLASS"=>"",
+                  "arResult"=>$arResult,
                 ],
               );
               
@@ -94,7 +95,8 @@
                     "tmpArPodob_1"=>$tmpArPodob_1,
                     "val"=>$val_p1,
                     "HIDE_PODOB_CLASS"=>"cast_hide",
-                    "val_general"=>$val
+                    "val_general"=>$val,
+                    "arResult"=>$arResult,
                   ],
                 );
               }

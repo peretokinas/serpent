@@ -17,7 +17,7 @@
         "IB_REW"=>"",
         "SETT_COLOR_1"=>$arSettings["COLOR_1"],
         "SETT_SHOP_1"=>$arSettings["SHOP"],
-        "GROUP_PODOB_1"=>"Y",
+        "GROUP_PODOB_1"=>"N",
         "GROUP_PODOB_1_PROP"=>"TSVET",
         "GROUP_PODOB_1_RAZD"=>", ",
         "DETAIL_CODE"=>"",
@@ -29,6 +29,8 @@
         "SLIDER_LIMIT"=>"",
         "ALL_CATALOG_CAST_TITLE"=>"",
         "BUTT_CENTER"=>"",
+        "GET_ORDERS_USER_NOW"=>"Y",
+        "ITEMS_ON_ID_PROD"=>"Y",
       ],
     );
 ?>

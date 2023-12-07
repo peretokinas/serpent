@@ -340,25 +340,6 @@ window.addEventListener('load', function (){
 
   initModal();
 
-  if(document.querySelector('.order-event__link')){
-    document.querySelectorAll('.order-event__link').forEach((item) => {
-      item.addEventListener('click', function (){
-        let itemParent = document.querySelector('.lk-order__item');
-        let itemContainerHidden = itemParent.querySelector('.order-list');
-        let itemContainerHiddenHeight = itemContainerHidden.querySelector('.order-list__container').clientHeight;
-        if(itemParent.classList.contains('active')){
-          itemParent.classList.remove('active')
-          item.innerHTML = 'Состав заказа';
-          itemContainerHidden.style.height = 0 + 'px';
-        }else{
-          itemParent.classList.add('active')
-          item.innerHTML = 'Скрыть состав заказа';
-          itemContainerHidden.style.height = itemContainerHiddenHeight + 20 + 'px';
-        }
-      })
-    })
-  }
-
   if(document.querySelector('.accordion')){
     document.querySelectorAll('.accordion-item').forEach((accordionElement) =>{
       if(accordionElement.classList.contains('active')){

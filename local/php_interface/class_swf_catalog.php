@@ -5,9 +5,96 @@
   Bitrix\Main\Loader::includeModule("sale");
   Bitrix\Main\Loader::includeModule("catalog");
   
+  CModule::IncludeModule("iblock");
+  
   //Методы каталога
 
   class swf_catalog {
+    //Добавление / удаление товара из избранного
+    public static function favorites_add_del($arParam) {
+      $result="false";
+      
+      //Проверяем наличие товара в избранном, если есть - дэлим
+      $arFilter=[
+        'IBLOCK_ID'=>$arParam["arSettings"]["IB"]["favorites"],
+        'PROPERTY_ID_USER'=>$arParam["id_user"],
+        'PROPERTY_ID_PROD'=>$arParam["id_prod"],
+        'ACTIVE'=>'Y',
+      ];
+      
+      $yes_del=0;
+      $res=CIBlockElement::GetList(["ID"=>"DESC"], $arFilter);
+      while ($ob=$res->GetNextElement()) {
+        $arFields=$ob->GetFields();
+        
+        CIBlockElement::Delete($arFields["ID"]);
+        
+        $yes_del=1;
+      }
+      
+      if ($yes_del==0) {
+        //Запрос на добавление. Добавляем
+        $el=new CIBlockElement;
+        $PROP=array();
+        $PROP[84]=$arParam["id_user"];
+        $PROP[85]=$arParam["id_prod"];
+        $arLoadProductArray = Array(
+          "IBLOCK_SECTION_ID" => false,
+          "IBLOCK_ID"      => $arParam["arSettings"]["IB"]["favorites"],
+          "PROPERTY_VALUES"=> $PROP,
+          "NAME"           => "Избранный товар",
+          "ACTIVE"         => "Y",
+          );
+        $id=$el->Add($arLoadProductArray);
+        
+        $result="true";
+      }
+      
+      return $result;
+    }
+    
+    //Получение заказов
+    public static function get_order_user($arParam) {
+      $arResult=[];
+      
+      //Получаем заказы
+      $parameters=[
+        'filter'=>[
+          'USER_ID'=>$arParam["USER_ID"],
+        ],
+        'order'=>$arParam["SORT"],
+      ];
+      $dbRes=\Bitrix\Sale\Order::getList($parameters);
+      $arOrderIds=[];
+      while ($order=$dbRes->fetch()) {
+        $arResult[]=$order;
+        $arOrderIds[]=$order["ID"];
+      }
+      
+      //Получим все корзины по всем заказам
+      $orderedItems=[];
+      $dbResItems=\Bitrix\Sale\Basket::getList([
+        'filter' =>[
+          '=ORDER_ID'=>$arOrderIds,
+        ],
+      ]);
+      while ($item=$dbResItems->fetch()) {
+        $orderedItems[$item['ORDER_ID']][]=[
+          "PROD_ID"=>$item['PRODUCT_ID'],
+          "QUA"=>$item['QUANTITY'],
+          "PRICE"=>$item['PRICE'],
+          "PRICE_BASE"=>$item['BASE_PRICE'],
+        ];
+      }
+      
+      //Клеим корзины к заказам
+      foreach ($arResult AS $key=>$val) {
+        $arResult[$key]["ITEMS"]=$orderedItems[$val["ID"]];
+      }
+      
+      return $arResult;
+    }
+    
     //Изменение кол-ва товара в корзине + удаление итема
     public static function cart_num_change($arParams) {
       $arResult=[];

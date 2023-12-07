@@ -10,9 +10,11 @@
       "contacts"=>10,
       "faq"=>11,
       "reviews_prod"=>14,
+      "reviews_order"=>16,
       "1c_catalog"=>12,
       "1c_offers"=>13,
-      "cabinet_1"=>15
+      "cabinet_1"=>15,
+      "favorites"=>17,
     ],
     "LINK_STATIC"=>[
       "articles_list"=>"/articles/",
@@ -24,6 +26,11 @@
       "BASE_CURR_CODE"=>"RUB",
       "SECTION"=>[
         "kupalniki"=>"Купальники",
+      ],
+      "ORDER_STATUS"=>[
+        "N"=>"Сформирован",
+        "P"=>"Оплачен",
+        "F"=>"Выполнен",
       ],
     ],
     "COLOR_1"=>[

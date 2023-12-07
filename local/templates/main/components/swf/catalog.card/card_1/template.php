@@ -15,13 +15,20 @@
   } else {
     $class_gen="product-slide";
   }
+  
+  //Проверяем наличие в избранных
+  $fav_yes="";
+  if (in_array($val["arFields"]["ID"], $arParams["arResult"]["FAVORITES"])) {
+    $fav_yes="checked";
+  }
+  
 ?>
 <div class="cast_card_<?php echo $val["arFields"]["ID"];?> <?php echo $class_gen;?>">
   <?php //echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
   <div class="product-slide__pic">
-    <div class="product-favorite">
-      <input type="checkbox">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
+    <div class="product-favorite" id-prod="<?php echo $val["arFields"]["ID"];?>">
+      <input class="product-favorite-checkbox <?php echo $fav_yes;?>" type="checkbox" <?php echo $fav_yes;?>>
+      <svg class="product-favorite-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="18"
          viewBox="0 0 20 18" fill="none">
         <path fill="transparent"
           d="M10.0002 17C10.0002 17 2.73044 11.2623 1.46561 8.69266C0.95956 7.77752 0.730235 6.73509 0.805508 5.69207C0.880781 4.64905 1.25742 3.65035 1.88963 2.81736V2.81736C2.25166 2.3275 2.70977 1.91661 3.23598 1.6098C3.76219 1.30299 4.34545 1.10671 4.95008 1.03296C5.55472 0.959204 6.16805 1.00954 6.75258 1.18086C7.33711 1.35218 7.88057 1.64089 8.34974 2.02936L10.0002 3.39577L11.6506 2.02936C12.1198 1.64089 12.6632 1.35218 13.2477 1.18086C13.8323 1.00954 14.4456 0.959204 15.0502 1.03296C15.6549 1.10671 16.2381 1.30299 16.7643 1.6098C17.2906 1.91661 17.7487 2.3275 18.1107 2.81736V2.81736C18.7429 3.65035 19.1195 4.64905 19.1948 5.69207C19.2701 6.73509 19.0408 7.77752 18.5347 8.69266C17.2691 11.2623 10.0002 17 10.0002 17Z"

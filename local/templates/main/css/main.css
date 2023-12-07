@@ -63,3 +63,18 @@ footer {
 .product-slider img {
   max-height: 700px;
 }
+
+.product-favorite input.checked+svg path{stroke:#e5918a;fill:#e5918a}
+.product-favorite input.checked:hover+svg path{stroke:#b76760;fill:#b76760}
+
+.product-favorite-cart {
+  opacity: 1 !important;
+  position: relative !important;
+  top: unset !important;
+  left: unset !important;
+  margin-bottom: 5px !important;
+}
+
+.lk-favorites {
+  gap: 20px;
+}

@@ -6,7 +6,24 @@
   CModule::IncludeModule("iblock");
   CModule::IncludeModule("catalog");
   
+  global $USER;
+  
   //Каталог (Магазин)
+  
+  //Добавление / удаление товара из избранного
+  if ($_POST["type"]=="favorites_add_del") {
+    
+    unset($tmpArParam);
+    $tmpArParam=[
+      "id_user"=>$USER->GetID(),
+      "id_prod"=>$_POST["id_prod"],
+      "arSettings"=>$arSettings,
+    ];
+    
+    $result=swf_catalog::favorites_add_del($tmpArParam);
+    
+    print_r($result);
+  }
   
   //Проверка наличия товара в корзине текущего пользователя
   if ($_POST["type"]=="test_in_cart") {

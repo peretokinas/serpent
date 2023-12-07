@@ -1,4 +1,25 @@
 $(document).ready(function(){
+  //Открытие / закрытие спойлера "подробнее о заказе" в ЛК в прошлых заказах
+  $("body").on("click",".order-event__link",function(){
+    var itemParent=$(this).parent().parent();
+    var itemContainerHidden=itemParent.find(".order-list");
+    var itemContainerHiddenHeight=itemContainerHidden.find('.order-list__container').height();
+    var btnRew=itemParent.find(".order-event__btn");
+    
+    if (itemParent.hasClass("active")) {
+      itemParent.removeClass("active");
+      $(this).html("Состав заказа");
+      itemContainerHidden.css("height","0px");
+      btnRew.css("margin-top","0px");
+    } else {
+      itemParent.addClass("active");
+      $(this).html("Скрыть состав заказа");
+      var nHeight=itemContainerHiddenHeight+20+"px";
+      itemContainerHidden.css("height",nHeight);
+      btnRew.css("margin-top","20px");
+    }
+  });
+  
   //Закрытие отбивки с перезагрузкой страницы
   $("body").on("click",".swf-modal-1-reload-page", function(){
     event.preventDefault();
@@ -63,7 +84,36 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
-    swf_modal_1("Интеграция в процессе","","");
+    var obj_check=$(this).find("input");
+    var obj_path=$(this).find(".product-favorite-svg").find("path");
+    
+    var id_prod=$(this).attr("id-prod");
+    
+    //Добавляем / удаляем из избранного
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"favorites_add_del",
+        "id_prod":id_prod,
+      },
+      success: function(data) {
+        if (data=="true") {
+          obj_check.attr("checked",true);
+          obj_check.addClass("checked");
+          obj_path.attr("stroke","#e5918a");
+          obj_path.attr("fill","#e5918a");
+        } else {
+          obj_check.removeAttr("checked");
+          obj_check.removeClass("checked");
+          obj_path.attr("stroke","rgb(38, 55, 64)");
+          obj_path.attr("fill","transparent");
+        }
+      },
+    });
+    
+    // swf_modal_1("Интеграция в процессе","","");
   });
   
   //Выбор размера в карточке секции каталога
@@ -125,7 +175,7 @@ $(document).ready(function(){
     obj_card_new.removeClass("cast_hide");
   });
   
-  //Отправка отзыва
+  //Отправка отзыва о товаре
   $(".but_otziv_prod_send_action").click(function(){
     event.preventDefault();
     event.stopPropagation();
@@ -135,6 +185,34 @@ $(document).ready(function(){
     var form_data=form_obj.serialize();
     
     form_data=form_data+"&type=send_review_prod";
+    
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/forms.php",
+      async: false,
+      data: form_data,
+      success: function(data) {
+        var obj_json=$.parseJSON(data);
+        //Отбивка
+        if (obj_json["status"]=="1") {
+          swf_modal_1(obj_json["text"],"reload_page","");
+        } else {
+          swf_modal_1(obj_json["text"],"","");
+        }
+      },
+    });
+  });
+  
+  //Отправка отзыва о заказе
+  $(".but_otziv_order_send_action").click(function(){
+    event.preventDefault();
+    event.stopPropagation();
+    
+    var form_id=$(this).attr("form-id");
+    var form_obj=$("#"+form_id);
+    var form_data=form_obj.serialize();
+    
+    form_data=form_data+"&type=send_review_order";
     
     $.ajax({
       type: 'POST',

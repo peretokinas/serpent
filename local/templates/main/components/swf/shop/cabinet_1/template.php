@@ -58,7 +58,7 @@
         ],
       );
       ?>
-      <a href="#" class="btn btn_white-b cast_js_in_progress">
+      <a href="#" class="btn btn_white-b" data-modal-trigger="modal-callback">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">
           <path d="M4.53352 14.545H5.84664C6.45269 14.545 6.85672 14.1813 6.85672 13.6359V8.36319C6.85672 7.81774 6.45269 7.4541 5.84664 7.4541H3.52344V13.545C3.52344 14.0904 3.92747 14.545 4.53352 14.545Z"
                 stroke="#263740" stroke-miterlimit="10"/>
@@ -81,3 +81,12 @@
     <?php include_once $arParams['SECTION_CODE_PRINT'].".php"; ?>
 </div>
 </main>
+
+<?php
+$APPLICATION->IncludeComponent(
+  "swf:forms",
+  "form_2",
+  [
+  ],
+);
+?>

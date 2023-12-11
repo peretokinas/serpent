@@ -34,11 +34,16 @@
       <div class="contact-block">
         <?php if(count($arResult["arEl"])>0):?>
           <?php foreach($arResult["arEl"] AS $key=>$val):?>
-            <div class="contact-item">
-                <div class="contact-item__position"><?php echo $val["arProps"]["position"]["VALUE"];?></div>
-                <div class="contact-item__name"><?php echo $val["arFields"]["NAME"];?></div>
-                <a href="tel:<?php echo $val["arProps"]["contact_phone"]["VALUE"];?>" class="contact-item__link"><?php echo $val["arProps"]["phone"]["VALUE"];?></a>
-                <a href="mailto:<?php echo $val["arProps"]["email"]["VALUE"];?>" class="contact-item__link"><?php echo $val["arProps"]["email"]["VALUE"];?></a>
+            <?php
+              $item_active = "";
+              if($key == 0)
+                $item_active = "contact-item__active";
+            ?>
+            <div class="contact-item <?php echo $item_active;?>">
+              <div class="contact-item__position"><?php echo $val["arProps"]["position"]["VALUE"];?></div>
+              <div class="contact-item__name"><?php echo $val["arFields"]["NAME"];?></div>
+              <a href="tel:<?php echo $val["arProps"]["contact_phone"]["VALUE"];?>" class="contact-item__link"><?php echo $val["arProps"]["phone"]["VALUE"];?></a>
+              <a href="mailto:<?php echo $val["arProps"]["email"]["VALUE"];?>" class="contact-item__link"><?php echo $val["arProps"]["email"]["VALUE"];?></a>
             </div>
           <?php endforeach; ?>
         <?php endif; ?>

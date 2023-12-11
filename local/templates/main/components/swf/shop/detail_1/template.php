@@ -40,7 +40,7 @@
           <?php echo Loc::getMessage("SHOP_DETAIL_ARTICUL");?>
           <span><?php echo $arElem["arProps"]["CML2_ARTICLE"]["VALUE"];?></span>
         </div>
-        <a href="#" class="btn btn_gray cast_js_in_progress">
+        <button type="button" class="btn btn_gray btn-share">
           <svg xmlns="http://www.w3.org/2000/svg" width="17" height="19" viewBox="0 0 17 19" fill="none">
             <path d="M5.77223 7.50244H1.38867V18.0002H16.0005V7.50244H11.617" stroke="#263740"
                 stroke-width="1.4" stroke-miterlimit="10"/>
@@ -49,7 +49,10 @@
                 stroke-miterlimit="10"/>
           </svg>
           <?php echo Loc::getMessage("SHOP_DETAIL_BUT_SHARE");?>
-        </a>
+            <script src="https://yastatic.net/share2/share.js"></script>
+            <div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="short" data-services="vkontakte,telegram"></div>
+
+        </button>
       </div>
     </div>
     <div class="product">

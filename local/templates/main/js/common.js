@@ -2,9 +2,9 @@ window.addEventListener('load', function (){
 
   document.querySelector('.header-burger').addEventListener('click', function (){
     if(document.querySelector('header').classList.contains('menu-active')){
-      document.querySelector('header').classList.remove('active')
+      document.querySelector('header').classList.remove('menu-active')
     }else{
-      document.querySelector('header').classList.add('active')
+      document.querySelector('header').classList.add('menu-active')
     }
   })
 
@@ -595,6 +595,9 @@ window.addEventListener("DOMContentLoaded", function() {
     input.addEventListener("focus", mask, false);
     input.addEventListener("blur", mask, false);
     input.addEventListener("keydown", mask, false)
+    input.addEventListener('mouseup', (e, el) => {
+      if(e.toElement.selectionStart < 3) input.setSelectionRange(3,3)
+    })
 
   });
 

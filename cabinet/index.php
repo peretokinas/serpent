@@ -2,6 +2,12 @@
 <?php
   $section_code=$_GET["SECTION_CODE"];
   
+  global $USER;
+  
+  if (!$USER->IsAuthorized()) {
+    header("Location: /");
+  }
+  
   if ($section_code=="") {
     header("Location: page_general/");
   }

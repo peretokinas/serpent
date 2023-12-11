@@ -15,6 +15,7 @@
       "1c_offers"=>13,
       "cabinet_1"=>15,
       "favorites"=>17,
+      "callback"=>18
     ],
     "LINK_STATIC"=>[
       "articles_list"=>"/articles/",

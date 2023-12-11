@@ -24,7 +24,7 @@
       $PROP[79]=$_POST["ORDER_ID"];
       $PROP[81]=trim($_POST["f_name"]);
       $PROP[82]=trim($_POST["f_otziv"]);
-      $PROP[83]=rand(1,5);
+      $PROP[83]=$_POST["rating"];
       $PROP[80]=61;
       $arLoadProductArray = Array(
         "IBLOCK_SECTION_ID" => false,
@@ -62,7 +62,7 @@
       $PROP[70]=$_POST["PROD_ID"];
       $PROP[71]=trim($_POST["f_name"]);
       $PROP[72]=trim($_POST["f_otziv"]);
-      $PROP[73]=rand(1,5);
+      $PROP[73]=$_POST["rating"];
       $PROP[74]=58;
       $arLoadProductArray = Array(
         "IBLOCK_SECTION_ID" => false,

@@ -112,8 +112,6 @@ $(document).ready(function(){
         }
       },
     });
-    
-    // swf_modal_1("Интеграция в процессе","","");
   });
   
   //Выбор размера в карточке секции каталога
@@ -185,7 +183,8 @@ $(document).ready(function(){
     var form_data=form_obj.serialize();
     
     form_data=form_data+"&type=send_review_prod";
-    
+
+    console.log(form_data);
     $.ajax({
       type: 'POST',
       url: "/local/ajax/forms.php",
@@ -289,6 +288,12 @@ $(document).ready(function(){
       success: function(data) {
         obj_but.removeClass("add_to_cart_section_action");
         obj_but.addClass("product-basket__added");
+        
+        //На странице корзины - релодим корзину
+        var path=window.location.pathname;
+        if (path=="/cart/") {
+          location.reload();
+        }
       },
     }); 
   });

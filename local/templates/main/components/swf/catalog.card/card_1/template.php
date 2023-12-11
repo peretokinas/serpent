@@ -24,7 +24,7 @@
   
 ?>
 <div class="cast_card_<?php echo $val["arFields"]["ID"];?> <?php echo $class_gen;?>">
-  <?php //echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
+  <?php echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
   <div class="product-slide__pic">
     <div class="product-favorite" id-prod="<?php echo $val["arFields"]["ID"];?>">
       <input class="product-favorite-checkbox <?php echo $fav_yes;?>" type="checkbox" <?php echo $fav_yes;?>>

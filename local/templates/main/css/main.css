@@ -78,3 +78,11 @@ footer {
 .lk-favorites {
   gap: 20px;
 }
+
+.swf-modal-1 {
+  z-index: 100000000 !important;
+}
+
+.ya-share2__popup {
+  top: 43px !important;
+}

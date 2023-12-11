@@ -1,4 +1,44 @@
 $(document).ready(function(){
+
+  //Скрипт для перемещения между ячейками
+  var codeInput = document.querySelector(".code-input");
+
+  codeInput.addEventListener('keyup', function (event) {
+    var target = event.srcElement;
+
+    var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    var myLength = target.value.length;
+
+    if (myLength >= maxLength) {
+      var next = target;
+      while (next = next.nextElementSibling) {
+        if (next == null) break;
+        if (next.tagName.toLowerCase() == "input") {
+          next.focus();
+          break;
+        }
+      }
+    }
+
+    if (myLength === 0) {
+      var next = target;
+      while (next = next.previousElementSibling) {
+        if (next == null) break;
+        if (next.tagName.toLowerCase() == "input") {
+          next.focus();
+          break;
+        }
+      }
+    }
+  }, false);
+
+
+  codeInput.addEventListener('keydown', function (event) {
+    var target = event.srcElement;
+    target.value = "";
+  }, false);
+
+
   //Выбор типа авторизации (вход, регистрация)
   $("body").on("click",".select_type_event_auth_action",function(){
     var obj_type_event=$(this).parent().parent().find("input[name='f_type_event']");
@@ -31,10 +71,9 @@ $(document).ready(function(){
         var obj_json=$.parseJSON(data);
         
         if (obj_json["status"]=="1") {
-          alert(obj_json["text"]);
-          location.reload();
+          location.href="/cabinet/";
         } else {
-          alert(obj_json["error"]);
+          swf_modal_1(obj_json["error"],"","");
         }
         
         //Биндим событие обратно
@@ -68,8 +107,11 @@ $(document).ready(function(){
         var obj_json=$.parseJSON(data);
         if (obj_json["status"]=="1") {
           $(".auth-modal__reg-code").addClass("active");
+          $(".code-timer-action").attr("time-now","90");
+          $(".code-timer-action").find("span").html("1:30");
+          timer_1("code-timer-action");
         } else {
-          alert(obj_json["error"]);
+          swf_modal_1(obj_json["error"],"","");
         }
         
         //Биндим событие обратно

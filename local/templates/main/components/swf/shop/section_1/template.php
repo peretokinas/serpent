@@ -6,6 +6,42 @@
   } else {
     $poisk=false;
   }
+  
+  //Настраиваем текущие значения фильтров
+    //Цена
+    $filter_price_start=0;
+    $filter_price_end=30000;
+    if (isset($arResult["FILTER"]["price_start"])) {
+      $filter_price_start=$arResult["FILTER"]["price_start"];
+    }
+    if (isset($arResult["FILTER"]["price_end"])) {
+      $filter_price_end=$arResult["FILTER"]["price_end"];
+    }
+    //Размер
+    $filter_size=[];
+    if (isset($arResult["FILTER"]["size"])) {
+      $filter_size=$arResult["FILTER"]["size"];
+    }     
+    //Цвет
+    $filter_color=[];
+    if (isset($arResult["FILTER"]["color"])) {
+      $filter_color=$arResult["FILTER"]["color"];
+    }     
+    //Модель (Коллекция)
+    $filter_ar_models=[];
+    if (isset($arParams["arSettings"])) {
+      $filter_ar_models=$arParams["arSettings"]["MODEL_1"];
+    }
+    $filter_collect=[];
+    if (isset($arResult["FILTER"]["collect"])) {
+      $filter_collect=$arResult["FILTER"]["collect"];
+    }
+    //Дополнительно клеим модель из гета, если она есть
+    if ($_GET["model"]!="") {
+      if (!in_array($_GET["model"],$filter_collect)) {
+        $filter_collect[]=$_GET["model"];
+      }
+    }
 ?>
 <main>
   <?php //Страница каталога?>
@@ -35,7 +71,28 @@
         ?>
       </div>
       <div class="container">
-        <div class="article-page__title">Купальники</div>
+        <?php
+          $print_name_section="Купальники";
+          if ($_GET["vid"]=="Купальник женский слитный") {
+            $print_name_section="Слитные купальники";
+          }
+          if ($_GET["vid"]=="Купальник женский раздельный") {
+            $print_name_section="Раздельные купальники";
+          }
+          if ($_GET["new"]=="Y") {
+            $print_name_section="Новинки";
+          }
+          if ($_GET["hit"]=="Y") {
+            $print_name_section="Хиты продаж";
+          }
+          if ($_GET["sale"]=="Y") {
+            $print_name_section="Купальники со скидками";
+          }
+          if ($_GET["model"]!="") {
+            $print_name_section="Купальники ".$_GET["model"];
+          }
+        ?>
+        <div class="article-page__title"><?php echo $print_name_section;?></div>
       </div>
     </div>
   <?php endif;?>
@@ -123,9 +180,9 @@
           </div>
           <div class="filter-price">
             <div class="filter-price__input">
-              <input type="text" class="filter-price__input_start" placeholder="0">
+              <input type="text" class="filter-price__input_start" placeholder="0" value="<?php echo $filter_price_start;?>">
               <div class="filter-price__delimiter">-</div>
-              <input type="text" class="filter-price__input_end" placeholder="12000">
+              <input type="text" class="filter-price__input_end" placeholder="12000" value="<?php echo $filter_price_end;?>">
             </div>
             <div id="slider"></div>
           </div>
@@ -153,10 +210,17 @@
               <div class="filter-size__td">обхват талии, см</div>
               <div class="filter-size__td">обхват бедер, см</div>
             </div>
+            
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("xs",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="xs" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -173,7 +237,13 @@
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("s",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="s" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -190,7 +260,13 @@
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("m",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="m" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -207,7 +283,13 @@
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("l",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="l" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -224,7 +306,13 @@
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("xl",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="xl" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -241,7 +329,13 @@
             <div class="filter-size__tr">
               <div class="filter-size__td">
                 <div class="filter-size__input">
-                  <input type="checkbox">
+                  <?php
+                    $t_check="";
+                    if (in_array("xxl",$filter_size)) {
+                      $t_check="checked";
+                    }
+                  ?>
+                  <input type="checkbox" class="filter_size_class" size-val="xxl" <?php echo $t_check;?>>
                   <span class="filter-size__icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="9" height="7" viewBox="0 0 9 7" fill="none">
                       <path d="M8.14286 1L3.40525 6L1 3.53846" stroke="#263740" stroke-width="1.4" stroke-miterlimit="10" stroke-linejoin="round"/>
@@ -273,7 +367,13 @@
           <div class="filter-color">
             <?php foreach($arParams["arSettings"]["COLOR_1"] AS $key_2=>$val_2):?>
               <div class="filter-color__item">
-                <input type="checkbox">
+                <?php
+                  $t_check="";
+                  if (in_array($key_2,$filter_color)) {
+                    $t_check="checked";
+                  }
+                ?>
+                <input type="checkbox" class="filter_color_class" color-val="<?php echo $key_2;?>" <?php echo $t_check;?>>
                 <div class="filter-color__element">
                   <span style="background: <?php echo $val_2;?>"></span>
                   <?php echo $key_2;?>
@@ -296,42 +396,20 @@
             </div>
           </div>
           <div class="filter-color">
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Все коллекции
+            <?php foreach($filter_ar_models AS $key_5=>$val_5):?>
+              <div class="filter-color__item">
+                <?php
+                  $t_check="";
+                  if (in_array($val_5,$filter_collect)) {
+                    $t_check="checked";
+                  }
+                ?>
+                <input type="checkbox" class="filter_collect_class" collect-val="<?php echo $val_5;?>" <?php echo $t_check;?>>
+                <div class="filter-color__element">
+                  <?php echo $val_5;?>
+                </div>
               </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Belucci
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Jane Bond
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Mirabella
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Prima Vera
-              </div>
-            </div>
-            <div class="filter-color__item">
-              <input type="checkbox">
-              <div class="filter-color__element">
-                Rozalia
-              </div>
-            </div>
+            <?php endforeach;?>
           </div>
           <div class="btn_final">
             <a href="#" class="btn">Готово</a>
@@ -387,51 +465,54 @@
         <?php endif;?>
       </div>
     </div>
-    <div class="catalog-text">
-      <p>В СССР раздельные купальники появились на Наталье Селезневой в комедии Леонида Гайдая «Операция «Ы» и
-        другие приключения Шурика» (1965) и на Светлане Светличной в «Бриллиантовой руке» (1969).  С 1960-х
-        открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х — сплошной, но с
-        высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в стиле главной
-        героини
-        «Спасателей Малибу» Си Джей Паркер, которую сыграла Памела Андерсон. В 2000-х пляжная мода
-        ориентировалась на Пэрис Хилтон и вечеринки в Майами. Но, несмотря на все эти вариации, купальник
-        продолжал представлять собой пару кусков ткани, едва прикрывающих тело.</p>
-      <p>
-        В СССР раздельные купальники появились на Наталье Селезневой в комедии Леонида Гайдая «Операция «Ы»
-        и
-        другие приключения Шурика» (1965) и на Светлане Светличной в «Бриллиантовой руке» (1969).  С 1960-х
-        открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х — сплошной, но с
-        высокой линией бикини, в 1990-х
-      </p>
-    </div>
-    <div class="block-flex">
-      <div class="loyalty">
-        <h2>Программа лояльности</h2>
-        <div class="block-text">
-          Вступайте в <span class="fw-600">SerpentClub</span> и при покупе данного товара Вам начислится
-          500 баллов, которые можно будет потратить на следующие покупки.
-          <br>Что бы подключиться к программе лояльности
-        </div>
-        <div class="block-btn">
-          <?php if($USER->IsAuthorized()):?>
-            <a href="/cabinet/page_order/" class="btn">Перейти в личный кабинет</a>
-          <?php else:?>
-            <a href="#" class="btn auth-event">Войдите</a>
-            <div class="btn-or">
-              <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/btn-or.svg" alt="">
-            </div>
-            <a href="#" class="btn auth-event btn_black_b">Зарегистируйтесь</a>
-          <?php endif;?>
-        </div>
+    <?php //Страница поиска?>
+    <?php if($poisk):?>
+      <div class="catalog-text">
+        <p>В СССР раздельные купальники появились на Наталье Селезневой в комедии Леонида Гайдая «Операция «Ы» и
+          другие приключения Шурика» (1965) и на Светлане Светличной в «Бриллиантовой руке» (1969).  С 1960-х
+          открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х — сплошной, но с
+          высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в стиле главной
+          героини
+          «Спасателей Малибу» Си Джей Паркер, которую сыграла Памела Андерсон. В 2000-х пляжная мода
+          ориентировалась на Пэрис Хилтон и вечеринки в Майами. Но, несмотря на все эти вариации, купальник
+          продолжал представлять собой пару кусков ткани, едва прикрывающих тело.</p>
+        <p>
+          В СССР раздельные купальники появились на Наталье Селезневой в комедии Леонида Гайдая «Операция «Ы»
+          и
+          другие приключения Шурика» (1965) и на Светлане Светличной в «Бриллиантовой руке» (1969).  С 1960-х
+          открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х — сплошной, но с
+          высокой линией бикини, в 1990-х
+        </p>
       </div>
-      <?php
-      $APPLICATION->IncludeComponent(
-        "swf:forms",
-        "form_3",
-        [
-        ],
-    );
-      ?>
-    </div>
+      <div class="block-flex">
+        <div class="loyalty">
+          <h2>Программа лояльности</h2>
+          <div class="block-text">
+            Вступайте в <span class="fw-600">SerpentClub</span> и при покупе данного товара Вам начислится
+            500 баллов, которые можно будет потратить на следующие покупки.
+            <br>Что бы подключиться к программе лояльности
+          </div>
+          <div class="block-btn">
+            <?php if($USER->IsAuthorized()):?>
+              <a href="/cabinet/page_order/" class="btn">Перейти в личный кабинет</a>
+            <?php else:?>
+              <a href="#" class="btn auth-event">Войдите</a>
+              <div class="btn-or">
+                <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/btn-or.svg" alt="">
+              </div>
+              <a href="#" class="btn auth-event btn_black_b">Зарегистируйтесь</a>
+            <?php endif;?>
+          </div>
+        </div>
+        <?php
+          $APPLICATION->IncludeComponent(
+            "swf:forms",
+            "form_3",
+            [
+            ],
+          );
+        ?>
+      </div>
+    <?php endif;?>
   </div>
 </main>

@@ -53,12 +53,31 @@
       "Травяной зеленый"=>"#3f9b0b",
       "Изумрудный"=>"#50c878",
     ],
+    "MODEL_1"=>[
+      "Belucci",
+      "Prima Vera",
+      "Jane Bond",
+      "Mirabella",
+      "Rozalia",
+      "Anastasia",
+      "Lara",
+      "Milena",
+      "Daniela",
+      "Yubka",
+    ],
     "SIZE_WEIGHT"=>[
       "XS"=>100,
       "S"=>200,
       "M"=>300,
       "L"=>400,
+      "XL"=>500,
+      "XXL"=>600,
     ],
     "SIZE_PROP_CODE"=>"RAZMER",
+    "POPULAR_SEARCH"=>[
+      "Зеленый",
+      "Разные",
+      "Belucci",
+    ],
   ];
 ?>

@@ -140,5 +140,7 @@
         ?>
       </div>
     <?php endforeach;?>
+  <?php else:?>
+    <div class="no_found_prod_on_lk">Прошлых заказов - не найдено</div>
   <?php endif;?>
 </div>

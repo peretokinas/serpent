@@ -46,17 +46,17 @@
         </svg>
       </div>
       <?php
-      //Конструктор меню
-      $APPLICATION->IncludeComponent(
-        "swf:designer",
-        "menu_lk",
-        [
-          "IB"=>$arParams["arSettings"]["IB"]["cabinet_1"],
-          "DESIGNER_MENU"=>"Y",
-          "ORDER_USER_LIST"=>$arResult["ORDER_USER_LIST"],
-          "FAVORITES"=>$arResult["FAVORITES"],
-        ],
-      );
+        //Конструктор меню
+        $APPLICATION->IncludeComponent(
+          "swf:designer",
+          "menu_lk",
+          [
+            "IB"=>$arParams["arSettings"]["IB"]["cabinet_1"],
+            "DESIGNER_MENU"=>"Y",
+            "ORDER_USER_LIST"=>$arResult["ORDER_USER_LIST"],
+            "FAVORITES"=>$arResult["FAVORITES"],
+          ],
+        );
       ?>
       <a href="#" class="btn btn_white-b" data-modal-trigger="modal-callback">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none">

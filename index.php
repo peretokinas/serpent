@@ -81,18 +81,18 @@
           <div class="swiper-slide">
             <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-9.jpg" alt="">
           </div>
-          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
-               <span class="link-circle">
-                <span class="link-circle__text">
-                  все модели
-                </span>
-                <span class="link-circle__arrow">
-                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
-                    <path d="M29.1713 16.0006L-0.000242786 16.002" stroke="#263740" stroke-linejoin="round"></path>
-                    <path d="M23.8977 9.88823L29.9998 15.963L23.8992 22.0393" stroke="#263740" stroke-width="2"></path>
-                  </svg>
-                </span>
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="swiper-slide swiper-slide__all-slider">
+             <span class="link-circle">
+              <span class="link-circle__text">
+                все модели
               </span>
+              <span class="link-circle__arrow">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
+                  <path d="M29.1713 16.0006L-0.000242786 16.002" stroke="#263740" stroke-linejoin="round"></path>
+                  <path d="M23.8977 9.88823L29.9998 15.963L23.8992 22.0393" stroke="#263740" stroke-width="2"></path>
+                </svg>
+              </span>
+            </span>
           </a>
         </div>
       </div>
@@ -101,7 +101,7 @@
           <div class="title mb-60">Слитные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
-              <a href="<?php echo $link_static_slider;?>" class="link-circle">
+              <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="link-circle">
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                       fill="none">
@@ -118,10 +118,7 @@
             </div>
             <div class="swimsuit-block__column">
               <p>
-                С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в
-                1980-х — сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал
-                красный купальник в стиле главной героини «Спасателей Малибу» Си Джей Паркер, которую
-                сыграла Памела Андерсон...
+                Слитные купальники The Serpent созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.
               </p>
             </div>
           </div>
@@ -140,7 +137,7 @@
       </div>
     </div>
     <div class="section section-swimsuit-2 section-swimsuit__ps-two section-swimsuit-2-mobile">
-      <div class="swimsuit-title__mobile">Нижнее белье</div>
+      <div class="swimsuit-title__mobile">Свадебное нижнее белье</div>
       <div class="swiper swiper-mobile">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -172,7 +169,7 @@
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/underwear-2.jpg" alt="">
         </div>
         <div class="swimsuit-block__content">
-          <div class="title mb-60">Слитные купальники</div>
+          <div class="title mb-60">Свадебное нижнее белье</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
               <a href="<?php echo $link_static_slider;?>" class="link-circle">
@@ -192,10 +189,7 @@
             </div>
             <div class="swimsuit-block__column">
               <p>
-                С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в
-                1980-х — сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал
-                красный купальник в стиле главной героини «Спасателей Малибу» Си Джей Паркер, которую
-                сыграла Памела Андерсон...
+               Свадебное нижнее белье The Serpent – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
               </p>
             </div>
           </div>
@@ -217,9 +211,7 @@
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/underwear-1.jpg" alt="">
         </div>
         <div class="underwear-column__context">
-          С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х —
-          сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в
-          стиле главной героини «Спасателей Малибу» Си Джей Паркер, которую сыграла Памела Андерсон...
+          Свадебное нижнее белье The Serpent – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
         </div>
       </div>
       <div class="underwear-column">
@@ -229,7 +221,7 @@
       </div>
       <div class="underwear-column underwear-column__right">
         <div class="underwear-column__context">
-          <div class="title mb-40">Нижнее белье</div>
+          <div class="title mb-40">Свадебное <br>нижнее белье</div>
           <a href="<?php echo $link_static_slider;?>" class="link-circle">
             <span class="link-circle__text">
               все модели
@@ -260,7 +252,7 @@
           <div class="swiper-slide">
             <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-6.jpg" alt="">
           </div>
-          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
                   все модели
@@ -280,7 +272,7 @@
           <div class="title mb-60">Раздельные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
             <div class="swimsuit-block__column">
-              <a href="<?php echo $link_static_slider;?>" class="link-circle">
+              <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="link-circle">
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                       fill="none">
@@ -297,10 +289,7 @@
             </div>
             <div class="swimsuit-block__column">
               <p>
-                С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в
-                1980-х — сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал
-                красный купальник в стиле главной героини «Спасателей Малибу» Си Джей Паркер, которую
-                сыграла Памела Андерсон...
+                Раздельные купальники The Serpent созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.
               </p>
             </div>
           </div>
@@ -330,10 +319,8 @@
         </div>
         <div class="swimsuit-flex__content">
           <div class="title mb-60">Слитные</div>
-          <p>С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х —
-            сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в
-            стиле главной</p>
-          <a href="<?php echo $link_static_slider;?>" class="link-circle">
+          <p>Слитные купальники The Serpent созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.</p>
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                   fill="none">
@@ -360,10 +347,8 @@
         </div>
         <div class="swimsuit-flex__content">
           <div class="title mb-60">Раздельные</div>
-          <p>С 1960-х открытый купальник почти не менялся. В 1970-х появился вязаный купальник, в 1980-х —
-            сплошной, но с высокой линией бикини, в 1990-х самой покупаемой моделью стал красный купальник в
-            стиле главной</p>
-          <a href="<?php echo $link_static_slider;?>" class="link-circle">
+          <p>Раздельные купальники The Serpent созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.</p>
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
                   fill="none">
@@ -399,7 +384,7 @@
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-3.jpg" alt="">
             </div>
           </div>
-          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-4.jpg')">
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-4.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
                 все модели
@@ -431,7 +416,7 @@
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-8.jpg" alt="">
             </div>
           </div>
-          <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-9.jpg')">
+          <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-9.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
                 все модели
@@ -465,13 +450,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>"kupalniki",
+          "SECTION_CODE_PRINT_PARAM"=>"?new=Y",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_NEWS"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
           "BUTT_CENTER"=>"Y",
+          "FILTER_NEW"=>"Y",
         ],
       );
       
@@ -491,13 +478,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>"kupalniki",
+          "SECTION_CODE_PRINT_PARAM"=>"?hit=Y",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_HIT"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
           "BUTT_CENTER"=>"Y",
+          "FILTER_HIT"=>"Y",
         ],
       );
     ?>

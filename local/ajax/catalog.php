@@ -10,6 +10,13 @@
   
   //Каталог (Магазин)
   
+  //Применение фильтров
+  if ($_POST["type"]=="filter_add") {
+    $arData=$_POST["data"];
+    
+    swf_catalog::filter_add($arData);
+  }
+  
   //Добавление / удаление товара из избранного
   if ($_POST["type"]=="favorites_add_del") {
     

@@ -10,6 +10,24 @@
   //Методы каталога
 
   class swf_catalog {
+    //Применение фильтров
+    public static function filter_add($arParams) {
+      session_start();
+      
+      $_SESSION["SWF_SHOP_FILTER"]=$arParams;
+    }
+    
+    //Получение фильтров
+    public static function filter_get() {
+      session_start();
+      
+      if (!is_array($_SESSION["SWF_SHOP_FILTER"])) {
+        $_SESSION["SWF_SHOP_FILTER"]=[];
+      }
+      
+      return $_SESSION["SWF_SHOP_FILTER"];
+    }
+    
     //Добавление / удаление товара из избранного
     public static function favorites_add_del($arParam) {
       $result="false";

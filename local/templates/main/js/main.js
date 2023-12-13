@@ -1,4 +1,56 @@
 $(document).ready(function(){
+  //Клик по фото в срезе каталога (Переход на деталку)
+  $("body").on("click",".link_detail_on_click_photo_section_action",function(){
+    location.href=$(this).attr("link-detail");
+  });
+  
+  //Применение фильтров в срезе каталога
+  $("body").on("click",".btn_final",function(){
+    //Получаем данные с фильтровых модалок
+    var filter_ar=[];
+    
+    //Цена
+    filter_ar["price_start"]=$(".filter-price__input_start").val();
+    filter_ar["price_end"]=$(".filter-price__input_end").val();
+    //Размер
+    filter_ar["size"]=[];
+    $.each($(".filter_size_class"), function(key,val) {
+      if ($(this).is(":checked")) {
+        filter_ar["size"].push($(this).attr("size-val"));
+      }
+    });
+    //Цвет
+    filter_ar["color"]=[];
+    $.each($(".filter_color_class"), function(key,val) {
+      if ($(this).is(":checked")) {
+        filter_ar["color"].push($(this).attr("color-val"));
+      }
+    });
+    //Коллекция
+    filter_ar["collect"]=[];
+    $.each($(".filter_collect_class"), function(key,val) {
+      if ($(this).is(":checked")) {
+        filter_ar["collect"].push($(this).attr("collect-val"));
+      }
+    });
+    
+    var filter_obj=Object.assign({}, filter_ar);
+    
+    //Применяем фильтры
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"filter_add",
+        "data": filter_obj,
+      },
+      success: function(data) {
+        location.reload();
+      },
+    });
+  });
+  
   //Открытие / закрытие спойлера "подробнее о заказе" в ЛК в прошлых заказах
   $("body").on("click",".order-event__link",function(){
     var itemParent=$(this).parent().parent();
@@ -48,7 +100,19 @@ $(document).ready(function(){
     event.preventDefault();
     event.stopPropagation();
     
-    location.href="/catalog/kupalniki/";
+    //Применяем фильтры
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"filter_add",
+        "data": {},
+      },
+      success: function(data) {
+        location.href="/catalog/kupalniki/";
+      },
+    });
   });
   
   //Плавный переход по якорям
@@ -184,7 +248,7 @@ $(document).ready(function(){
     
     form_data=form_data+"&type=send_review_prod";
 
-    console.log(form_data);
+    // console.log(form_data);
     $.ajax({
       type: 'POST',
       url: "/local/ajax/forms.php",

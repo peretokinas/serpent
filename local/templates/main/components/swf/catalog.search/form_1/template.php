@@ -23,20 +23,16 @@
     <div class="search-modal__result">
       <div class="search-modal__column">
         <div class="search-modal__title">Популярные запросы</div>
-        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/" class="search-modal__item">
-          Купальник
-        </a>
-        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/" class="search-modal__item">
-          Купальник слитный
-        </a>
-        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/" class="search-modal__item">
-          Купальник раздельний
-        </a>
+        <?php foreach($arParams["arSettings"]["POPULAR_SEARCH"] AS $key=>$val):?>
+          <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/?search=<?php echo $val;?>" class="search-modal__item">
+            <?php echo $val;?>
+          </a>
+        <?php endforeach;?>
         <div class="search-modal__title">Категории</div>
-        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/" class="search-modal__item">
+        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/?vid=Купальник женский слитный" class="search-modal__item">
           Купальник слитный
         </a>
-        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/" class="search-modal__item">
+        <a href="<?php echo $arParams["arSettings"]["LINK_STATIC"]["catalog"];?>kupalniki/?vid=Купальник женский раздельный" class="search-modal__item">
           Купальник раздельний
         </a>
       </div>
@@ -61,9 +57,10 @@
             "LINK_CATALOG"=>$arParams["arSettings"]["LINK_STATIC"]["catalog"],
             "CART_DATA"=>"N",
             "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_NEWS"),
-            "SLIDER_LIMIT"=>rand(5,15),
+            "SLIDER_LIMIT"=>"",
             "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
             "BUTT_CENTER"=>"Y",
+            "FILTER_HIT"=>"Y",
           ],
         );
       ?>

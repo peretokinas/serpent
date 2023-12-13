@@ -14,7 +14,7 @@ $(document).ready(function(){
       data: form_data,
       success: function (data) {
         let response = JSON.parse(data);
-        console.log(response)
+        // console.log(response)
         if (response.success ) {
           swf_modal_1('Спасибо! С вами свяжутся в ближайшее время!', "reload_page", "");
         }else {

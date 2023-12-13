@@ -4,6 +4,14 @@
   
   global $USER;
   
+  //Получаем фильтры пользователя
+  $arResult["FILTER"]=swf_catalog::filter_get();
+  
+  //Отлючаем фильтры, если не стоит их активация
+  if ($arParams["USE_FILTER"]!="Y") {
+    $arResult["FILTER"]=[];
+  }
+  
   //Получаем корзину текущего пользователя
   $basket=swf_catalog::get_cart();
   
@@ -71,10 +79,80 @@
   if ($search_text!="") {
     $arFilter[]=[
       'LOGIC'=>'OR',
-      'NAME'=>"%".$search_text."%",
-      'NAME'=>"%".$search_text_translit."%",
+      [
+        'NAME'=>"%".$search_text."%",
+      ],
+      [
+        'NAME'=>"%".$search_text_translit."%",
+      ],
     ];
   }
+  
+  //Клеим фильтры, если они есть
+  if (count($arResult["FILTER"])>0) {
+    //Цвет
+    if (isset($arResult["FILTER"]["color"])) {
+      if (count($arResult["FILTER"]["color"])>0) {
+        $tmpAr123=[];
+        $tmpAr123["LOGIC"]="OR";
+        $testAddet=0;
+        foreach ($arResult["FILTER"]["color"] AS $key=>$val) {
+          $tmpAr123[]["PROPERTY_TSVET_VALUE"]="%".$val."%";
+          $testAddet=1;
+        }
+        if ($testAddet==1) {
+          $arFilter[]=$tmpAr123;
+        }
+      }
+    }
+    //Модель
+    if (isset($arResult["FILTER"]["collect"])) {
+      if (count($arResult["FILTER"]["collect"])>0) {
+        $tmpAr123=[];
+        $tmpAr123["LOGIC"]="OR";
+        $testAddet=0;
+        foreach ($arResult["FILTER"]["collect"] AS $key=>$val) {
+          $tmpAr123[]["PROPERTY_MODEL_VALUE"]="%".$val."%";
+          $testAddet=1;
+        }
+        if ($testAddet==1) {
+          $arFilter[]=$tmpAr123;
+        }
+      }
+    }
+  }
+  
+  //Клеим фильтр новинка, скидка, хит, модель если есть
+    //Новинка
+    if (isset($arParams["FILTER_NEW"])) {
+      if ($arParams["FILTER_NEW"]=="Y") {
+        $arFilter[]["PROPERTY_NOVINKA"]="%true%";
+      }
+    }
+    //Хит
+    if (isset($arParams["FILTER_HIT"])) {
+      if ($arParams["FILTER_HIT"]=="Y") {
+        $arFilter[]["PROPERTY_KHIT"]="%true%";
+      }
+    }
+    //Скидка
+    if (isset($arParams["FILTER_SALE"])) {
+      if ($arParams["FILTER_SALE"]=="Y") {
+        $arFilter[][">PROPERTY_SKIDKA"]="0";
+      }
+    }
+    //Модель
+    if (isset($arParams["FILTER_MODEL"])) {
+      if ($arParams["FILTER_MODEL"]!="") {
+        $arFilter[]["PROPERTY_MODEL_VALUE"]="%".$arParams["FILTER_MODEL"]."%";
+      }
+    }
+    //Вид
+    if (isset($arParams["FILTER_VID"])) {
+      if ($arParams["FILTER_VID"]!="") {
+        $arFilter[]["PROPERTY_VID_VALUE"]="%".$arParams["FILTER_VID"]."%";
+      }
+    }
   
   $res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
   $arRes=[];
@@ -102,6 +180,25 @@
     'IBLOCK_ID'=>$arParams["IB_SKU"],
     'ACTIVE'=>'Y',
   ];
+  
+  //Клеим фильтры, если они есть
+  if (count($arResult["FILTER"])>0) {
+    //Размер
+    if (isset($arResult["FILTER"]["size"])) {
+      if (count($arResult["FILTER"]["size"])>0) {
+        $tmpAr123=[];
+        $tmpAr123["LOGIC"]="OR";
+        $testAddet=0;
+        foreach ($arResult["FILTER"]["size"] AS $key=>$val) {
+          $tmpAr123[]["PROPERTY_RAZMER_VALUE"]="%".$val."%";
+          $testAddet=1;
+        }
+        if ($testAddet==1) {
+          $arFilter[]=$tmpAr123;
+        }
+      }
+    }
+  }
   
   $res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
   $arRes=[];
@@ -152,7 +249,31 @@
   foreach ($arProd AS $key=>$val) {
     $arProd[$key]["arPrice"]=[];
     $arProd[$key]["arPrice"]=$arPrice[$val["arFields"]["ID"]];
+    
+    //Удаляем товар из массива, если включен ценовой фильтр и он под него не подходит
+    if (isset($arResult["FILTER"]["price_start"]) AND isset($arResult["FILTER"]["price_end"])) {
+      $type_price_param=$arParams["arSettings"]["SHOP"]["BASE_PRICE_CODE"];
+      $price_now=(float)$arPrice[$val["arFields"]["ID"]][$type_price_param]["PRICE"];
+      
+      $del_prod=1;
+      if ($price_now>=(float)$arResult["FILTER"]["price_start"] AND $price_now<=(float)$arResult["FILTER"]["price_end"]) {
+        $del_prod=0;
+      }
+      
+      if ($del_prod==1) {
+        unset($arProd[$key]);
+      }
+    }
   }
+  //Перебираем массив, если применены фильтры цены (возможно индексы идут не попорядку, так как было что то удалено)
+  if (isset($arResult["FILTER"]["price_start"]) AND isset($arResult["FILTER"]["price_end"])) {
+    $nArProd=[];
+    foreach ($arProd AS $key=>$val) {
+      $nArProd[]=$val;
+    }
+    $arProd=$nArProd;
+  }
+  
   //Клеим цены к массиву ТП
   foreach ($arSku AS $key=>$val) {
     foreach ($val AS $key_1=>$val_1) {

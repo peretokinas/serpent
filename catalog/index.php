@@ -54,6 +54,12 @@
         "ALL_CATALOG_CAST_TITLE"=>"",
         "BUTT_CENTER"=>"",
         "SEARCH_TEXT"=>$_GET["search"],
+        "USE_FILTER"=>"Y",
+        "FILTER_NEW"=>$_GET["new"],
+        "FILTER_HIT"=>$_GET["hit"],
+        "FILTER_SALE"=>$_GET["sale"],
+        "FILTER_MODEL"=>$_GET["model"],
+        "FILTER_VID"=>$_GET["vid"],
       ],
     );
   }

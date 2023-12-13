@@ -17,6 +17,10 @@
               $dop_slash = "/";
               $dop_slash_start = "/";
             }
+            
+            if (strpos($val["CODE"],"?")>0) {
+              $dop_slash="";
+            }
           ?>
           <a href="<?php echo $dop_slash_start;?><?php echo $val["CODE"];?><?php echo $dop_slash;?>" class="header-menu__link <?php echo $val["CLASS_CSS"];?>"><span><?php echo $val["NAME"];?></span>
            <?php if(!empty($val["CLASS_CSS"])):?>

@@ -58,35 +58,41 @@
     <div class="product">
       <div class="product-block">
         <div class="product-slider">
-          <!--<div class="product-slide__tags">
-            <div class="product-slide__tag product-slide__new">
-              <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                    stroke-width="2"></path>
-              </svg>
-              <span>new</span>
-            </div>
-            <div class="product-slide__tag product-slide__hit">
-              <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                    stroke-width="2"></path>
-              </svg>
-              <span>Hit</span>
-            </div>
-            <div class="product-slide__tag product-slide__sale">
-              <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                    stroke-width="2"></path>
-              </svg>
-              <span>-23%</span>
-              <div class="product-slide__sale-text">
-                Акция действует с 01.10. по 31.10.
+          <div class="product-slide__tags">
+            <?php if($arElem["arProps"]["NOVINKA"]["VALUE"]=="true"):?>
+              <div class="product-slide__tag product-slide__new">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
+                      stroke-width="2"></path>
+                </svg>
+                <span>new</span>
               </div>
-            </div>
-          </div>-->
+            <?php endif;?>
+            <?php if($arElem["arProps"]["KHIT"]["VALUE"]=="true"):?>
+              <div class="product-slide__tag product-slide__hit">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
+                      stroke-width="2"></path>
+                </svg>
+                <span>Hit</span>
+              </div>
+            <?php endif;?>
+            <?php if((int)$arElem["arProps"]["SKIDKA"]["VALUE"]>0):?>
+              <div class="product-slide__tag product-slide__sale">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                   xmlns="http://www.w3.org/2000/svg">
+                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
+                      stroke-width="2"></path>
+                </svg>
+                <span>-<?php echo $arElem["arProps"]["SKIDKA"]["VALUE"];?>%</span>
+                <!--<div class="product-slide__sale-text">
+                  Акция действует с 01.10. по 31.10.
+                </div>-->
+              </div>
+            <?php endif;?>
+          </div>
           <div class="product-slider__container swiper">
             <div class="swiper-wrapper">
               <?php if(is_array($arElem["arPhotos"])):?>
@@ -470,13 +476,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>$arParams["SECTION_CODE_PRINT"],
+          "SECTION_CODE_PRINT_PARAM_INT"=>"?model=".$arElem["arProps"]["MODEL"]["VALUE"],
           "SECTION_NAME_PRINT"=>$arParams["SECTION_NAME_PRINT"],
           "LINK_CATALOG"=>$arParams["LINK_CATALOG"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_POHOJIE"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
+          "FILTER_MODEL"=>$arElem["arProps"]["MODEL"]["VALUE"],
         ],
       );
       
@@ -496,13 +504,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>$arParams["SECTION_CODE_PRINT"],
+          "SECTION_CODE_PRINT_PARAM_INT"=>"?model=".$arElem["arProps"]["MODEL"]["VALUE"],
           "SECTION_NAME_PRINT"=>$arParams["SECTION_NAME_PRINT"],
           "LINK_CATALOG"=>$arParams["LINK_CATALOG"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_LINE"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
+          "FILTER_MODEL"=>$arElem["arProps"]["MODEL"]["VALUE"],
         ],
       );
     ?>

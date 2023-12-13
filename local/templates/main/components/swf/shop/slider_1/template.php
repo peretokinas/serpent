@@ -9,7 +9,7 @@
     </div>
     <div class="section-top__event">
       <?php if($arParams["NO_LINK_CATALOG_TITLE"]!="Y"):?>
-        <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/" class="link-all">
+        <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/<?php echo $arParams["SECTION_CODE_PRINT_PARAM"]?>" class="link-all">
           <?php
             $tmp_title_var="SHOP_SLIDER_1_ALL_CATALOG";
             if (isset($arParams["ALL_CATALOG_CAST_TITLE"])) {
@@ -103,7 +103,7 @@
             ?>
           </div>
         <?php endforeach;?>
-        <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/" class="swiper-slide swiper-slide__all-slider">
+        <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/<?php echo $arParams["SECTION_CODE_PRINT_PARAM_INT"]?>" class="swiper-slide swiper-slide__all-slider">
            <span class="link-circle">
             <span class="link-circle__text">
               <?php echo Loc::getMessage("SHOP_SLIDER_1_ALL_MODEL");?>

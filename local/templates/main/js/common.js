@@ -165,6 +165,13 @@ window.addEventListener('load', function (){
                 })
               })
             });
+            item.addEventListener('touchmove', () => {
+              this.pagination.bullets.forEach((bullet, index) => {
+                bullet.addEventListener('touchmove', function (){
+                  swiperProductPic.slideTo(index)
+                })
+              })
+            });
           },
         }
       });
@@ -480,7 +487,7 @@ window.addEventListener('load', function (){
         })
 
         document.addEventListener( 'mouseup', (e) => {
-          console.log(e.target.className)
+          // console.log(e.target.className)
           if ( e.target.className == 'blackout active' ) {
             document.querySelector('.filter-item.active').classList.remove('active')
             document.querySelector('.filter-container.active').classList.remove('active')
@@ -533,9 +540,13 @@ window.addEventListener('load', function (){
 
   if(document.querySelector('.filter-price')){
     let priceSlider = document.getElementById('slider');
+    
+    var price_start=$('.filter-price__input_start').val();
+    var price_end=$('.filter-price__input_end').val();
+
 
     noUiSlider.create(priceSlider, {
-      start: [1000, 16000],
+      start: [price_start, price_end],
       step: 100,
       connect: true,
       range: {

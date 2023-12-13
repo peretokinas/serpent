@@ -64,8 +64,8 @@ footer {
   max-height: 700px;
 }
 
-.product-favorite input.checked+svg path{stroke:#e5918a;fill:#e5918a}
-.product-favorite input.checked:hover+svg path{stroke:#b76760;fill:#b76760}
+.product-favorite input.checked+svg path{stroke:#e5918a!important;fill:#e5918a!important}
+.product-favorite input.checked:hover+svg path{stroke:#b76760!important;fill:#b76760!important}
 
 .product-favorite-cart {
   opacity: 1 !important;
@@ -85,4 +85,13 @@ footer {
 
 .ya-share2__popup {
   top: 43px !important;
+}
+
+.no_found_prod_on_lk {
+  margin: auto;
+  font-size: 20px;
+}
+
+.product-slide__pic {
+  cursor: pointer;
 }

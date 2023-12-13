@@ -52,13 +52,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>"kupalniki",
+          "SECTION_CODE_PRINT_PARAM"=>"?new=Y",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_NEWS"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
           "BUTT_CENTER"=>"Y",
+          "FILTER_NEW"=>"Y",
         ],
       );
       
@@ -78,13 +80,15 @@
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
           "SECTION_CODE_PRINT"=>"kupalniki",
+          "SECTION_CODE_PRINT_PARAM"=>"?hit=Y",
           "SECTION_NAME_PRINT"=>$arSettings["SHOP"]["SECTION"]["kupalniki"],
           "LINK_CATALOG"=>$arSettings["LINK_STATIC"]["catalog"],
           "CART_DATA"=>"N",
           "SLIDER_TITLE"=>Loc::getMessage("SHOP_SLIDER_1_HIT"),
-          "SLIDER_LIMIT"=>rand(3,10),
+          "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
           "BUTT_CENTER"=>"Y",
+          "FILTER_HIT"=>"Y",
         ],
       );
     ?>

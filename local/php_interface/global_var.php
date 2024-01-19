@@ -23,10 +23,11 @@
     ],
     "SHOP"=>[
       "API_KEY_PHONE_SENDER"=>"bfe361e91574187e5c6cf0e58b340b74",
-      "BASE_PRICE_CODE"=>3,
+      "BASE_PRICE_CODE"=>5,
       "BASE_CURR_CODE"=>"RUB",
       "SECTION"=>[
         "kupalniki"=>"Купальники",
+        "cert"=>"Подарочные карты",
       ],
       "ORDER_STATUS"=>[
         "N"=>"Сформирован",
@@ -36,7 +37,7 @@
     ],
     "COLOR_1"=>[
       "Голубой"=>"#42aaff",
-      "Белый"=>"#fff",
+      "Белый"=>"#f7f7f5",
       "Черно-бежевый"=>"#a49e77",
       "Винный"=>"#7b0323",
       "Черный"=>"#000",
@@ -54,16 +55,8 @@
       "Изумрудный"=>"#50c878",
     ],
     "MODEL_1"=>[
-      "Belucci",
-      "Prima Vera",
-      "Jane Bond",
-      "Mirabella",
-      "Rozalia",
-      "Anastasia",
-      "Lara",
-      "Milena",
-      "Daniela",
-      "Yubka",
+      "Beginning",
+      "Lady of the rings",
     ],
     "SIZE_WEIGHT"=>[
       "XS"=>100,

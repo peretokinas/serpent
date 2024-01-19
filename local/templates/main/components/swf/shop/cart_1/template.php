@@ -45,7 +45,7 @@
               <div class="cast_error_text_1 cast_hide"></div>
             </div>
             <div class="form-item">
-              <input name="f_phone" type="text" placeholder="телефон">
+              <input name="f_phone" type="tel" placeholder="телефон">
               <div class="cast_error_text_1 cast_hide"></div>
             </div>
             <div class="form-item">
@@ -86,23 +86,20 @@
                     <div class="card-column">
                       <div class="card-title">Как добраться</div>
                       <div class="card-text">
-                        <span>г. Москва, Столешников переулок</span>
-                        <span class="fw-600">ст. м. Пушкинское, ст. м. Тверская</span>
-                        <span>(3 минуты и направо)</span>
+                        <span>г. Москва, ул. Усачева, 11Ж</span>
+                        <span class="fw-600">ст. м. Спортивная,<br> ст. м. Фрунзенская</span>
+                        <span></span>
                       </div>
                     </div>
                     <div class="card-column">
                       <div class="card-title">Режим работы</div>
                       <div class="card-text">
                         <span class="card-text__time">
-                          <span class="fw-600">Пн-Пт: </span>
-                          <span>9:00 - 19:00</span>
+                          <span class="fw-600">11:00 - 20:00</span>
                         </span>
                         <span class="card-text__time">
-                          <span class="fw-600">Сб-Вс: </span>
-                          <span>9:00 - 18:00</span>
-                        </span>
-                        <span class="fw-600">Без выходных</span>
+                          <span class="">Без выходных</span>
+                        <span>
                       </div>
                     </div>
                   </div>
@@ -111,7 +108,7 @@
                   </div>
                 </div>
               </div>
-              <!--<div class="tab-content" data-id="courier">
+              <div class="tab-content" data-id="courier">
                 <div class="main-tab">
                   <h3>Ваш адрес</h3>
                   <div class="form-item">
@@ -238,7 +235,7 @@
                     <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/basket/map.jpg" alt="">
                   </div>
                 </div>
-              </div>-->
+              </div>
             </div>
           </div>
           <div class="basket-section">

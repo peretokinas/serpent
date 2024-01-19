@@ -3,13 +3,14 @@
 <div class="journal-slider swiper">
   <div class="swiper-wrapper">
   <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
+      <?php $date_created = date("d.m.Y", strtotime($val["ACTIVE_FROM"]));?>
       <div class="swiper-slide">
           <a href="<?php echo $val["DETAIL_PAGE_URL"];?>" class="journal-slide">
             <span class="journal-slide__pic">
                <img src="<?php echo $val["PREVIEW_PICTURE"]["SRC"];?>" alt="">
             </span>
               <span class="journal-slide__flex">
-                <span class="journal-slide__date"><?php echo $val["ACTIVE_FROM"];?></span>
+                <span class="journal-slide__date"><?php echo $date_created;?></span>
                 <span class="journal-slide__tag">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</span>
             </span>
               <span class="journal-slide__title"><?php echo htmlspecialcharsBack($val["NAME"]);?></span>

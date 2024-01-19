@@ -51,34 +51,34 @@
       <div class="contact-props">
         <div class="contact-props__head">
           <div class="h33">Реквизиты</div>
-          <a href="#" class="props-download">Скачать</a>
+          <!-- <a href="#" class="props-download">Скачать</a> -->
         </div>
         <div class="props-item">
           <div class="props-item__label">адрес</div>
-          <div class="props-item__value">115114, Москва, Павелецкая наб., д. 2, стр. 4, этаж 3, пом. 301</div>
+          <div class="props-item__value"> 392036, г. Тамбов, ул. Коммунальная, д. 18</div>
         </div>
-        <div class="props-item">
+        <!-- <div class="props-item">
           <div class="props-item__label">Расчетный счет</div>
           <div class="props-item__value">40702810432000009840 в Филиале «Центральный» Банка ВТБ (ПАО) в г. Москве</div>
-        </div>
+        </div> -->
         <div class="props-item__flex">
           <div class="props-item">
             <div class="props-item__label">инн</div>
-            <div class="props-item__value">7710711668</div>
+            <div class="props-item__value">650117995444</div>
           </div>
           <div class="props-item">
-            <div class="props-item__label">кпп</div>
-            <div class="props-item__value">772501001</div>
+            <div class="props-item__label">огрн</div>
+            <div class="props-item__value">322650000012481</div>
           </div>
-          <div class="props-item">
+          <!-- <div class="props-item">
             <div class="props-item__label">бик</div>
             <div class="props-item__value">044525411</div>
-          </div>
+          </div> -->
         </div>
-        <div class="props-item">
+        <!-- <div class="props-item">
           <div class="props-item__label">Корреспондентский счет</div>
           <div class="props-item__value">30101810145250000411</div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

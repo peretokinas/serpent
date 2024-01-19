@@ -7,19 +7,19 @@
     'IBLOCK_ID'=>$arParams["IB"],
     'ACTIVE'=>'Y',
   ];
-//Доп фильтры
-if ($arParams["ELEMENT_CODE"]!="") {
-  $arFilter["CODE"]=$arParams["ELEMENT_CODE"];
-}
+  //Доп фильтры
+  if ($arParams["ELEMENT_CODE"]!="") {
+    $arFilter["CODE"]=$arParams["ELEMENT_CODE"];
+  }
 
-$res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
-$arRes=[];
-while ($ob=$res->GetNextElement()) {
-  $arRes[]=[
-    "arFields"=>$ob->GetFields(),
-    "arProps"=>$ob->GetProperties(),
-  ];
-}
+  $res=CIBlockElement::GetList(["SORT"=>"ASC"], $arFilter);
+  $arRes=[];
+  while ($ob=$res->GetNextElement()) {
+    $arRes[]=[
+      "arFields"=>$ob->GetFields(),
+      "arProps"=>$ob->GetProperties(),
+    ];
+  }
   
   //Помещаем в результ
   if ($arParams["ALL_RECORDS"]=="Y") {
@@ -33,6 +33,34 @@ while ($ob=$res->GetNextElement()) {
   //Получаем структуру разделов инфоблока для меню при наличии специального параметра
   $arResult["arTree"]=[];
   if ($arParams["DESIGNER_MENU"]=="Y") {
+
+    //Получаем корзину текущего пользователя
+    $basket=swf_catalog::get_cart();
+
+    //Клеим корзину в результат
+    $arResult["BASKET"]=$basket;
+
+    //Получаем избранные товары
+    $arFilter=[
+      'IBLOCK_ID'=>$arParams["arSettings"]["IB"]["favorites"],
+      'PROPERTY_ID_USER'=>$USER->GetID(),
+      'ACTIVE'=>'Y',
+    ];
+
+    $arIdsFav=[];
+    if ($USER->IsAuthorized()) {
+      $res=CIBlockElement::GetList(["ID"=>"DESC"], $arFilter);
+      while ($ob=$res->GetNextElement()) {
+        $arFields=$ob->GetFields();
+        $arProps=$ob->GetProperties();
+
+        $arIdsFav[]=$arProps["ID_PROD"]["VALUE"];
+      }
+    }
+
+    //Возвращаем в результате
+    $arResult["FAVORITES"]=$arIdsFav;
+    
     //Дергаем все разделы
     $arTree=[];
     $filter=['IBLOCK_ID'=>$arParams["IB"], 'ACTIVE'=>'Y'];

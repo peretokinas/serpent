@@ -10,8 +10,16 @@
 <script>
     const coordinate = JSON.parse('<?php echo $arCoord;?>');
     ymaps.ready(function () {
+        var mc_1=55.740000;
+        var mc_2=37.450000;
+        
+        if (document.body.clientWidth<=991) {
+          mc_1=55.725000;
+          mc_2=37.550000;
+        }
+      
         var myMap = new ymaps.Map('map', {
-                center: [55.751574, 37.573856],
+                center: [mc_1, mc_2],
                 zoom: 12
             }, {
                 searchControlProvider: 'yandex#search'

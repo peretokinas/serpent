@@ -19,7 +19,7 @@
     "AJAX_MODE" => "Y",
     "IBLOCK_TYPE" => "content",
     "IBLOCK_ID" => $arSettings["IB"]["slider_1"],
-    "NEWS_COUNT" => 2,
+    "NEWS_COUNT" => 10000,
     "SORT_BY1" => "ACTIVE_FROM",
     "SORT_ORDER1" => "DESC",
     "SORT_BY2" => "SORT",
@@ -73,18 +73,18 @@
       <div class="swiper swiper-mobile">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-9.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3_m.jpg?v=1" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-10.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2_m.jpg?v=1" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-9.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1_m.jpg?v=1" alt="">
           </div>
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="swiper-slide swiper-slide__all-slider">
              <span class="link-circle">
               <span class="link-circle__text">
-                все модели
+                Все модели
               </span>
               <span class="link-circle__arrow">
                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -112,31 +112,31 @@
                   </svg>
                 </span>
                 <span class="link-circle__text">
-                  все модели
+                  Все модели
                 </span>
               </a>
             </div>
             <div class="swimsuit-block__column">
               <p>
-                Слитные купальники The Serpent созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.
+                Слитные купальники <b>The Serpent</b> созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.
               </p>
             </div>
           </div>
           <div class="swimsuit-block__flex">
             <div class="swimsuit-block__column">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-9.jpg" alt="">
+              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2.jpg?v=1" alt="">
             </div>
             <div class="swimsuit-block__column">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-10.jpg" alt="">
+              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3.jpg?v=1" alt="">
             </div>
           </div>
         </div>
         <div class="swimsuit-block__pic">
-          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-8.jpg" alt="">
+          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1.jpg?v=1" alt="">
         </div>
       </div>
     </div>
-    <div class="section section-swimsuit-2 section-swimsuit__ps-two section-swimsuit-2-mobile">
+    <!--<div class="section section-swimsuit-2 section-swimsuit__ps-two section-swimsuit-2-mobile">
       <div class="swimsuit-title__mobile">Свадебное нижнее белье</div>
       <div class="swiper swiper-mobile">
         <div class="swiper-wrapper">
@@ -152,7 +152,7 @@
           <a href="<?php echo $link_static_slider;?>" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
-                  все модели
+                  Все модели
                 </span>
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -183,13 +183,13 @@
                   </svg>
                 </span>
                 <span class="link-circle__text">
-                  все модели
+                  Все модели
                 </span>
               </a>
             </div>
             <div class="swimsuit-block__column">
               <p>
-               Свадебное нижнее белье The Serpent – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
+               Свадебное нижнее белье <b>The Serpent</b> – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
               </p>
             </div>
           </div>
@@ -203,15 +203,15 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="section section-swimsuit-1 underwear">
+    </div>-->
+    <!--<div class="section section-swimsuit-1 underwear">
       <div class="swimsuit-title__mobile">Слитные купальники</div>
       <div class="underwear-column">
         <div class="underwear-column__pic">
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/underwear-1.jpg" alt="">
         </div>
         <div class="underwear-column__context">
-          Свадебное нижнее белье The Serpent – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
+          Свадебное нижнее белье <b>The Serpent</b> – это эстетичный дизайн, подчеркивающий женское очарование. Ювелирно проработанный крой и особое внимание к деталям делают его идеальным выбором невесты. Мягкий шелк обеспечивает комфорт, позволяя чувствовать себя уверенной и соблазнительной на протяжении всего торжества.
         </div>
       </div>
       <div class="underwear-column">
@@ -224,7 +224,7 @@
           <div class="title mb-40">Свадебное <br>нижнее белье</div>
           <a href="<?php echo $link_static_slider;?>" class="link-circle">
             <span class="link-circle__text">
-              все модели
+              Все модели
             </span>
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -238,24 +238,24 @@
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/underwear-3.jpg" alt="">
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="section section-swimsuit-2 section-swimsuit__ps-one">
       <div class="swimsuit-title__mobile">Раздельные купальники</div>
       <div class="swiper swiper-mobile">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-6.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_1_m.jpg?v=2" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-7.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_2_m.jpg?v=2" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-6.jpg" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_3_m.jpg?v=2" alt="">
           </div>
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="swiper-slide swiper-slide__all-slider">
                <span class="link-circle">
                 <span class="link-circle__text">
-                  все модели
+                  Все модели
                 </span>
                 <span class="link-circle__arrow">
                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -283,31 +283,32 @@
                   </svg>
                 </span>
                 <span class="link-circle__text">
-                  все модели
+                  Все модели
                 </span>
               </a>
             </div>
             <div class="swimsuit-block__column">
               <p>
-                Раздельные купальники The Serpent созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.
+                Раздельные купальники <b>The Serpent</b> созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.
               </p>
             </div>
           </div>
           <div class="swimsuit-block__flex">
             <div class="swimsuit-block__column">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-6.jpg" alt="">
+              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_1.jpg?v=2" alt="">
             </div>
             <div class="swimsuit-block__column">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-7.jpg" alt="">
+              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_2.jpg?v=2" alt="">
             </div>
           </div>
         </div>
         <div class="swimsuit-block__pic">
-          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/swimsuit-5.jpg" alt="">
+          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_3.jpg?v=2" alt="">
         </div>
       </div>
     </div>
-    <div class="section section-desktop__swimsuit section-swimsuit-1">
+
+    <!--<div class="section section-desktop__swimsuit section-swimsuit-1" hidden>
       <div class="swimsuit-flex">
         <div class="swimsuit-pics">
           <div class="swimsuit-pic">
@@ -319,7 +320,7 @@
         </div>
         <div class="swimsuit-flex__content">
           <div class="title mb-60">Слитные</div>
-          <p>Слитные купальники The Serpent созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.</p>
+          <p>Слитные купальники <b>The Serpent</b> созданы подчеркнуть женственные изгибы и соблазнительные формы. Выполнены из ткани с эффектом гладкого шелка, идеально облегающего тело, вызывая восхищение. Каждая деталь продумана до мелочей, позволяя выглядеть стильно и элегантно.</p>
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
@@ -331,7 +332,7 @@
               </svg>
             </span>
             <span class="link-circle__text">
-              все модели
+              Все модели
             </span>
           </a>
         </div>
@@ -347,7 +348,7 @@
         </div>
         <div class="swimsuit-flex__content">
           <div class="title mb-60">Раздельные</div>
-          <p>Раздельные купальники The Serpent созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.</p>
+          <p>Раздельные купальники <b>The Serpent</b> созданы раскрывать красоту женского тела. Выполненные из тактильно приятной ткани премиум качества, обеспечивают идеальную посадку для комфортного плавания и идеально ровного загара. Оригинальный дизайн позволяет создать незабываемый образ.</p>
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="link-circle">
             <span class="link-circle__arrow">
                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
@@ -359,13 +360,13 @@
               </svg>
             </span>
             <span class="link-circle__text">
-              все модели
+              Все модели
             </span>
           </a>
         </div>
       </div>
-    </div>
-    <div class="section-tablet__swimsuit">
+    </div>-->
+    <!--<div class="section-tablet__swimsuit">
       <div class="swimsuit-title__mobile">Слитные</div>
       <div class="swiper swiper-swimsuit">
         <div class="swiper-wrapper">
@@ -387,7 +388,7 @@
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-4.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
-                все модели
+                Все модели
               </span>
               <span class="link-circle__arrow">
                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -419,7 +420,7 @@
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский раздельный" class="swiper-slide swiper-slide__all" style="background-image: url('<?=SITE_TEMPLATE_PATH;?>/img/main/swim-t-9.jpg')">
             <span class="link-circle">
               <span class="link-circle__text">
-                все модели
+                Все модели
               </span>
               <span class="link-circle__arrow">
                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
@@ -432,7 +433,9 @@
         </div>
       </div>
       <div class="swimsuit-title__mobile">Раздельные</div>
-    </div>
+    </div>-->
+
+
     <?php
       //Новинки
       $APPLICATION->IncludeComponent(
@@ -532,20 +535,24 @@
           <div class="surprise-banner__description">Подари близкому человеку приятные ощущения комфорта.
             Прикоснитесь к лету с идеальным образом!
           </div>
-          <!--<a href="#" class="btn">Купить сертификат</a>-->
+          <a href="<?php echo $arSettings["LINK_STATIC"]["catalog"];?>cert/" class="btn">Купить сертификат</a>
         </div>
       </div>
       <div class="sale-block">
         <div class="sale-block__price">500 ₽</div>
         <div class="sale-block__title">скидка на первую покупку при регистрации на сайте</div>
-        <div class="sale-block__description">Подпишитесь на рассылку новостей, чтобы получить информацию о
+        <!--<div class="sale-block__description">Подпишитесь на рассылку новостей, чтобы получить информацию о
           новостях и акциях
-        </div>
-        <a href="" class="btn btn_mobile btn_white auth-event">Зарегистрироваться</a>
-        <form action="" class="sale-form">
+        </div>-->
+        <?php if($USER->IsAuthorized()):?>
+          <a href="/cabinet/" class="btn btn_white">Перейти в личный кабинет</a>
+        <?php else:?>
+          <a href="" class="btn btn_white auth-event">Зарегистрироваться</a>
+        <?php endif;?>
+        <!--<form action="" class="sale-form">
           <input type="text" placeholder="e-mail" class="sale-input">
           <button class="btn btn_white">Подписаться</button>
-        </form>
+        </form>-->
       </div>
     </div>
     <div class="journal section">
@@ -675,26 +682,22 @@
         <div class="title mb-40">
           О бренде
         </div>
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
-          sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-          est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-          modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-          veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-          commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil
-          molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? Sed ut
-          perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-          aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-          explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-          consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-          dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
-          tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem <a href="/brand/">подробнее</a>
-        </p>
+        <p>В названии бренда заложен смысл обновления и трансформации.</p><br>
+
+        <p>Мы верим, что сила женщины в непостоянстве ее образов.</p><br>
+
+        <p>Мы видим свою миссию в создании уникальных моделей купальников, которые выделяют женщину «из толпы». Мы создаем тренды в пляжной моде, используем плотные итальянские ткани, которые не выгорают, приятны к телу, подчеркивают фигуру и придают женственности.
+        Быть нежной и романтичной или уверенной и шикарной — решать только вам, а <b>The Serpent</b> поможет создать правильное настроение.</p><br>
+
+        <p>Экзотический пляж, прогулка на яхте, отдых в спа или просто фотосессия – в любом случае вы будете неповторимы.</p><br>
+
+        <p>«Женское тело для меня всегда было объектом восхищения. Я уверена, что каждая женщина красива, просто иногда надо выделить то, что подарила природа. Купальники <b>The Serpent</b> подчеркивают форму и объемы, рельефы тела, скрывают то, что не хочется показывать».</p><br>
+
+        <p><b>The Serpent</b> – это выбор успешных уверенных в себе женщин, которые ценят высокое качество, внутреннюю свободу и получают удовольствие от каждого дня!</p><br>
+        <a href="/brand/">Подробнее...</a>
       </div>
       <div class="brand-video">
-        <a href="https://www.youtube.com/watch?v=4FUnXaq_VWk" data-fancybox="video-gallery" class="video">
+        <a href="https://www.youtube.com/watch?v=F5BSJLFyX5U" data-fancybox="video-gallery" class="video">
           <span class="play-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" viewBox="0 0 22 26" fill="none">
               <path d="M21 13L1.5 24.2583L1.5 1.74167L21 13Z" stroke="white" stroke-width="2"/>

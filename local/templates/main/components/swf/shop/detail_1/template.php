@@ -191,51 +191,62 @@
       </div>
       <div class="product-container">
         <div class="product-container__flex">
-          <!--<div class="product-container__flex-slider">
-            <div class="product-slide__tags">
-              <div class="product-slide__tag product-slide__new">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                      stroke-width="2"></path>
-                </svg>
-                <span>new</span>
-              </div>
-              <div class="product-slide__tag product-slide__hit">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                      stroke-width="2"></path>
-                </svg>
-                <span>Hit</span>
-              </div>
-              <div class="product-slide__tag product-slide__sale">
-                <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
-                   xmlns="http://www.w3.org/2000/svg">
-                  <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
-                      stroke-width="2"></path>
-                </svg>
-                <span>-23%</span>
-                <div class="product-slide__sale-text">
-                  Акция действует с 01.10. по 31.10.
-                </div>
-              </div>
+            <div class="product-container__flex-slider">
+              <div class="product-slide__tags">
+                <?php if($arElem["arProps"]["NOVINKA"]["VALUE"]=="true"):?>
+                  <div class="product-slide__tag product-slide__new">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                      <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
+                            stroke-width="2"></path>
+                    </svg>
+                    <span>new</span>
+                  </div>
+                <?php endif;?>
+                <?php if($arElem["arProps"]["KHIT"]["VALUE"]=="true"):?>
+                  <div class="product-slide__tag product-slide__hit">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                       xmlns="http://www.w3.org/2000/svg">
+                      <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
+                            stroke-width="2"></path>
+                    </svg>
+                    <span>Hit</span>
+                  </div>
+                <?php endif;?>
+                <?php if((int)$arElem["arProps"]["SKIDKA"]["VALUE"]>0):?>
+                  <div class="product-slide__tag product-slide__sale">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"  stroke-width="2"></path>
+                    </svg>
+                    <span>-<?php echo $arElem["arProps"]["SKIDKA"]["VALUE"];?>%</span>
+                    <!--<div class="product-slide__sale-text">
+                      Акция действует с 01.10. по 31.10.
+                    </div>-->
+                  </div>
+                <?php endif;?>
             </div>
             <div class="product-slider__mobile swiper">
               <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/slide-tablet.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                  <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/slide-tablet.jpg" alt="">
-                </div>
-                <div class="swiper-slide">
-                  <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/slide-tablet.jpg" alt="">
-                </div>
+                <?php if(is_array($arElem["arPhotos"])):?>
+                  <?php if(count($arElem["arPhotos"])>0):?>
+                    <?php foreach($arElem["arPhotos"] AS $key_ph=>$val_ph):?>
+                      <div class="swiper-slide">
+                        <img src="<?php echo $val_ph;?>" alt="">
+                      </div>
+                    <?php endforeach;?>
+                  <?php else:?>
+                    <?php for($i=0;$i<2;$i++):?>
+                      <div class="swiper-slide">
+                        <img src="<?php echo SITE_TEMPLATE_PATH."/img/no-photo.jpg";?>" alt="">
+                      </div>
+                    <?php endfor;?>
+                  <?php endif;?>
+                <?php endif;?>
               </div>
               <div class="swiper-pagination"></div>
             </div>
-          </div>-->
+          </div>
           <div class="product-container__flex-content">
             <div class="product-label"><?php echo Loc::getMessage("SHOP_DETAIL_COLOR");?></div>
             <div class="product-slide__color">
@@ -307,18 +318,37 @@
             <div class="product-container__line"></div>
             <div class="product-container__event">
               <div class="product-container__price">
-                <span><?php echo round($arElem["OFFERS"][0]["arPrice"][$arParams["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
+                <span><?php echo swf_util::get_num_form_2(round($arElem["OFFERS"][0]["arPrice"][$arParams["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]));?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
               </div>
+                
+              <?php
+                $basket=swf_catalog::get_cart();
+                foreach ($basket AS $key_basket=>$val_basket) {
+                  if (($val_off["arFields"]["ID"]+2)==$key_basket) {
+                    $basket_addet=1;
+                  }
+                }
+                if ($basket_addet == 1) {
+                  $basket_class_but = "product-detail__added";
+                } else {
+                  $basket_class_but = "add_to_cart_action";
+                }
+              ?>
+                
               <div class="product-container__event-block">
-                <a text-success-add="<?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD_SUCCESS");?>" href="" class="btn but_add_to_cart add_to_cart_action">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24"
-                     fill="none">
-                    <path d="M21 6.54541H1V22.9091H21V6.54541Z" stroke="white" stroke-width="1.4"
-                        stroke-miterlimit="10"/>
-                    <path d="M7.36328 10.3436V4.7272C7.36328 3.76277 7.74639 2.83784 8.42834 2.15589C9.11029 1.47393 10.0352 1.09082 10.9996 1.09082C11.9641 1.09082 12.889 1.47393 13.5709 2.15589C14.2529 2.83784 14.636 3.76277 14.636 4.7272V10.3436"
-                        stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
-                  </svg>
-                  <?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD");?>
+                <a text-success-add="<?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD_SUCCESS");?>" href="" class="btn but_add_to_cart <?php echo $basket_class_but;?>">
+                    <?php if($basket_addet != 1):?>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="24" viewBox="0 0 22 24"
+                         fill="none">
+                        <path d="M21 6.54541H1V22.9091H21V6.54541Z" stroke="white" stroke-width="1.4"
+                            stroke-miterlimit="10"/>
+                        <path d="M7.36328 10.3436V4.7272C7.36328 3.76277 7.74639 2.83784 8.42834 2.15589C9.11029 1.47393 10.0352 1.09082 10.9996 1.09082C11.9641 1.09082 12.889 1.47393 13.5709 2.15589C14.2529 2.83784 14.636 3.76277 14.636 4.7272V10.3436"
+                            stroke="white" stroke-width="1.4" stroke-miterlimit="10"/>
+                      </svg>
+                      <?php echo Loc::getMessage("SHOP_DETAIL_CART_ADD");?>
+                    <?php else:?>
+                          Добавлено
+                    <?php endif;?>
                 </a>
                 <div class="product-favorite" id-prod="<?php echo $arElem["arFields"]["ID"];?>">
                   <input class="product-favorite-checkbox <?php echo $fav_yes;?>" type="checkbox" <?php echo $fav_yes;?>>
@@ -484,7 +514,7 @@
           "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
-          "FILTER_MODEL"=>$arElem["arProps"]["MODEL"]["VALUE"],
+          "FILTER_MODEL"=>$arElem["arProps"]["KOLLEKTSIYA"]["VALUE"],
         ],
       );
       
@@ -512,7 +542,7 @@
           "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
-          "FILTER_MODEL"=>$arElem["arProps"]["MODEL"]["VALUE"],
+          "FILTER_MODEL"=>$arElem["arProps"]["KOLLEKTSIYA"]["VALUE"],
         ],
       );
     ?>
@@ -535,7 +565,7 @@
           </svg>
         </span>
         <picture>
-          <img src="img/video.jpg" alt="">
+          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/video.jpg" alt="">
         </picture>
       </a>
       <div class="modal-size__content">

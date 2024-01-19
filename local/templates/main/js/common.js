@@ -1,10 +1,18 @@
 window.addEventListener('load', function (){
 
-  document.querySelector('.header-burger').addEventListener('click', function (){
+  /*document.querySelector('.header-burger').addEventListener('click', function (){
     if(document.querySelector('header').classList.contains('menu-active')){
       document.querySelector('header').classList.remove('menu-active')
     }else{
       document.querySelector('header').classList.add('menu-active')
+    }
+  })*/
+
+  document.querySelector('.header-burger').addEventListener('click', function (){
+    if(document.querySelector('body').classList.contains('menu-active')){
+      document.querySelector('body').classList.remove('menu-active')
+    }else{
+      document.querySelector('body').classList.add('menu-active')
     }
   })
 
@@ -423,6 +431,13 @@ window.addEventListener('load', function (){
         document.querySelector('.auth-modal').classList.add('active')
       })
     })
+    document.querySelectorAll('.header-event__link-favorites').forEach((item) => {
+      item.addEventListener('click', function (e){
+        e.preventDefault();
+        document.querySelector('.auth-modal').classList.add('active')
+      })
+    })
+
     document.querySelector('.auth-modal__close').addEventListener('click', function (){
       document.querySelector('.auth-modal').classList.remove('active')
     })

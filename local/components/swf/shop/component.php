@@ -75,6 +75,13 @@
     $arFilter["ID"]=$arResult["FAVORITES"];
   }
   
+  //Добавляем фильтрацию по коду секции, если таковой имеется
+  if (isset($arParams["SECTION_CODE"])) {
+    if ($arParams["SECTION_CODE"]!="") {
+      $arFilter["SECTION_CODE"]=$arParams["SECTION_CODE"];
+    }
+  }
+  
   //Клеим поисковой параметр
   if ($search_text!="") {
     $arFilter[]=[
@@ -112,7 +119,7 @@
         $tmpAr123["LOGIC"]="OR";
         $testAddet=0;
         foreach ($arResult["FILTER"]["collect"] AS $key=>$val) {
-          $tmpAr123[]["PROPERTY_MODEL_VALUE"]="%".$val."%";
+          $tmpAr123[]["PROPERTY_KOLLEKTSIYA_VALUE"]=$val;
           $testAddet=1;
         }
         if ($testAddet==1) {
@@ -141,16 +148,25 @@
         $arFilter[][">PROPERTY_SKIDKA"]="0";
       }
     }
-    //Модель
+    //Коллекция (Переделано с модели)
     if (isset($arParams["FILTER_MODEL"])) {
       if ($arParams["FILTER_MODEL"]!="") {
-        $arFilter[]["PROPERTY_MODEL_VALUE"]="%".$arParams["FILTER_MODEL"]."%";
+        $arFilter[]["PROPERTY_KOLLEKTSIYA_VALUE"]=$arParams["FILTER_MODEL"];
       }
     }
     //Вид
     if (isset($arParams["FILTER_VID"])) {
       if ($arParams["FILTER_VID"]!="") {
-        $arFilter[]["PROPERTY_VID_VALUE"]="%".$arParams["FILTER_VID"]."%";
+        if ($arParams["FILTER_VID"]=="Купальник%20женский%20раздельный") {
+          $arFilter[]=[
+            "LOGIC"=>"OR",
+            "PROPERTY_VID_VALUE"=>"%".$arParams["FILTER_VID"]."%",
+            "PROPERTY_VID_VALUE"=>"%Лиф%",
+            "PROPERTY_VID_VALUE"=>"%Юбка%",
+          ];
+        } else {
+          $arFilter[]["PROPERTY_VID_VALUE"]="%".$arParams["FILTER_VID"]."%";
+        }
       }
     }
   
@@ -393,6 +409,21 @@
       $arResult["ITEMS_ON_ID"][$val["arFields"]["ID"]]=$val;
       foreach ($val["OFFERS"] AS $key_1=>$val_1) {
         $arResult["ITEMS_ON_ID"][$val_1["arFields"]["ID"]]=$val_1;
+      }
+    }
+  }
+  
+  //Формируем список досутпных цветов для исключения из фильтра - остальных
+  $arResult["COLOR_FOR_FILTER"]=[];
+  foreach ($arResult["ITEMS"] AS $key=>$val) {
+    if (!in_array($val["arProps"]["TSVET"]["VALUE"],$arResult["COLOR_FOR_FILTER"])) {
+      $arResult["COLOR_FOR_FILTER"][]=$val["arProps"]["TSVET"]["VALUE"];
+    }
+  }
+  foreach ($arResult["ITEMS_PODOB_1"] AS $key=>$val) {
+    foreach ($val AS $key_1=>$val_1) {
+      if (!in_array($val_1["arProps"]["TSVET"]["VALUE"],$arResult["COLOR_FOR_FILTER"])) {
+        $arResult["COLOR_FOR_FILTER"][]=$val_1["arProps"]["TSVET"]["VALUE"];
       }
     }
   }

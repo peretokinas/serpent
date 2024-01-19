@@ -10,6 +10,14 @@
   
   //Каталог (Магазин)
   
+  //Получение кол-ва позиций в корзине
+  if ($_POST["type"]=="get_num_pos_in_cart") {
+    //Получаем корзину текущего пользователя
+    $basket=swf_catalog::get_cart();
+    
+    echo count($basket);
+  }
+  
   //Применение фильтров
   if ($_POST["type"]=="filter_add") {
     $arData=$_POST["data"];

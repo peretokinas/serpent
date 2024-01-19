@@ -110,7 +110,7 @@ $(document).ready(function(){
         "data": {},
       },
       success: function(data) {
-        location.href="/catalog/kupalniki/";
+        location.reload();
       },
     });
   });
@@ -174,6 +174,7 @@ $(document).ready(function(){
           obj_path.attr("stroke","rgb(38, 55, 64)");
           obj_path.attr("fill","transparent");
         }
+        location.reload();
       },
     });
   });
@@ -183,7 +184,7 @@ $(document).ready(function(){
     var prod_id=$(this).find(".product-slide__size-item.active").attr("prod-id");
     var obj_cont=$(this).parent().parent().parent();
     var obj_but=obj_cont.find(".product-basket");
-    
+
     //Проверяем наличие текущего товара в корзине
     $.ajax({
       type: 'POST',
@@ -260,7 +261,8 @@ $(document).ready(function(){
         if (obj_json["status"]=="1") {
           swf_modal_1(obj_json["text"],"reload_page","");
         } else {
-          swf_modal_1(obj_json["text"],"","");
+          alert(obj_json["text"]);
+          //swf_modal_1(obj_json["text"],"","");
         }
       },
     });
@@ -298,20 +300,20 @@ $(document).ready(function(){
   $("body").on("click",".catalog_go_to_page_action",function(){
     location.href=$(this).attr("href");
   });
-  
+
   //Добавление товара в корзину из детальной карточки товара
   $("body").on("click",".add_to_cart_action",function(){
     event.preventDefault();
     event.stopPropagation();
-    
+
     var obj_cont=$(this).parent().parent().parent();
     var obj_sku=obj_cont.find(".product-size__items");
     var obj_input_sku=obj_sku.find("input:checked");
-    
-    var text_success_add=$(this).attr("text-success-add")
-    
+
+    var text_success_add=$(this).attr("text-success-add");
+
+    var obj_but=obj_cont.find(".add_to_cart_action");
     var prod_id=obj_input_sku.attr("prod-id");
-    
     $.ajax({
       type: 'POST',
       url: "/local/ajax/catalog.php",
@@ -322,11 +324,15 @@ $(document).ready(function(){
         "prod_qua":1,
       },
       success: function(data) {
+        obj_but.removeClass("add_to_cart_action");
+        obj_but.addClass("product-detail__added");
         if (text_success_add!="") {
           swf_modal_1(text_success_add,"","");
+          obj_but.html("Добавлено");
+          location.reload();
         }
       },
-    }); 
+    });
   });
   
   //Добавление товара в корзину из карточки товара в секции каталога
@@ -357,7 +363,33 @@ $(document).ready(function(){
         var path=window.location.pathname;
         if (path=="/cart/") {
           location.reload();
+        } else {
+          //Получаем кол-во в корзине
+          $.ajax({
+            type: 'POST',
+            url: "/local/ajax/catalog.php",
+            async: false,
+            data: {
+              "type":"get_num_pos_in_cart",
+            },
+            success: function(data) {
+              if (data!="0") {
+                //Динамически изменяем кол-во товаров в корзине в шапке
+                var obj_cart_icon=$("#id_icon_head_cart");
+                var obj_span=obj_cart_icon.find("span");
+                
+                if (obj_span.length==0) {
+                  //Добавляем блок с кол-вом
+                  obj_cart_icon.append("<span class='header-event__count'>"+data+"</span>");
+                } else {
+                  //Обновляем блок с кол-вом
+                  obj_span.html(data);
+                }
+              }
+            }
+          });
         }
+        
       },
     }); 
   });

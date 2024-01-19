@@ -52,13 +52,13 @@
   $MESS["SHOP_CART_COLOR"]="Цвет";
   $MESS["SHOP_CART_SUMM_ORDER"]="Сумма заказа";
   $MESS["SHOP_CART_SKIDKA"]="Скидка";
-  $MESS["SHOP_CART_BALL"]="Списание балов";
+  $MESS["SHOP_CART_BALL"]="Списание баллов";
   $MESS["SHOP_CART_DELIV"]="Доставка";
   $MESS["SHOP_CART_ITOG"]="Итого";
   $MESS["SHOP_CART_EXEC_ORDER"]="Оформить заказ";
   $MESS["SHOP_CART_SPOSOB_POLUCH"]="Способ получения";
   $MESS["SHOP_CART_NULL"]="Ваша корзина пуста";
-  $MESS["SHOP_CART_GO_CATALOG"]="Вернутся к покупкам";
+  $MESS["SHOP_CART_GO_CATALOG"]="Вернуться к покупкам";
   $MESS["SHOP_CART_SPOSOB_OPLATI"]="Способ оплаты";
   $MESS["SHOP_CART_COMMENT"]="Комментарий к заказу";
   $MESS["SHOP_CART_COMMENT_PLACEHOLDER"]="Ваш комментарий...";

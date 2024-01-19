@@ -107,44 +107,43 @@
       <div class="showroom-block">
         <a href="#" class="showroom-block__link">Как добраться?</a>
         <div class="showroom-block__line">
-          <div class="showroom-block__label">адрес</div>
-          <div class="showroom-block__value">115114, Москва, Павелецкая наб., д. 2, стр. 4, этаж 3, пом. 301</div>
+          <div class="showroom-block__label_main">адрес</div>
+          <div class="showroom-block__value">Москва, ул. Усачева, 11ж</div>
         </div>
         <div class="showroom-block__line">
           <div class="showroom-block__label">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
               <path d="M21.681 13.7648L16.2421 0L11.6414 8.04656L7.05937 0L1.60186 13.7648H0V15.851H8.23283V13.7648H7.00349L8.19557 10.3376L11.6414 16L15.0873 10.3376L16.2794 13.7648H15.0501V15.851H23.2829V13.7648H21.681Z" fill="#B3A8A4"/>
             </svg>
-            Пушкинское / Тверская
+            Спортивная
           </div>
-          <div class="showroom-block__value">3 минуты и направо</div>
+          <div class="showroom-block__value"></div>
         </div>
         <div class="showroom-block__line">
           <div class="showroom-block__label">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
               <path d="M21.681 13.7648L16.2421 0L11.6414 8.04656L7.05937 0L1.60186 13.7648H0V15.851H8.23283V13.7648H7.00349L8.19557 10.3376L11.6414 16L15.0873 10.3376L16.2794 13.7648H15.0501V15.851H23.2829V13.7648H21.681Z" fill="#B3A8A4"/>
             </svg>
-            Охотный ряд
+            Фрунзенская
           </div>
-          <div class="showroom-block__value">4 минуты и налево</div>
+          <div class="showroom-block__value"></div>
         </div>
-        <div class="showroom-block__line">
+        
+<div class="showroom-block__line">
           <div class="showroom-block__label">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
               <path d="M21.681 13.7648L16.2421 0L11.6414 8.04656L7.05937 0L1.60186 13.7648H0V15.851H8.23283V13.7648H7.00349L8.19557 10.3376L11.6414 16L15.0873 10.3376L16.2794 13.7648H15.0501V15.851H23.2829V13.7648H21.681Z" fill="#B3A8A4"/>
             </svg>
-            Театральная
+            Лужники
           </div>
-          <div class="showroom-block__value">Прямо на север</div>
+          <div class="showroom-block__value"></div>
         </div>
         <div class="showroom-contact__flex">
           <div class="showroom-contact__time">
             <div class="showroom-contact__time-line">
-              <span>Пн-пт</span> 9:00-19:00
+              <span>ПН-ВС</span> 11:00–20:00
             </div>
-            <div class="showroom-contact__time-line">
-              <span>Сб-вс</span> 9:00-18:00
-            </div>
+            
           </div>
           <a href="#" class="btn btn_white" data-modal-trigger="modal-callback">Остались вопросы?</a>
         </div>

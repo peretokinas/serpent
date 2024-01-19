@@ -103,6 +103,7 @@
             ?>
           </div>
         <?php endforeach;?>
+        <?php if($arParams["BUTT_CENTER"]=="N"):?>
         <a href="<?php echo $arParams["LINK_CATALOG"]?><?php echo $arParams["SECTION_CODE_PRINT"]?>/<?php echo $arParams["SECTION_CODE_PRINT_PARAM_INT"]?>" class="swiper-slide swiper-slide__all-slider">
            <span class="link-circle">
             <span class="link-circle__text">
@@ -119,6 +120,7 @@
             </span>
           </span>
         </a>
+        <?php endif;?>
       </div>
     </div>
     <?php if($arParams["BUTT_CENTER"]=="Y"):?>

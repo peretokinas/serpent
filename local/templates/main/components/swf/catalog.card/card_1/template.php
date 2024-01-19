@@ -24,7 +24,7 @@
   
 ?>
 <div class="cast_card_<?php echo $val["arFields"]["ID"];?> <?php echo $class_gen;?>">
-  <?php echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
+  <?php //echo $val["arProps"]["CML2_ARTICLE"]["VALUE"];?>
     <div class="product-slide__pic">
       <div class="product-favorite" id-prod="<?php echo $val["arFields"]["ID"];?>">
         <input class="product-favorite-checkbox <?php echo $fav_yes;?>" type="checkbox" <?php echo $fav_yes;?>>
@@ -118,24 +118,26 @@
         </span>
       </div>
         <?php //Грузим ссылки на подобные 1?>
-        <?php if(count($tmpArPodob_1)>0):?>
-          <?php foreach($tmpArPodob_1 AS $key_p1=>$val_p1):?>
-            <?php
-              $tmp_checked="";
-              if (count($val_general)>0) {
-                if ($val_p1["arFields"]["ID"]==$val["arFields"]["ID"]) {
-                  $tmp_checked="checked";
+        <?php if(is_array($tmpArPodob_1)):?>
+          <?php if(count($tmpArPodob_1)>0):?>
+            <?php foreach($tmpArPodob_1 AS $key_p1=>$val_p1):?>
+              <?php
+                $tmp_checked="";
+                if (count($val_general)>0) {
+                  if ($val_p1["arFields"]["ID"]==$val["arFields"]["ID"]) {
+                    $tmp_checked="checked";
+                  }
                 }
-              }
-              $tmp_code_card=$val_p1["arFields"]["ID"];
-            ?>
-            <div class="product-slide__color-item" <?php echo $tmp_checked;?>>
-              <input code-card="<?php echo $tmp_code_card;?>" class="cast_card_prod_podob_1_action" type="radio" name="color-9">
-              <span class="product-slide__color-circle cast_product-slide__color-circle <?php echo $tmp_checked;?>">
-                <span style="background: <?php echo $arParams["arParamsDef"]["SETT_COLOR_1"][$val_p1["arProps"][$arParams["arParamsDef"]["GROUP_PODOB_1_PROP"]]["VALUE"]];?>"></span>
-              </span>
-            </div>
-          <?php endforeach;?>
+                $tmp_code_card=$val_p1["arFields"]["ID"];
+              ?>
+              <div class="product-slide__color-item" <?php echo $tmp_checked;?>>
+                <input code-card="<?php echo $tmp_code_card;?>" class="cast_card_prod_podob_1_action" type="radio" name="color-9">
+                <span class="product-slide__color-circle cast_product-slide__color-circle <?php echo $tmp_checked;?>">
+                  <span style="background: <?php echo $arParams["arParamsDef"]["SETT_COLOR_1"][$val_p1["arProps"][$arParams["arParamsDef"]["GROUP_PODOB_1_PROP"]]["VALUE"]];?>"></span>
+                </span>
+              </div>
+            <?php endforeach;?>
+          <?php endif;?>
         <?php endif;?>
     </div>
     <div class="product-slide__size">

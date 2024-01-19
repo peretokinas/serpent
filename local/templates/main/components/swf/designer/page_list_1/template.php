@@ -42,12 +42,14 @@ $PREVIEW_PICTURE = CFile::GetPath($val["arFields"]["PREVIEW_PICTURE"]);
                 {
                   $article_full = "article-item__full";
                 }
+
+              $date_created = date("d.m.Y", strtotime($val["arFields"]["ACTIVE_FROM"]));
               ?>
                   <div class="article-item <?php echo $article_full;?>">
                       <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="article-item__pic">
                           <img src="<?php echo CFile::GetPath($val["arFields"]["PREVIEW_PICTURE"]);?>" alt="">
                       </a>
-                      <div class="article-item__date"><?php echo $val["arFields"]["ACTIVE_FROM"];?></div>
+                      <div class="article-item__date"><?php echo $date_created;?></div>
                       <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="article-item__title"><?php echo $val["arFields"]["NAME"];?></a>
                       <div class="article-item__description"><?php echo $val["arFields"]["PREVIEW_TEXT"];?></div>
                   </div>

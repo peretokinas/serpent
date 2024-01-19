@@ -402,7 +402,7 @@
           if ($str_sravn==$art) {
             $rand_hash=swf_util::rand_hash_1();
             // $arResult[]=$catalog_ext.$scan_dir[$i]."?".$rand_hash;
-            $arResult[]=$catalog_ext.$scan_dir[$i];
+            $arResult[]=$catalog_ext.$scan_dir[$i]."?v=1";
           }
         }
       }

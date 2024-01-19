@@ -52,16 +52,16 @@
             );
           ?>
           <div class="footer-social">
-            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_TELEGRAM"]; ?> class="footer-social__link">
+            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_TELEGRAM"]; ?> class="footer-social__link" target="blank">
               <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_TELEGRAM"]["TEXT"])); ?>
             </a>
-            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_VK"]; ?> class="footer-social__link">
+            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_VK"]; ?> class="footer-social__link" target="blank">
               <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_VK"]["TEXT"])); ?>
             </a>
-            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_YOUTUBE"]; ?> class="footer-social__link">
+            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_YOUTUBE"]; ?> class="footer-social__link" target="blank">
               <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_YOUTUBE"]["TEXT"])); ?>
             </a>
-            <a href=<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_WHATSAPP"]; ?> class="footer-social__link">
+            <a href=https://wa.me/<?php echo $_SESSION["arDеsignerSett"]["SETT_LINK_WHATSAPP"]; ?> class="footer-social__link" target="blank">
               <? echo(htmlspecialcharsBack($_SESSION["arDеsignerSett"]["SETT_LOGO_WHATSAPP"]["TEXT"])); ?>
             </a>
           </div>

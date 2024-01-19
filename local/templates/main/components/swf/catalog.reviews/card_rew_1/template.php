@@ -9,7 +9,18 @@
     </div>
     <div class="reviews-event">
       <div class="reviews-rating">
-        <?php echo $arResult["SROC"];?>
+        <?php
+        if(count($arResult["ITEMS"])>0)
+        {
+          echo $arResult["SROC"];
+          $tag = "a";
+        }
+        else
+        {
+          $tag = "div";
+        }
+
+        ?>
       </div>
       <div class="reviews-stars">
         <?php
@@ -19,7 +30,7 @@
           <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/rating.png" alt="">
         <?php endfor;?>
       </div>
-      <a href="" class="reviews-link">
+      <<?php echo $tag;?> href="" class="reviews-link">
         <?php
           $arNames=[
             Loc::getMessage("SHOP_DETAIL_REVIEWS_SKLON_1"),
@@ -28,7 +39,7 @@
           ];
         ?>
         <?php echo swf_util::num_word(count($arResult["ITEMS"]),$arNames);?>
-      </a>
+      </<?php echo $tag;?>>
       <a href="#" class="btn" data-modal-trigger="modal-reviews">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 18 16"
            fill="none">

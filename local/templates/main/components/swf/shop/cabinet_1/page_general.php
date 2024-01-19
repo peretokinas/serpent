@@ -21,8 +21,8 @@
     </div>
   </div>
   <div class="lk-balls">
-    <div class="lk-balls__label">Накопленные балы</div>
-    <div class="lk-balls__count">0 ₽</div>
+    <div class="lk-balls__label">Накопленные баллы</div>
+    <div class="lk-balls__count">500 ₽</div>
     <div class="lk-balls__modal" data-modal-trigger="modal-how_work">
       Как это работает?
       <svg xmlns="http://www.w3.org/2000/svg" width="7" height="11" viewBox="0 0 7 11" fill="none">

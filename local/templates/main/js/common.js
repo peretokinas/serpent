@@ -24,11 +24,15 @@ window.addEventListener('load', function (){
     breakpoints: {
       320: {
         slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      450: {
+        slidesPerView: 2,
         spaceBetween: 14,
       },
       760: {
-        slidesPerView: 2,
-        spaceBetween: 14,
+        slidesPerView: 3,
+        spaceBetween: 20,
       },
       1024: {
         slidesPerView: 3,
@@ -520,12 +524,16 @@ window.addEventListener('load', function (){
         })
       }
       document.querySelector('.filter-mobile').addEventListener('click', function (){
-        document.body.classList.add('filter-active')
+        document.body.classList.add('filter-active');
+        $("header").css("z-index", "3");
+        $(".catalog-filter").css("z-index", "1000");
       })
       document.querySelector('.filter-close').addEventListener('click', function (){
         document.body.classList.remove('filter-active');
-        document.querySelector('.blackout').classList.remove('active')
-        document.querySelector('.catalog-filter').classList.remove('active')
+        document.querySelector('.blackout').classList.remove('active');
+        document.querySelector('.catalog-filter').classList.remove('active');
+        $("header").css("z-index", "1000");
+        $(".catalog-filter").css("z-index", "999");
       })
     })
   }

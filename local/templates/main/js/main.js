@@ -6,49 +6,21 @@ $(document).ready(function(){
   
   //Применение фильтров в срезе каталога
   $("body").on("click",".btn_final",function(){
-    //Получаем данные с фильтровых модалок
-    var filter_ar=[];
+    var size_win=$(window).width();
     
-    //Цена
-    filter_ar["price_start"]=$(".filter-price__input_start").val();
-    filter_ar["price_end"]=$(".filter-price__input_end").val();
-    //Размер
-    filter_ar["size"]=[];
-    $.each($(".filter_size_class"), function(key,val) {
-      if ($(this).is(":checked")) {
-        filter_ar["size"].push($(this).attr("size-val"));
-      }
-    });
-    //Цвет
-    filter_ar["color"]=[];
-    $.each($(".filter_color_class"), function(key,val) {
-      if ($(this).is(":checked")) {
-        filter_ar["color"].push($(this).attr("color-val"));
-      }
-    });
-    //Коллекция
-    filter_ar["collect"]=[];
-    $.each($(".filter_collect_class"), function(key,val) {
-      if ($(this).is(":checked")) {
-        filter_ar["collect"].push($(this).attr("collect-val"));
-      }
-    });
-    
-    var filter_obj=Object.assign({}, filter_ar);
-    
-    //Применяем фильтры
-    $.ajax({
-      type: 'POST',
-      url: "/local/ajax/catalog.php",
-      async: false,
-      data: {
-        "type":"filter_add",
-        "data": filter_obj,
-      },
-      success: function(data) {
-        location.reload();
-      },
-    });
+    if (size_win>750) {
+      //Десктоп, планшет (Сразу применяем и релодим страницу)
+      fun_send_filter("yes");
+    } else {
+      //Мобилка - сохраняем значения в форме, закрываем страницу
+      fun_send_filter("no");
+    }
+  });
+  //Применение фильтров в срезе каталога (Мобильная)
+  $("body").on("click",".cast_filter_send_mobile_action",function(){
+    event.preventDefault();
+    event.stopPropagation();
+    fun_send_filter("yes");
   });
   
   //Открытие / закрытие спойлера "подробнее о заказе" в ЛК в прошлых заказах
@@ -327,8 +299,6 @@ $(document).ready(function(){
         obj_but.removeClass("add_to_cart_action");
         obj_but.addClass("product-detail__added");
         if (text_success_add!="") {
-          swf_modal_1(text_success_add,"","");
-          obj_but.html("Добавлено");
           location.reload();
         }
       },

@@ -52,3 +52,77 @@ function swf_modal_1(text, option_close_modal, dop_class) {
   //Вызываем отбивку
   obj_modal_action.click();
 }
+
+//Применение фильтров
+function fun_send_filter(send_yes) {
+  //Получаем данные с фильтровых модалок
+  var filter_ar=[];
+  
+  //Цена
+  filter_ar["price_start"]=$(".filter-price__input_start").val();
+  filter_ar["price_end"]=$(".filter-price__input_end").val();
+  //Размер
+  filter_ar["size"]=[];
+  $.each($(".filter_size_class"), function(key,val) {
+    if ($(this).is(":checked")) {
+      filter_ar["size"].push($(this).attr("size-val"));
+    }
+  });
+  //Цвет
+  filter_ar["color"]=[];
+  $.each($(".filter_color_class"), function(key,val) {
+    if ($(this).is(":checked")) {
+      filter_ar["color"].push($(this).attr("color-val"));
+    }
+  });
+  //Коллекция
+  filter_ar["collect"]=[];
+  $.each($(".filter_collect_class"), function(key,val) {
+    if ($(this).is(":checked")) {
+      filter_ar["collect"].push($(this).attr("collect-val"));
+    }
+  });
+  
+  var filter_obj=Object.assign({}, filter_ar);
+  
+  if (send_yes=="yes") {
+    //Применяем фильтры
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"filter_add",
+        "data": filter_obj,
+      },
+      success: function(data) {
+        location.reload();
+      },
+    });
+  } else {
+    //Получаем html код для блоков фильтров
+    $.ajax({
+      type: 'POST',
+      url: "/local/ajax/catalog.php",
+      async: false,
+      data: {
+        "type":"filter_get_html_val",
+        "data": filter_obj,
+      },
+      success: function(data) {
+        //Парсим дату
+        var obj_json=$.parseJSON(data);
+        //Проставляем значения фильтров в общую мобильную форму
+        $.each(obj_json, function(key,val) {
+          var obj_filter_mob=$("."+key);
+          obj_filter_mob.html(val);
+        });
+        // console.log(obj_json);
+        //Скрываем форму ввода значений
+        $(".filter-container").removeClass("active");
+        //Сохраняем значения формы
+        
+      },
+    });
+  }
+}

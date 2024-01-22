@@ -18,6 +18,16 @@
     echo count($basket);
   }
   
+  //Получение html кода для значения фильтров
+  if ($_POST["type"]=="filter_get_html_val") {
+    $arData=$_POST["data"];
+    $arData["arSettings"]=$arSettings;
+    
+    $result=swf_catalog::filter_get_html_val($arData);
+    
+    print_r($result);
+  }
+  
   //Применение фильтров
   if ($_POST["type"]=="filter_add") {
     $arData=$_POST["data"];

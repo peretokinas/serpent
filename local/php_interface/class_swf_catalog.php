@@ -10,6 +10,51 @@
   //Методы каталога
 
   class swf_catalog {
+    //Получение html кода для значения фильтров
+    public static function filter_get_html_val($arParams) {
+      $arFilterField=[];
+      $arFilterField["id_filter_val_span__price"]="";
+      $arFilterField["id_filter_val_span__size"]="";
+      $arFilterField["id_filter_val_span__color"]="";
+      $arFilterField["id_filter_val_span__collect"]="";
+      
+      //Цена
+      if ($arParams["price_start"]!=0 OR $arParams["price_end"]!=30000) {
+        $arFilterField["id_filter_val_span__price"]=swf_util::get_num_form_2($arParams["price_start"])." - ".swf_util::get_num_form_2($arParams["price_end"])."&nbsp;".Loc::getMessage("CURR_RUB");
+      }
+      //Размер
+      if (isset($arParams["size"])) {
+        foreach ($arParams["size"] AS $key=>$val) {
+          if (strlen($arFilterField["id_filter_val_span__size"])>0) {
+            $arFilterField["id_filter_val_span__size"].=",&nbsp;";
+          }
+          $arFilterField["id_filter_val_span__size"].=$val;
+        }
+      }
+      //Цвет
+      if (isset($arParams["color"])) {
+        foreach ($arParams["color"] AS $key=>$val) {
+          $tmp_color=$arParams["arSettings"]["COLOR_1"][$val];
+          $tmp_html="<div class='color_filter_use_1'>";
+            $tmp_html.="<div class='color_filter_use_1_center' style='background-color: {$tmp_color};'>";
+            $tmp_html.="</div>";
+          $tmp_html.="</div>";
+          $arFilterField["id_filter_val_span__color"].=$tmp_html;
+        }
+      }
+      
+      //Коллекция
+      if (isset($arParams["collect"])) {
+        if (count($arParams["collect"])>0) {
+          $arFilterField["id_filter_val_span__collect"].="&nbsp;<b>(".count($arParams["collect"]).")</b>";
+        }
+      }
+      
+      $result=json_encode($arFilterField);
+      
+      return $result;
+    }
+    
     //Применение фильтров
     public static function filter_add($arParams) {
       session_start();
@@ -402,7 +447,7 @@
           if ($str_sravn==$art) {
             $rand_hash=swf_util::rand_hash_1();
             // $arResult[]=$catalog_ext.$scan_dir[$i]."?".$rand_hash;
-            $arResult[]=$catalog_ext.$scan_dir[$i]."?v=1";
+            $arResult[]=$catalog_ext.$scan_dir[$i]."?v=1.1";
           }
         }
       }

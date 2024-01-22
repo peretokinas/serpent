@@ -201,16 +201,20 @@
               </div>
             </div>
             <div class="filter-item" data-attr="price">
-              Цена&nbsp;
-              <span>
+              <span class="cast_local_caption_div">
+                Цена&nbsp;
+              </span>
+              <span class="id_filter_val_span__price">
                 <?php if($view_price_filter_use):?>
-                  <?php echo $filter_price_start;?> - <?php echo $filter_price_end;?> <?php echo Loc::getMessage("CURR_RUB");?>
+                  <?php echo swf_util::get_num_form_2($filter_price_start);?> - <?php echo swf_util::get_num_form_2($filter_price_end);?>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
                 <?php endif;?>
               </span>
             </div>
             <div class="filter-item" data-attr="size">
-              Размер&nbsp;
-              <span>
+              <span class="cast_local_caption_div">
+                Размер&nbsp;
+              </span>
+              <span class="id_filter_val_span__size">
                 <?php $sch_100=0;?>
                 <?php foreach($filter_size AS $key_100=>$val_100):?>
                   <?php echo trim(strtoupper($val_100));?><?php if($sch_100+1!=count($filter_size)){echo ",";}?>
@@ -219,8 +223,10 @@
               </span>
             </div>
             <div class="filter-item" data-attr="color">
-              Цвет
-              <span>
+              <span class="cast_local_caption_div">
+                Цвет
+              </span>
+              <span class="id_filter_val_span__color">
                 <?php foreach($filter_color AS $key_100=>$val_100):?>
                   <div class="color_filter_use_1">
                     <div class="color_filter_use_1_center" style="background-color: <?php echo $arParams["arSettings"]["COLOR_1"][$val_100];?>">
@@ -237,10 +243,12 @@
               }
             ?>
             <div class="filter-item <?php echo $dop_class;?>" data-attr="collection">
-              Коллекция
-              <span><?php echo $dop_text;?></span>
+              <span class="cast_local_caption_div">
+                Коллекция
+              </span>
+              <span class="id_filter_val_span__collect"><?php echo $dop_text;?></span>
             </div>
-            <div class="filter-send btn btn-mobile">Применить</div>
+            <div class="filter-send btn btn-mobile cast_filter_send_mobile_action">Применить</div>
             <div class="filter-reset btn">Очистить</div>
           </div>
           <div class="filter-container" data-id="price">

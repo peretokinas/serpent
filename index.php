@@ -123,15 +123,15 @@
             </div>
           </div>
           <div class="swimsuit-block__flex">
-            <div class="swimsuit-block__column">
+            <div class="swimsuit-block__column cast_max_height_2">
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2.jpg?v=1" alt="">
             </div>
-            <div class="swimsuit-block__column">
+            <div class="swimsuit-block__column cast_max_height_2">
               <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3.jpg?v=1" alt="">
             </div>
           </div>
         </div>
-        <div class="swimsuit-block__pic">
+        <div class="swimsuit-block__pic cast_max_height_1">
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1.jpg?v=1" alt="">
         </div>
       </div>
@@ -267,7 +267,7 @@
           </a>
         </div>
       </div>
-      <div class="swimsuit-block">
+      <div class="swimsuit-block cast_flex_fd_1">
         <div class="swimsuit-block__content">
           <div class="title mb-60">Раздельные купальники</div>
           <div class="swimsuit-block__flex swimsuit-block__flex-text">
@@ -294,15 +294,15 @@
             </div>
           </div>
           <div class="swimsuit-block__flex">
-            <div class="swimsuit-block__column">
+            <div class="swimsuit-block__column cast_max_height_3">
               <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_1.jpg?v=2" alt="">
             </div>
-            <div class="swimsuit-block__column">
+            <div class="swimsuit-block__column cast_max_height_3">
               <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_2.jpg?v=2" alt="">
             </div>
           </div>
         </div>
-        <div class="swimsuit-block__pic">
+        <div class="swimsuit-block__pic cast_max_height_1">
           <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_3.jpg?v=2" alt="">
         </div>
       </div>
@@ -448,7 +448,7 @@
           "IB_REW"=>"",
           "SETT_COLOR_1"=>$arSettings["COLOR_1"],
           "SETT_SHOP_1"=>$arSettings["SHOP"],
-          "GROUP_PODOB_1"=>"Y",
+          "GROUP_PODOB_1"=>"N",
           "GROUP_PODOB_1_PROP"=>"TSVET",
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
@@ -476,7 +476,7 @@
           "IB_REW"=>"",
           "SETT_COLOR_1"=>$arSettings["COLOR_1"],
           "SETT_SHOP_1"=>$arSettings["SHOP"],
-          "GROUP_PODOB_1"=>"Y",
+          "GROUP_PODOB_1"=>"N",
           "GROUP_PODOB_1_PROP"=>"TSVET",
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",

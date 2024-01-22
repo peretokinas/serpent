@@ -501,7 +501,7 @@
           "IB_REW"=>"",
           "SETT_COLOR_1"=>$arParams["SETT_COLOR_1"],
           "SETT_SHOP_1"=>$arParams["SETT_SHOP_1"],
-          "GROUP_PODOB_1"=>"Y",
+          "GROUP_PODOB_1"=>"N",
           "GROUP_PODOB_1_PROP"=>"TSVET",
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
@@ -529,7 +529,7 @@
           "IB_REW"=>"",
           "SETT_COLOR_1"=>$arParams["SETT_COLOR_1"],
           "SETT_SHOP_1"=>$arParams["SETT_SHOP_1"],
-          "GROUP_PODOB_1"=>"Y",
+          "GROUP_PODOB_1"=>"N",
           "GROUP_PODOB_1_PROP"=>"TSVET",
           "GROUP_PODOB_1_RAZD"=>", ",
           "DETAIL_CODE"=>"",
@@ -558,16 +558,6 @@
       </svg>
     </div>
     <div class="modal-size__container">
-      <a href="https://www.youtube.com/watch?v=4FUnXaq_VWk" data-fancybox="video-gallery" class="video">
-        <span class="play-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="26" viewBox="0 0 22 26" fill="none">
-            <path d="M21 13L1.5 24.2583L1.5 1.74167L21 13Z" stroke="white" stroke-width="2"></path>
-          </svg>
-        </span>
-        <picture>
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/video.jpg" alt="">
-        </picture>
-      </a>
       <div class="modal-size__content">
         <h2>Как определить размер?</h2>
         <p>

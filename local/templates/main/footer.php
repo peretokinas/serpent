@@ -2,6 +2,21 @@
 <?php
   use Bitrix\Main\Localization\Loc;
 ?>
+    <?php //Дополнительные стили, в зависимости от различных параметров?>
+    <?php
+      //Определяем браузер
+      $brow=swf_util::get_brow();
+      if ($brow=="Safari") {
+        
+      }
+    ?>
+    <style>
+      <?php if($brow!="Safari"):?>
+        .product-slide {
+          margin-right: 0px !important;
+        }
+      <?php endif;?>
+    </style>
     <?php //Общая модалка 1?>
     <div class="swf-modal-1_action" data-modal-trigger="swf-modal-1"></div>
     <div class="modal modal-message swf-modal-1" data-modal-name="swf-modal-1" data-modal-dismiss>

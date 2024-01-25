@@ -35,8 +35,8 @@
           <img class="" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/brand_1_var_1.jpg" alt="">
         </div>
         <div class="cast-gal-photo-1-col cast-gal-photo-1-col-2">
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/brand_2.jpg?v=1" alt="">
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/brand_3.jpg" alt="">
+          <img class="cast-gal-photo-1-col-2-row-1" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/brand_2.jpg?v=1" alt="">
+          <img class="cast-gal-photo-1-col-2-row-2" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/brand_3.jpg" alt="">
         </div>
       </div>
      <h2>Купальники The Serpent как вторая кожа, станут ярким акцентом и сделают ваш отдых незабываемым.</h2>

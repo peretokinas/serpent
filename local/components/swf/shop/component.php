@@ -157,16 +157,41 @@
     //Вид
     if (isset($arParams["FILTER_VID"])) {
       if ($arParams["FILTER_VID"]!="") {
-        if ($arParams["FILTER_VID"]=="Купальник%20женский%20раздельный") {
+        
+        $filter_vid=$arParams["FILTER_VID"];
+        $filter_vid=str_replace("%20"," ",$filter_vid);
+        
+        if ($filter_vid=="Купальник женский раздельный") {
           $arFilter[]=[
             "LOGIC"=>"OR",
-            "PROPERTY_VID_VALUE"=>"%".$arParams["FILTER_VID"]."%",
-            "PROPERTY_VID_VALUE"=>"%Лиф%",
-            "PROPERTY_VID_VALUE"=>"%Юбка%",
+            [
+              "PROPERTY_VID_VALUE"=>"%".$arParams["FILTER_VID"]."%",
+            ],
+            [
+              "PROPERTY_VID_VALUE"=>"%Лиф%",
+            ],
+            [
+              "PROPERTY_VID_VALUE"=>"%Юбка%",
+            ],
+            [
+              "PROPERTY_VID_VALUE"=>"%Плавки%",
+            ],
           ];
         } else {
           $arFilter[]["PROPERTY_VID_VALUE"]="%".$arParams["FILTER_VID"]."%";
         }
+      }
+    }
+    //Цвет (Внешний Дополнительный)
+    if (isset($arParams["FILTER_COLOR_EXT"])) {
+      if ($arParams["FILTER_COLOR_EXT"]!="") {
+        $arFilter[]["PROPERTY_TSVET_VALUE"]="%".$arParams["FILTER_COLOR_EXT"]."%";
+      }
+    }
+    //No ID (Исключение id)
+    if (isset($arParams["FILTER_NO_ID"])) {
+      if ($arParams["FILTER_NO_ID"]!="") {
+        $arFilter[]["!ID"]=$arParams["FILTER_NO_ID"];
       }
     }
   

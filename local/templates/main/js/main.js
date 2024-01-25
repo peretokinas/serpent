@@ -37,7 +37,7 @@ $(document).ready(function(){
       btnRew.css("margin-top","0px");
     } else {
       itemParent.addClass("active");
-      $(this).html("Скрыть состав заказа");
+      $(this).html("<br><br><br>Скрыть состав заказа");
       var nHeight=itemContainerHiddenHeight+20+"px";
       itemContainerHidden.css("height",nHeight);
       btnRew.css("margin-top","20px");

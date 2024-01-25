@@ -104,7 +104,18 @@
                     </div>
                   </div>
                   <div class="card-map">
-                    <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/basket/map.jpg" alt="">
+                    <?php
+                      $APPLICATION->IncludeComponent(
+                        "swf:other",
+                        "yandexmap",
+                          [
+                            "mc_1"=>55.730000,
+                            "mc_2"=>37.550000,
+                            "mc_1_mob"=>55.730000,
+                            "mc_2_mob"=>37.550000,
+                          ],
+                      );
+                    ?>
                   </div>
                 </div>
               </div>
@@ -289,6 +300,7 @@
               <div class="cast_error_text_1 cast_hide"></div>
             </div>
           </div>
+          <a href="" class="btn btn_basket btn_basket_mobile <?php echo $tmp_but_class;?>"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
         </form>
         <div class="basket-sidebar">
           <h3><?php echo Loc::getMessage("PAGE_NAME_CART");?></h3>
@@ -427,7 +439,7 @@
                 $tmp_but_class="auth-event";
               }
             ?>
-            <a href="" class="btn btn_basket <?php echo $tmp_but_class;?>"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
+            <a href="" class="btn btn_basket btn_basket_desktop <?php echo $tmp_but_class;?>"><?php echo Loc::getMessage("SHOP_CART_EXEC_ORDER");?></a>
           </div>
         </div>
       </div>
@@ -445,7 +457,7 @@
               "IB_REW"=>"",
               "SETT_COLOR_1"=>$arParams["arSettings"]["COLOR_1"],
               "SETT_SHOP_1"=>$arParams["arSettings"]["SHOP"],
-              "GROUP_PODOB_1"=>"Y",
+              "GROUP_PODOB_1"=>"N",
               "GROUP_PODOB_1_PROP"=>"TSVET",
               "GROUP_PODOB_1_RAZD"=>", ",
               "DETAIL_CODE"=>"",
@@ -524,7 +536,7 @@
             "IB_REW"=>"",
             "SETT_COLOR_1"=>$arParams["arSettings"]["COLOR_1"],
             "SETT_SHOP_1"=>$arParams["arSettings"]["SHOP"],
-            "GROUP_PODOB_1"=>"Y",
+            "GROUP_PODOB_1"=>"N",
             "GROUP_PODOB_1_PROP"=>"TSVET",
             "GROUP_PODOB_1_RAZD"=>", ",
             "DETAIL_CODE"=>"",
@@ -536,6 +548,7 @@
             "SLIDER_LIMIT"=>rand(3,10),
             "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
             "BUTT_CENTER"=>"Y",
+            "FILTER_NEW"=>"Y",
           ],
         );
         
@@ -550,7 +563,7 @@
             "IB_REW"=>"",
             "SETT_COLOR_1"=>$arParams["arSettings"]["COLOR_1"],
             "SETT_SHOP_1"=>$arParams["arSettings"]["SHOP"],
-            "GROUP_PODOB_1"=>"Y",
+            "GROUP_PODOB_1"=>"N",
             "GROUP_PODOB_1_PROP"=>"TSVET",
             "GROUP_PODOB_1_RAZD"=>", ",
             "DETAIL_CODE"=>"",
@@ -562,6 +575,7 @@
             "SLIDER_LIMIT"=>rand(3,10),
             "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
             "BUTT_CENTER"=>"Y",
+            "FILTER_HIT"=>"Y",
           ],
         );
       ?>

@@ -8,7 +8,11 @@
     <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
       <div class="search-modal__product-item">
         <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="search-modal__product-item__pic">
-          <img src="<?php echo $val["arPhotos"][0];?>" alt="">
+          <?php if(isset($val["arPhotos"][0])):?>
+            <img src="<?php echo $val["arPhotos"][0];?>" alt="">
+          <?php else:?>
+            <img src="<?php echo SITE_TEMPLATE_PATH."/img/no-photo.jpg";?>" alt="">
+          <?php endif;?>
         </a>
         <div class="search-modal__product-item__content">
           <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="search-modal__product-item__title"><?php echo $val["arFields"]["NAME"];?></a>

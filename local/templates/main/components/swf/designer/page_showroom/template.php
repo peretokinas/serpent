@@ -30,13 +30,13 @@
       <p>
         Уважаемые клиенты, добро пожаловать в премиальный мир купальников The Serpent! Приглашаем вас в мир пляжной моды, где качество и изысканный стиль создают ваш идеальный образ.
       </p>
-      <div class="showroom-photo">
-        <div class="showroom-photo__column">
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-1.jpg" alt="">
+      <div class="cast-gal-photo-1">
+        <div class="cast-gal-photo-1-col cast-gal-photo-1-col-1">
+          <img class="" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-1.jpg" alt="">
         </div>
-        <div class="showroom-photo__column">
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-2.jpg" alt="">
-          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-3.jpg" alt="">
+        <div class="cast-gal-photo-1-col cast-gal-photo-1-col-2">
+          <img class="cast-gal-photo-1-col-2-row-1" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-2.jpg" alt="">
+          <img class="cast-gal-photo-1-col-2-row-2" src="<?php echo SITE_TEMPLATE_PATH;?>/img/articles/showroom-3.jpg" alt="">
         </div>
       </div>
       <h2>Помощь в выборе</h2>

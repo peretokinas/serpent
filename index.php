@@ -73,13 +73,13 @@
       <div class="swiper swiper-mobile">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3_m.jpg?v=1" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3_m.jpg?v=2" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2_m.jpg?v=1" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2_m.jpg?v=2" alt="">
           </div>
           <div class="swiper-slide">
-            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1_m.jpg?v=1" alt="">
+            <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1_m.jpg?v=2" alt="">
           </div>
           <a href="<?php echo $link_static_slider;?>?vid=Купальник женский слитный" class="swiper-slide swiper-slide__all-slider">
              <span class="link-circle">
@@ -124,15 +124,15 @@
           </div>
           <div class="swimsuit-block__flex">
             <div class="swimsuit-block__column cast_max_height_2">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2.jpg?v=1" alt="">
+              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_2.jpg?v=2" alt="">
             </div>
             <div class="swimsuit-block__column cast_max_height_2">
-              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3.jpg?v=1" alt="">
+              <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_3.jpg?v=2" alt="">
             </div>
           </div>
         </div>
         <div class="swimsuit-block__pic cast_max_height_1">
-          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1.jpg?v=1" alt="">
+          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/slit_1.jpg?v=2" alt="">
         </div>
       </div>
     </div>
@@ -295,15 +295,15 @@
           </div>
           <div class="swimsuit-block__flex">
             <div class="swimsuit-block__column cast_max_height_3">
-              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_1.jpg?v=2" alt="">
+              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_1.jpg?v=3" alt="">
             </div>
             <div class="swimsuit-block__column cast_max_height_3">
-              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_2.jpg?v=2" alt="">
+              <img class="swimsuit-img_cast_fixed_height_1" src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_2.jpg?v=3" alt="">
             </div>
           </div>
         </div>
         <div class="swimsuit-block__pic cast_max_height_1">
-          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_3.jpg?v=2" alt="">
+          <img src="<?=SITE_TEMPLATE_PATH;?>/img/main/razdel_3.jpg?v=3" alt="">
         </div>
       </div>
     </div>
@@ -462,6 +462,7 @@
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_NEWS_ALL",
           "BUTT_CENTER"=>"Y",
           "FILTER_NEW"=>"Y",
+          "TOUCH_EVENT"=>"N",
         ],
       );
       
@@ -490,6 +491,7 @@
           "ALL_CATALOG_CAST_TITLE"=>"SHOP_SLIDER_1_HIT_ALL",
           "BUTT_CENTER"=>"Y",
           "FILTER_HIT"=>"Y",
+          "TOUCH_EVENT"=>"N",
         ],
       );
     ?>

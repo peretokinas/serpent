@@ -117,11 +117,8 @@ function fun_send_filter(send_yes) {
           var obj_filter_mob=$("."+key);
           obj_filter_mob.html(val);
         });
-        // console.log(obj_json);
         //Скрываем форму ввода значений
         $(".filter-container").removeClass("active");
-        //Сохраняем значения формы
-        
       },
     });
   }

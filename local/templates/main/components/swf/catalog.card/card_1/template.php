@@ -67,7 +67,7 @@
           </div>
         <?php endif;?>
       </div>
-      <div class="product-slide__swiper swiper link_detail_on_click_photo_section_action" link-detail="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>">
+      <div touch-event="<?php echo $arParams["arParamsDef"]["TOUCH_EVENT"];?>" class="product-slide__swiper swiper link_detail_on_click_photo_section_action" link-detail="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>">
         <div class="swiper-wrapper">
           <?php if(count($val["arPhotos"])>0):?>
             <?php foreach($val["arPhotos"] AS $key_ph=>$val_ph):?>

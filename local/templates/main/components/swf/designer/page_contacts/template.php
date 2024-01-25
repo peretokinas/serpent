@@ -84,19 +84,19 @@
   </div>
 
   <?php
-  $APPLICATION->IncludeComponent(
-    "swf:other",
-    "yandexmap",
-      [
-      ],
+    $APPLICATION->IncludeComponent(
+      "swf:other",
+      "yandexmap",
+        [
+        ],
     );
   ?>
   <?php
-  $APPLICATION->IncludeComponent(
-    "swf:forms",
-    "form_1",
-    [
-    ],
+    $APPLICATION->IncludeComponent(
+      "swf:forms",
+      "form_1",
+      [
+      ],
     );
   ?>
 </main>

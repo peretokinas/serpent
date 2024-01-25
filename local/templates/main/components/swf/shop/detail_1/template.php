@@ -270,12 +270,14 @@
                     }
                   }
                 }
+                $now_prod_color="";
               ?>
               <?php foreach($arPodob AS $key_p=>$val_p):?>
                 <?php
                   $tmp_bg=$arParams["SETT_COLOR_1"][$val_p["arProps"][$arParams["GROUP_PODOB_1_PROP"]]["VALUE"]];
                   if ($val_p["arFields"]["ID"]==$arElem["arFields"]["ID"]) {
                     $tmp_check="checked";
+                    $now_prod_color=$val_p["arProps"][$arParams["GROUP_PODOB_1_PROP"]]["VALUE"];
                   } else {
                     $tmp_check="";
                   }
@@ -514,7 +516,12 @@
           "SLIDER_LIMIT"=>"",
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
-          "FILTER_MODEL"=>$arElem["arProps"]["KOLLEKTSIYA"]["VALUE"],
+          "FILTER_MODEL"=>"",
+          "FILTER_COLOR_EXT"=>$now_prod_color,
+          "FILTER_VID"=>$arResult["ITEMS"][0]["arProps"]["VID"]["VALUE"],
+          "FILTER_NO_ID"=>$arElem["arFields"]["ID"],
+          "TOUCH_EVENT"=>"N",
+          "SLIDER_MIN_PROD"=>2,
         ],
       );
       
@@ -543,6 +550,10 @@
           "ALL_CATALOG_CAST_TITLE"=>"",
           "BUTT_CENTER"=>"Y",
           "FILTER_MODEL"=>$arElem["arProps"]["KOLLEKTSIYA"]["VALUE"],
+          "FILTER_VID"=>"",
+          "FILTER_NO_ID"=>$arElem["arFields"]["ID"],
+          "TOUCH_EVENT"=>"N",
+          "SLIDER_MIN_PROD"=>2,
         ],
       );
     ?>

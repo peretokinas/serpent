@@ -177,13 +177,16 @@ window.addEventListener('load', function (){
                 })
               })
             });
-            item.addEventListener('touchmove', () => {
-              this.pagination.bullets.forEach((bullet, index) => {
-                bullet.addEventListener('touchmove', function (){
-                  swiperProductPic.slideTo(index)
+            var touch_event=item.getAttribute("touch-event");
+            if (touch_event!="N") { 
+              item.addEventListener('touchmove', () => {
+                this.pagination.bullets.forEach((bullet, index) => {
+                  bullet.addEventListener('touchmove', function (){
+                    swiperProductPic.slideTo(index);
+                  })
                 })
-              })
-            });
+              });
+            }
           },
         }
       });
@@ -551,13 +554,16 @@ window.addEventListener('load', function (){
     document.querySelector('.header-event__link-search').addEventListener('click', function (e){
       e.preventDefault();
       if(document.querySelector('.search-modal').classList.contains('active')){
-        document.querySelector('.search-modal').classList.remove('active')
+        document.querySelector('.search-modal').classList.remove('active');
+        $(".basket-top").removeClass("no-before");
       }else{
-        document.querySelector('.search-modal').classList.add('active')
+        document.querySelector('.search-modal').classList.add('active');
+        $(".basket-top").addClass("no-before");
       }
     })
     document.querySelector('.search-back').addEventListener('click', function (){
-      document.querySelector('.search-modal').classList.remove('active')
+      document.querySelector('.search-modal').classList.remove('active');
+      $(".basket-top").removeClass("no-before");
     })
   }
 

@@ -3,19 +3,37 @@
   $arCoord = json_encode($_SESSION["arDеsignerSett"]["SETT_COORDINATION_MAP"]);
 ?>
 <div class="map">
-    <div id="map"></div>
+  <div id="map"></div>
 </div>
 
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
 <script>
     const coordinate = JSON.parse('<?php echo $arCoord;?>');
     ymaps.ready(function () {
-        var mc_1=55.740000;
-        var mc_2=37.450000;
+        <?php if($arParams["mc_1"]!=""):?>
+          var mc_1=<?php echo $arParams["mc_1"];?>;
+        <?php else:?>
+          var mc_1=55.740000;
+        <?php endif;?>
+        
+        <?php if($arParams["mc_2"]!=""):?>
+          var mc_2=<?php echo $arParams["mc_2"];?>;
+        <?php else:?>
+          var mc_2=37.450000;
+        <?php endif;?>
         
         if (document.body.clientWidth<=991) {
-          mc_1=55.725000;
-          mc_2=37.550000;
+          <?php if($arParams["mc_1_mob"]!=""):?>
+            var mc_1=<?php echo $arParams["mc_1_mob"];?>;
+          <?php else:?>
+            var mc_1=55.725000;
+          <?php endif;?>
+          
+          <?php if($arParams["mc_2_mob"]!=""):?>
+            var mc_2=<?php echo $arParams["mc_2_mob"];?>;
+          <?php else:?>
+            var mc_2=37.550000;
+          <?php endif;?>
         }
       
         var myMap = new ymaps.Map('map', {

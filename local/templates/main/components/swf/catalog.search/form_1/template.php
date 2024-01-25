@@ -48,7 +48,7 @@
             "IB_REW"=>"",
             "SETT_COLOR_1"=>$arParams["arSettings"]["COLOR_1"],
             "SETT_SHOP_1"=>$arParams["arSettings"]["SHOP"],
-            "GROUP_PODOB_1"=>"Y",
+            "GROUP_PODOB_1"=>"N",
             "GROUP_PODOB_1_PROP"=>"TSVET",
             "GROUP_PODOB_1_RAZD"=>", ",
             "DETAIL_CODE"=>"",

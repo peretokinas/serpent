@@ -150,13 +150,21 @@
         <div class="header_bottom__container">
           <div class="header_bottom__mobile">
             <?php if (!$USER->IsAuthorized()): ?>
-            <a href="" class="btn auth-event">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
-                <path d="M8.86976 9.3252C11.1687 9.3252 13.0324 7.46154 13.0324 5.1626C13.0324 2.86366 11.1687 1 8.86976 1C6.57081 1 4.70715 2.86366 4.70715 5.1626C4.70715 7.46154 6.57081 9.3252 8.86976 9.3252Z" stroke="white" stroke-miterlimit="10"/>
-                <path d="M1.3252 17C1.3252 12.7593 4.75934 9.3252 8.99999 9.3252C13.2406 9.3252 16.6748 12.7593 16.6748 17" stroke="white" stroke-miterlimit="10"/>
-              </svg>
-              Войти в личный кабинет
-            </a>
+              <a href="" class="btn auth-event">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                  <path d="M8.86976 9.3252C11.1687 9.3252 13.0324 7.46154 13.0324 5.1626C13.0324 2.86366 11.1687 1 8.86976 1C6.57081 1 4.70715 2.86366 4.70715 5.1626C4.70715 7.46154 6.57081 9.3252 8.86976 9.3252Z" stroke="white" stroke-miterlimit="10"/>
+                  <path d="M1.3252 17C1.3252 12.7593 4.75934 9.3252 8.99999 9.3252C13.2406 9.3252 16.6748 12.7593 16.6748 17" stroke="white" stroke-miterlimit="10"/>
+                </svg>
+                Войти в личный кабинет
+              </a>
+            <?php else:?>
+              <a href="/cabinet/page_general/" class="btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17" fill="none">
+                  <path d="M8.86976 9.3252C11.1687 9.3252 13.0324 7.46154 13.0324 5.1626C13.0324 2.86366 11.1687 1 8.86976 1C6.57081 1 4.70715 2.86366 4.70715 5.1626C4.70715 7.46154 6.57081 9.3252 8.86976 9.3252Z" stroke="white" stroke-miterlimit="10"/>
+                  <path d="M1.3252 17C1.3252 12.7593 4.75934 9.3252 8.99999 9.3252C13.2406 9.3252 16.6748 12.7593 16.6748 17" stroke="white" stroke-miterlimit="10"/>
+                </svg>
+                Перейти в личный кабинет
+              </a>
             <?php endif;?>
             <a href="tel:<?php echo Loc::getMessage("TITLE_PHONE_TEL");?>" class="phone-mobile">
               <?php echo Loc::getMessage("TITLE_PHONE");?>

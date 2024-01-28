@@ -348,6 +348,7 @@
     public static function resize_photo($arParams){
       $catalog=$_SERVER["DOCUMENT_ROOT"]."/img/catalog/";
       $catalog_resize=$_SERVER["DOCUMENT_ROOT"]."/img/catalog_resize/";
+      $catalog_backup=$_SERVER["DOCUMENT_ROOT"]."/img/catalog_backup/";
       
       $scan_dir=scandir($catalog);
       
@@ -389,9 +390,13 @@
         if ($scan_dir[$i]!="." AND $scan_dir[$i]!="..") {
           $file_old=$catalog.$scan_dir[$i];
           $file_new=$catalog_resize.$scan_dir[$i];
+          $file_backup=$catalog_backup.$scan_dir[$i];
           
           //Удаляем старую
           unlink($file_new);
+          
+          //Бэкапим
+          copy($file_old,$file_backup);
           
           //Ресайзим
           CFile::ResizeImageFile(
@@ -427,6 +432,9 @@
               }
             }
           }
+          
+          //Удаляем источник
+          unlink($file_old);
         }
       }
     }

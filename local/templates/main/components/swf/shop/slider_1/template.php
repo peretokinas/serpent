@@ -14,7 +14,7 @@
 ?>
 <?php if($view):?>
   <div class="section section-slider">
-    <div class="section-top mb-60">
+    <div class="section-top mb-30">
       <div class="section-top__flex">
         <div class="title"><?php echo $arParams["SLIDER_TITLE"];?></div>
       </div>
@@ -30,47 +30,19 @@
               }
             ?>
             <?php echo Loc::getMessage($tmp_title_var);?>
-            <span class="link-all__icon">
+            <!-- <span class="link-all__icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14" viewBox="0 0 9 14"
                  fill="none">
                 <path d="M0.897903 13.0747L7.00006 6.99994L0.899482 0.923639" stroke="#263740"
                     stroke-width="2"/>
               </svg>
-            </span>
+            </span> -->
           </a>
         <?php endif;?>
-        <?php if($arParams["BUTT_CENTER"]!="Y"):?>
-          <div class="section-top__arrow">
-            <div class="swiper-button-prev swiper-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
-                 fill="none">
-                <path d="M2.82874 16.0006L32.0002 16.002" stroke="#263740" stroke-linejoin="round"/>
-                <path d="M8.10234 9.88823L2.00018 15.963L8.10076 22.0393" stroke="#263740"
-                    stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="swiper-button-next swiper-arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31"
-                 fill="none">
-                <path d="M29.1713 16.0006L-0.000242786 16.002" stroke="#263740"
-                    stroke-linejoin="round"/>
-                <path d="M23.8977 9.88823L29.9998 15.963L23.8992 22.0393" stroke="#263740"
-                    stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-        <?php endif?>
+       
       </div>
     </div>
     <div class="slider-container">
-      <?php if($arParams["BUTT_CENTER"]=="Y"):?>
-        <div class="swiper-button-prev swiper-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
-            <path d="M2.82874 16.0006L32.0002 16.002" stroke="#263740" stroke-linejoin="round"/>
-            <path d="M8.10234 9.88823L2.00018 15.963L8.10076 22.0393" stroke="#263740" stroke-width="2"/>
-          </svg>
-        </div>
-      <?php endif?>
       <div class="slider-product swiper">
         <div class="swiper-wrapper">
           <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
@@ -134,14 +106,6 @@
           <?php endif;?>
         </div>
       </div>
-      <?php if($arParams["BUTT_CENTER"]=="Y"):?>
-        <div class="swiper-button-next swiper-arrow">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31" viewBox="0 0 32 31" fill="none">
-            <path d="M29.1713 16.0006L-0.000242786 16.002" stroke="#263740" stroke-linejoin="round"/>
-            <path d="M23.8977 9.88823L29.9998 15.963L23.8992 22.0393" stroke="#263740" stroke-width="2"/>
-          </svg>
-        </div>
-      <?php endif;?>
     </div>
   </div>
 <?php endif;?>

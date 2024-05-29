@@ -57,43 +57,43 @@
   <?php //Страница каталога?>
   <?php if(!$poisk):?>
     <?php
-      $print_name_section=$arParams["SECTION_NAME_PRINT"];
-      if ($print_name_section=="") {
-        $print_name_section="Купальники";
-      }
-      $data_img["bg"]="/img/catalog/bg.jpg";
-      $data_img["bg-tablet"]="/img/catalog/bg-tablet.jpg";
-      $data_img["bg-mobile"]="/img/catalog/bg-mobile.jpg";
-      if ($_GET["vid"]=="Купальник женский слитный") {
-        $print_name_section="Слитные купальники";
-        $data_img["bg"]="/img/catalog/bg-one-piece-tablet.jpg";
-        $data_img["bg-tablet"]="/img/catalog/bg-one-piece-tablet.jpg";
-        $data_img["bg-mobile"]="/img/catalog/bg-one-piece-mobile.jpg";
-      }
-      if ($_GET["vid"]=="Купальник женский раздельный") {
-        $print_name_section="Раздельные купальники";
-        $data_img["bg"]="/img/catalog/bg-two-piece-tablet.jpg";
-        $data_img["bg-tablet"]="/img/catalog/bg-two-piece-tablet.jpg";
-        $data_img["bg-mobile"]="/img/catalog/bg-two-piece-mobile.jpg";
-      }
-      if ($_GET["new"]=="Y") {
-        $print_name_section="Новинки";
-      }
-      if ($_GET["hit"]=="Y") {
-        $print_name_section="Хиты продаж";
-        $data_img["bg"]="/img/catalog/bg-hit-tablet.jpg";
-        $data_img["bg-tablet"]="/img/catalog/bg-hit-tablet.jpg";
-        $data_img["bg-mobile"]="/img/catalog/bg-hit-mobile.jpg";
-      }
-      if ($_GET["sale"]=="Y") {
-        $print_name_section="Купальники со скидками";
-        $data_img["bg"]="/img/catalog/bg-sale-tablet.jpg";
-        $data_img["bg-tablet"]="/img/catalog/bg-sale-tablet.jpg";
-        $data_img["bg-mobile"]="/img/catalog/bg-sale-mobile.jpg";
-      }
-      if ($_GET["model"]!="") {
-        $print_name_section="Купальники ".$_GET["model"];
-      }
+      // $print_name_section=$arParams["SECTION_NAME_PRINT"];
+      // if ($print_name_section=="") {
+      //   $print_name_section="Купальники";
+      // }
+      // $data_img["bg"]="/img/catalog/bg.jpg";
+      // $data_img["bg-tablet"]="/img/catalog/bg-tablet.jpg";
+      // $data_img["bg-mobile"]="/img/catalog/bg-mobile.jpg";
+      // if ($_GET["vid"]=="Купальник женский слитный") {
+      //   $print_name_section="Слитные купальники";
+      //   $data_img["bg"]="/img/catalog/bg-one-piece-tablet.jpg";
+      //   $data_img["bg-tablet"]="/img/catalog/bg-one-piece-tablet.jpg";
+      //   $data_img["bg-mobile"]="/img/catalog/bg-one-piece-mobile.jpg";
+      // }
+      // if ($_GET["vid"]=="Купальник женский раздельный") {
+      //   $print_name_section="Раздельные купальники";
+      //   $data_img["bg"]="/img/catalog/bg-two-piece-tablet.jpg";
+      //   $data_img["bg-tablet"]="/img/catalog/bg-two-piece-tablet.jpg";
+      //   $data_img["bg-mobile"]="/img/catalog/bg-two-piece-mobile.jpg";
+      // }
+      // if ($_GET["new"]=="Y") {
+      //   $print_name_section="Новинки";
+      // }
+      // if ($_GET["hit"]=="Y") {
+      //   $print_name_section="Хиты продаж";
+      //   $data_img["bg"]="/img/catalog/bg-hit-tablet.jpg";
+      //   $data_img["bg-tablet"]="/img/catalog/bg-hit-tablet.jpg";
+      //   $data_img["bg-mobile"]="/img/catalog/bg-hit-mobile.jpg";
+      // }
+      // if ($_GET["sale"]=="Y") {
+      //   $print_name_section="Купальники со скидками";
+      //   $data_img["bg"]="/img/catalog/bg-sale-tablet.jpg";
+      //   $data_img["bg-tablet"]="/img/catalog/bg-sale-tablet.jpg";
+      //   $data_img["bg-mobile"]="/img/catalog/bg-sale-mobile.jpg";
+      // }
+      // if ($_GET["model"]!="") {
+      //   $print_name_section="Купальники ".$_GET["model"];
+      // }
     ?>
     <div class="catalog-container" style="background-image: url('<?php echo SITE_TEMPLATE_PATH.$data_img["bg"];?>')">
       <div class="catalog-container__tablet" style="background-image: url('<?php echo SITE_TEMPLATE_PATH.$data_img["bg-tablet"];?>')"></div>
@@ -141,9 +141,9 @@
           );
         ?>
       </div>
-      <div class="container">
+      <!-- <div class="container">
         <div class="article-page__title"><?php echo $print_name_section;?></div>
-      </div>
+      </div> -->
     </div>
   <?php endif;?>
   <div class="container">
@@ -200,41 +200,46 @@
                 </svg>
               </div>
             </div>
-            <div class="filter-item" data-attr="price">
-              <span class="cast_local_caption_div">
-                Цена&nbsp;
-              </span>
-              <span class="id_filter_val_span__price">
-                <?php if($view_price_filter_use):?>
-                  <?php echo swf_util::get_num_form_2($filter_price_start);?> - <?php echo swf_util::get_num_form_2($filter_price_end);?>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
-                <?php endif;?>
-              </span>
-            </div>
-            <div class="filter-item" data-attr="size">
-              <span class="cast_local_caption_div">
-                Размер&nbsp;
-              </span>
-              <span class="id_filter_val_span__size">
-                <?php $sch_100=0;?>
-                <?php foreach($filter_size AS $key_100=>$val_100):?>
-                  <?php echo trim(strtoupper($val_100));?><?php if($sch_100+1!=count($filter_size)){echo ",";}?>
-                  <?php $sch_100++;?>
-                <?php endforeach;?>
-              </span>
-            </div>
-            <div class="filter-item" data-attr="color">
-              <span class="cast_local_caption_div">
-                Цвет
-              </span>
-              <span class="id_filter_val_span__color">
-                <?php foreach($filter_color AS $key_100=>$val_100):?>
-                  <div class="color_filter_use_1">
-                    <div class="color_filter_use_1_center" style="background-color: <?php echo $arParams["arSettings"]["COLOR_1"][$val_100];?>">
+            <div class="left-block">
+              <div class="filter-item" data-attr="price">
+                <span class="cast_local_caption_div">
+                  Цена&nbsp;
+                </span>
+                <span class="id_filter_val_span__price">
+                  <?php if($view_price_filter_use):?>
+                    <?php echo swf_util::get_num_form_2($filter_price_start);?> - <?php echo swf_util::get_num_form_2($filter_price_end);?>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
+                  <?php endif;?>
+                </span>
+              </div>
+              <div class="filter-item" data-attr="size">
+                <span class="cast_local_caption_div">
+                  Размер&nbsp;
+                </span>
+                <span class="id_filter_val_span__size">
+                  <?php $sch_100=0;?>
+                  <?php foreach($filter_size AS $key_100=>$val_100):?>
+                    <?php echo trim(strtoupper($val_100));?><?php if($sch_100+1!=count($filter_size)){echo ",";}?>
+                    <?php $sch_100++;?>
+                  <?php endforeach;?>
+                </span>
+              </div>
+              <div class="filter-item" data-attr="color">
+                <span class="cast_local_caption_div">
+                  Цвет
+                </span>
+                <span class="id_filter_val_span__color">
+                  <?php foreach($filter_color AS $key_100=>$val_100):?>
+                    <div class="color_filter_use_1">
+                      <div class="color_filter_use_1_center" style="background-color: <?php echo $arParams["arSettings"]["COLOR_1"][$val_100];?>">
+                      </div>
                     </div>
-                  </div>
-                <?php endforeach;?>
-              </span>
+                  <?php endforeach;?>
+                </span>
+              </div>
             </div>
+            
+            
+            
             <?php 
               if (count($filter_collect)>0) {
                 $dop_text="&nbsp;(".count($filter_collect).")";
@@ -242,14 +247,18 @@
                 $dop_text="";
               }
             ?>
-            <div class="filter-item <?php echo $dop_class;?>" data-attr="collection">
-              <span class="cast_local_caption_div">
-                Коллекция
-              </span>
-              <span class="id_filter_val_span__collect"><?php echo $dop_text;?></span>
+            <div class="right-block">
+              <div class="filter-item <?php echo $dop_class;?>" data-attr="collection">
+                <span class="cast_local_caption_div">
+                  Коллекция
+                </span>
+                <span class="id_filter_val_span__collect"><?php echo $dop_text;?></span>
+              </div>
+              <div class="filter-send btn btn-mobile cast_filter_send_mobile_action">Применить</div>
+              <div class="filter-reset btn">Очистить</div>
             </div>
-            <div class="filter-send btn btn-mobile cast_filter_send_mobile_action">Применить</div>
-            <div class="filter-reset btn">Очистить</div>
+           
+            
           </div>
           <div class="filter-container" data-id="price">
             <div class="filter-head">
@@ -512,6 +521,7 @@
               $ex_name=explode($arParams["GROUP_PODOB_1_RAZD"],$val["arFields"]["NAME"]);
               $tmpArPodob_1=$arResult["ITEMS_PODOB_1"][$ex_name[0]];
               
+              
               //Грузим карточку
               $APPLICATION->IncludeComponent(
                 "swf:catalog.card",
@@ -525,6 +535,8 @@
                   "arResult"=>$arResult,
                 ],
               );
+              
+              
               
               //Грузим карточки подобных
               foreach ($tmpArPodob_1 AS $key_p1=>$val_p1) {
@@ -549,6 +561,29 @@
             <p>По вашему запросу ничего не найдено</p>
           </div>
         <?php endif;?>
+      </div>
+      <div class="pagination">
+        <div class="pagination__main-buttons">
+          <div class="pagination__prev-button">
+            <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.56193 10.9386L4.60103 5.99996L9.56065 1.06008" stroke="#263740"/>
+            </svg>
+          </div>
+          <div class="pagination__button pagination__active-button">1</div>
+          <div class="pagination__button">2</div>
+          <div class="pagination__next-button">
+            <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.43807 10.9386L10.399 5.99996L5.43935 1.06008" stroke="#263740"/>
+            </svg>
+          </div>
+        </div>
+        <div class="pagination__show-more">
+          <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.41466 11.4596C2.25477 12.9373 3.60383 14.0589 5.21014 14.6149C6.81646 15.1709 8.57026 15.1235 10.1442 14.4814C11.718 13.8393 13.0045 12.6465 13.7635 11.1255C14.5224 9.60452 14.702 7.85934 14.2687 6.21567C13.8354 4.57199 12.8189 3.14216 11.4087 2.19299C9.99859 1.24382 8.29128 0.840176 6.60539 1.05742C4.9195 1.27466 3.37027 2.09786 2.24682 3.3735C1.12337 4.64915 0.50246 6.29007 0.5 7.98989" stroke="#263740" stroke-linecap="square" stroke-linejoin="round"/>
+            <path d="M4.94485 11.2778H1.22559V14.9971" stroke="#263740" stroke-linecap="square" stroke-linejoin="round"/>
+          </svg>
+          Показать еще
+        </div>
       </div>
     </div>
     <?php //Страница поиска?>

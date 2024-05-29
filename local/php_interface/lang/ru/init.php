@@ -69,7 +69,7 @@
   $MESS["SHOP_SLIDER_1_POHOJIE"]="Похожие товары";
   $MESS["SHOP_SLIDER_1_LINE"]="Все товары линии";
   $MESS["SHOP_SLIDER_1_NEWS"]="Новинки";
-  $MESS["SHOP_SLIDER_1_NEWS_ALL"]="Все новинки";
+  $MESS["SHOP_SLIDER_1_NEWS_ALL"]="Показать все";
   $MESS["SHOP_SLIDER_1_HIT"]="Хит продаж";
   $MESS["SHOP_SLIDER_1_HIT_ALL"]="Все хиты продаж";
   $MESS["SHOP_SLIDER_1_IN_CART"]="Дополните свой образ";

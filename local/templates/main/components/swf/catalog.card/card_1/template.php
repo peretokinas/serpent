@@ -81,123 +81,30 @@
             </div>
           <?php endif;?>
         </div>
-        <div class="swiper-arrow swiper-arrow__left">
+        <!-- <div class="swiper-arrow swiper-arrow__left">
           <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14"
              viewBox="0 0 9 14" fill="none">
             <path d="M0.897903 13.0747L7.00006 6.99994L0.899482 0.923639"
               stroke="#263740" stroke-width="2"></path>
           </svg>
-        </div>
-        <div class="swiper-arrow swiper-arrow__right">
+        </div> -->
+        <!-- <div class="swiper-arrow swiper-arrow__right">
           <svg xmlns="http://www.w3.org/2000/svg" width="9" height="14"
              viewBox="0 0 9 14" fill="none">
             <path d="M0.897903 13.0747L7.00006 6.99994L0.899482 0.923639"
               stroke="#263740" stroke-width="2"></path>
           </svg>
-        </div>
-        <div class="swiper-pagination"></div>
+        </div> -->
+        <!-- <div class="swiper-pagination"></div> -->
       </div>
     </div>
-  <div class="product-slide__event">
-    <div class="product-slide__color">
-      <div class="product-slide__color-item">
-        <?php
-          if (count($val_general)>0) {
-            $tmp_bg=$arParams["arParamsDef"]["SETT_COLOR_1"][$val_general["arProps"][$arParams["arParamsDef"]["GROUP_PODOB_1_PROP"]]["VALUE"]];
-            $tmp_checked="";
-            $tmp_code_card=$val_general["arFields"]["ID"];
-          } else {
-            $tmp_bg=$arParams["arParamsDef"]["SETT_COLOR_1"][$val["arProps"][$arParams["arParamsDef"]["GROUP_PODOB_1_PROP"]]["VALUE"]];
-            $tmp_checked="checked";
-            $tmp_code_card=$val["arFields"]["ID"];
-          }
-        ?>
-        <input code-card="<?php echo $tmp_code_card;?>" class="cast_card_prod_podob_1_action" type="radio" name="color-9" <?php echo $tmp_checked;?>>
-        <span class="product-slide__color-circle cast_product-slide__color-circle <?php echo $tmp_checked;?>">
-          <span style="background: <?php echo $tmp_bg;?>"></span>
-        </span>
-      </div>
-        <?php //Грузим ссылки на подобные 1?>
-        <?php if(is_array($tmpArPodob_1)):?>
-          <?php if(count($tmpArPodob_1)>0):?>
-            <?php foreach($tmpArPodob_1 AS $key_p1=>$val_p1):?>
-              <?php
-                $tmp_checked="";
-                if (count($val_general)>0) {
-                  if ($val_p1["arFields"]["ID"]==$val["arFields"]["ID"]) {
-                    $tmp_checked="checked";
-                  }
-                }
-                $tmp_code_card=$val_p1["arFields"]["ID"];
-              ?>
-              <div class="product-slide__color-item" <?php echo $tmp_checked;?>>
-                <input code-card="<?php echo $tmp_code_card;?>" class="cast_card_prod_podob_1_action" type="radio" name="color-9">
-                <span class="product-slide__color-circle cast_product-slide__color-circle <?php echo $tmp_checked;?>">
-                  <span style="background: <?php echo $arParams["arParamsDef"]["SETT_COLOR_1"][$val_p1["arProps"][$arParams["arParamsDef"]["GROUP_PODOB_1_PROP"]]["VALUE"]];?>"></span>
-                </span>
-              </div>
-            <?php endforeach;?>
-          <?php endif;?>
-        <?php endif;?>
-    </div>
-    <div class="product-slide__size">
-      <div class="product-slide__size-default">
-        <div class="product-slide__size-default-text">
-          <?php echo Loc::getMessage("SHOP_CATALOG_SIZE");?>
-          <span><?php echo $val["OFFERS"][0]["arProps"]["RAZMER"]["VALUE"];?></span>
-        </div>
-        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="7"
-          viewBox="0 0 13 7" fill="none">
-          <path d="M11.9899 0.988847L7.05135 5.94975L2.11147 0.990131"
-          stroke="#263740"/>
-        </svg>
-      </div>
-      <div class="product-slide__size-items">
-        <?php
-          $basket_addet=0;
-        ?>
-        <?php foreach($val["OFFERS"] AS $key_off=>$val_off):?>
-          <?php
-            if ($key_off==0) {
-              $tmp_active="active";
-              
-              //Проверяем добавлено ли отображаемое предложение в корзину.
-              foreach ($arParams["BASKET"] AS $key_basket=>$val_basket) {
-                if ($val_off["arFields"]["ID"]==$key_basket) {
-                  $basket_addet=1;
-                }
-              }
-            } else {
-              $tmp_active="";
-            }
-          ?>
-          <div prod-id="<?php echo $val_off["arFields"]["ID"];?>" class="product-slide__size-item <?php echo $tmp_active;?>"><?php echo $val_off["arProps"]["RAZMER"]["VALUE"];?></div>
-        <?php endforeach;?>
-      </div>
-    </div>
-  </div>
+
   <div class="product-slide__info">
     <div class="product-slide__content">
       <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="product-slide__title"><?php echo $val["arFields"]["NAME"];?></a>
       <div class="product-slide__price">
         <span><?php echo swf_util::get_num_form_2($val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
       </div>
-    </div>
-    <?php
-      if ($basket_addet==1) {
-        $basket_class_but="product-basket__added";
-      } else {
-        $basket_class_but="add_to_cart_section_action";
-      }
-    ?>
-    <div class="product-basket <?php echo $basket_class_but;?>">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="20"
-        viewBox="0 0 18 20" fill="none">
-        <path d="M17.0011 5.63635H1.0011V18.7273H17.0011V5.63635Z" stroke="white"
-        stroke-width="1.6" stroke-miterlimit="10"/>
-        <path d="M6.09216 10.2749V4.18181C6.09216 3.41027 6.39865 2.67032 6.94421 2.12476C7.48977 1.5792 8.22971 1.27271 9.00125 1.27271C9.77279 1.27271 10.5127 1.5792 11.0583 2.12476C11.6038 2.67032 11.9103 3.41027 11.9103 4.18181V10.2749"
-        stroke="white" stroke-miterlimit="10"/>
-      </svg>
     </div>
   </div>
 </div>

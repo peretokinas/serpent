@@ -76,19 +76,23 @@
       </div>
       <div class="inner__section">
         <a href="" class="inner__block">
-          <img class="inner__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-1.jpg" alt="">
+          <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-1.jpg" alt="">
+          <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-3-mobile.jpg" alt="">
           <p class="inner__name">Топы</p>
         </a>
         <a href="" class="inner__block">
-          <img class="inner__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-3.jpg" alt="">
+          <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-3.jpg" alt="">
+          <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-4-mobile.jpg" alt="">
           <p class="inner__name">Плавки</p>
         </a>
         <a href="" class="inner__block">
-          <img class="inner__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-4.jpg" alt="">
+          <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-4.jpg" alt="">
+          <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-1-mobile.jpg" alt="">
           <p class="inner__name">Слитные</p>
         </a>
         <a href="" class="inner__block">
-          <img class="inner__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-2.jpg" alt="">
+          <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-2.jpg" alt="">
+          <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-2-mobile.jpg" alt="">
           <p class="inner__name">Сертификаты</p>
         </a>
       </div>
@@ -134,13 +138,16 @@
         <div class="collection__title title">Коллекции</div>
         <div class="collection__block">
           <a href="" class="collection__ref picture-1">
-            <img class="collection__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-1.jpg" alt="">
+            <img class="collection__img collection__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-1.jpg" alt="">
+            <img class="collection__img collection__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-1-mobile.jpg" alt="">
           </a>
           <a href="" class="collection__ref picture-2">
-            <img class="collection__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-2.jpg" alt="">
+            <img class="collection__img collection__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-2.jpg" alt="">
+            <img class="collection__img collection__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-2-mobile.jpg" alt="">
           </a>
           <a href="" class="collection__ref picture-3">
-            <img class="collection__img" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-3.jpg" alt="">
+            <img class="collection__img collection__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-3.jpg" alt="">
+            <img class="collection__img collection__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/collection/collection-3-mobile.jpg" alt="">
           </a>
         </div>
       </div>

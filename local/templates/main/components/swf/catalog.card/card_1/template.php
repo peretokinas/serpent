@@ -38,7 +38,7 @@
       <div class="product-slide__tags">
         <?php if($val["arProps"]["NOVINKA"]["VALUE"]=="true"):?>
           <div class="product-slide__tag product-slide__new">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+            <svg width="34" height="34" viewBox="0 0 50 50" fill="none"
                xmlns="http://www.w3.org/2000/svg">
               <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
                 stroke-width="2"/>
@@ -48,7 +48,7 @@
         <?php endif;?>
         <?php if($val["arProps"]["KHIT"]["VALUE"]=="true"):?>
           <div class="product-slide__tag product-slide__hit">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+            <svg width="34" height="34" viewBox="0 0 50 50" fill="none"
                xmlns="http://www.w3.org/2000/svg">
               <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
                 stroke-width="2"/>
@@ -58,7 +58,7 @@
         <?php endif;?>
         <?php if((int)$val["arProps"]["SKIDKA"]["VALUE"]>0):?>
           <div class="product-slide__tag product-slide__sale">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none"
+            <svg width="34" height="34" viewBox="0 0 50 50" fill="none"
                xmlns="http://www.w3.org/2000/svg">
               <path d="M25.0011 1H49.0011V25C49.0011 38.2548 38.2559 49 25.0011 49C11.7463 49 1.0011 38.2548 1.0011 25C1.0011 11.7452 11.7463 1 25.0011 1Z"
                 stroke-width="2"/>

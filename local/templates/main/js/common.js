@@ -101,7 +101,7 @@ window.addEventListener('load', function (){
     document.querySelectorAll('.slider-product').forEach((item) => {
       let swiperProduct = new Swiper(item, {
         slidesPerView: 4,
-
+        spaceBetween: 10,
         watchSlidesProgress: true,
         navigation: {
           nextEl: item.closest('.section-slider').querySelector('.swiper-button-next'),
@@ -110,15 +110,15 @@ window.addEventListener('load', function (){
         breakpoints: {
           320: {
             slidesPerView: 1,
-            spaceBetween: 14,
           },
-          750: {
+          575: {
+            slidesPerView: 2,
+          },
+          767: {
             slidesPerView: 3,
-            spaceBetween: 14,
           },
           1300: {
             slidesPerView: 4,
-            spaceBetween: 20,
           },
         }
       });

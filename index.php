@@ -170,7 +170,8 @@
     <section class="present">
       <div class="container">
         <div class="present__block">
-          <img class="present__bg" src="<?php echo SITE_TEMPLATE_PATH;?>/img/present/present-bg.jpg" alt="">
+          <img class="present__bg present__bg-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/present/present-bg.jpg" alt="">
+          <img class="present__bg present__bg-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/present/present-bg-mobile.jpg" alt="">
           <div class="present__title">Подарочный сертификат</div>
           <p class="present__description">Подари близкому человеку приятные ощущения комфорта. Прикоснитесь к лету с идеальным образом!</p>
           <a href="" class="present__ref">Купить сертификат</a>

@@ -106,8 +106,96 @@
             </a> -->
             <div class="header__block">
               <a href="">Новинки</a>
-              <div class="">каталог</div>
-              <div class="">о бренде</div>
+              <div class="header-menu">
+                <span>каталог</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="drop-menu">
+                  <div class="drop-menu__column">
+                    <h3 class="drop-menu__title">
+                      купальники
+                    </h3>
+                    <ul class="drop-menu__list">
+                      <li>
+                        <a href="">
+                          Все купальники
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Верх
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Низ
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Слитные
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="drop-menu__column">
+                    <h3 class="drop-menu__title">
+                      Одежда
+                    </h3>
+                    <ul class="drop-menu__list">
+                      <li>
+                        <a href="">
+                          Вся одежда
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Юбки
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Палантины
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="drop-menu__column">
+                    <h3 class="drop-menu__title">
+                      Коллекции
+                    </h3>
+                    <ul class="drop-menu__list">
+                      <li>
+                        <a href="">
+                          Коллекция 1
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Коллекция 2
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Коллекция 3
+                        </a>
+                      </li>
+                      <li>
+                        <a href="">
+                          Коллекция 4
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="header-menu">
+                <span>о бренде</span>
+                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               <a href="">Компании</a>
               <a href="">Скидки</a>
             </div>

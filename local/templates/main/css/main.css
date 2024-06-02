@@ -3779,9 +3779,11 @@ header:not(.header-white) .header-menu {
 }
 
 .header-menu {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 6px;
+    cursor: pointer;
 }
 
 .drop-menu {
@@ -3790,6 +3792,8 @@ header:not(.header-white) .header-menu {
     display: none;
     padding-top: 45px;
     width: 100vw;
+    background-color: #fff;
+    z-index: 1;
 }
 
 .header-menu:hover .drop-menu {
@@ -3797,7 +3801,11 @@ header:not(.header-white) .header-menu {
 }
 .drop-menu__content {
     padding: 30px 160px;
-    background-color: #fff;
+}
+
+.drop-menu__column {
+    display: flex;
+    gap: 40px;
 }
 
 .drop-menu__title {

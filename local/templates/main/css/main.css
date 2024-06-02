@@ -3782,7 +3782,6 @@ header:not(.header-white) .header-menu {
 }
 
 .header-menu {
-    position: relative;
     display: flex;
     align-items: center;
     gap: 6px;

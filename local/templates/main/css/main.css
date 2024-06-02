@@ -3778,6 +3778,59 @@ header:not(.header-white) .header-menu {
     justify-content: space-between
 }
 
+.header-menu {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.drop-menu {
+    position: absolute;
+    left: 0;
+    display: none;
+    padding-top: 45px;
+    width: 100vw;
+}
+
+.header-menu:hover .drop-menu {
+    display: block;
+}
+.drop-menu__content {
+    padding: 30px 160px;
+    background-color: #fff;
+}
+
+.drop-menu__title {
+    margin-bottom: 20px;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+    color: #263740;
+}
+
+.drop-menu__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drop-menu__list li {
+    padding: 0;
+    margin: 0;
+}
+.drop-menu__list a {
+    display: block;
+    text-decoration: none;
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 14px;
+    color: #A0A0A0;
+}
+
 .header__block {
     display: flex;
     gap: 30px;

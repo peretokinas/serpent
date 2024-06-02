@@ -3792,6 +3792,7 @@ header:not(.header-white) .header-menu {
 .drop-menu {
     position: absolute;
     left: 0;
+    top: 126px;
     display: none;
     padding-top: 45px;
     width: 100vw;
@@ -3803,12 +3804,9 @@ header:not(.header-white) .header-menu {
     display: block;
 }
 .drop-menu__content {
-    padding: 30px 160px;
-}
-
-.drop-menu__column {
     display: flex;
     gap: 40px;
+    padding: 30px 160px;
 }
 
 .drop-menu__title {

@@ -103,24 +103,15 @@ main {
 }
 
 .container {
-    max-width: 1640px;
-    padding: 0 20px;
+    max-width: 1380px;
+    padding: 0 30px;
     width: 100%;
     margin: 0 auto
 }
-@media screen and (max-width: 1920px)  {
-    .container {
-        max-width: 1400px;
-    }
-}
-@media screen and (max-width: 1440px)  {
-    .container {
-        max-width: 1200px;
-    }
-}
+
 @media screen and (max-width: 991px) {
     .container {
-        max-width: 708px;
+        padding: 0 30px;
     }
     
 }
@@ -4358,8 +4349,6 @@ footer {
     display: flex;
     justify-content: space-between;
     gap: 12px;
-    max-width: 1320px;
-    width: 100%;
     margin: 0 auto;
 }
 @media screen and (max-width: 991px) {
@@ -11792,9 +11781,6 @@ blockquote:before {
     }
     .swiper-mobile .link-circle {
         margin-left: 0
-    }
-    .container {
-        padding: 0 14px
     }
     .header-event__link {
         width: 34px;

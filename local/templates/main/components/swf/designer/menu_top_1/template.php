@@ -1,7 +1,22 @@
 <?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?php if(count($arResult["arTree"])>0):?>
-  <nav class="header-menu">
-    <ul class="header-menu__items">
+  <nav class="header-menu-mobile">
+    <a href="" class="mobile-menu-item">Новинки</a>
+    <div class="mobile-menu-item mobile-menu-item_dropdown">
+      <span>каталог</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="mobile-menu-item mobile-menu-item_dropdown">
+      <span>о бренде</span>
+      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <a href="" class="mobile-menu-item">Компании</a>
+    <a href="" class="mobile-menu-item">Скидки</a>
+    <!-- <ul class="header-menu__items">
       <?php foreach($arResult["arTree"] AS $key=>$val):?>
         <li class="header-menu__item">
           <?php
@@ -29,6 +44,6 @@
           </a>
         </li>
       <?php endforeach;?>
-    </ul>
+    </ul> -->
   </nav>
 <?php endif;?>

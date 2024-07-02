@@ -116,11 +116,11 @@ if (!$url)
             <div class="header__block">
               <a href="">Новинки</a>
               <div class="header-menu">
-                <span>каталог</span>
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <a href="/catalog"><span>каталог</span></a> 
+                <!-- <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="drop-menu">
+                </svg> -->
+                <!-- <div class="drop-menu">
                   <div class="drop-menu__content">
                     <div class="drop-menu__column">
                       <h3 class="drop-menu__title">
@@ -199,14 +199,14 @@ if (!$url)
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="header-menu">
                 <span>о бренде</span>
-                <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <div class="drop-menu">
+                </svg> -->
+                <!-- <div class="drop-menu">
                   <div class="drop-menu__content">
                     <div class="drop-menu__column">
                       <h3 class="drop-menu__title">
@@ -285,7 +285,7 @@ if (!$url)
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <a href="">Компании</a>
               <a href="">Скидки</a>

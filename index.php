@@ -72,25 +72,25 @@
   <section class="inner">
     <div class="container">
       <div class="inner__title title">
-            Заголовок
+      Наши купальники
       </div>
       <div class="inner__section">
-        <a href="" class="inner__block">
+        <a href="/catalog" class="inner__block">
           <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-1.jpg" alt="">
           <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-3-mobile.jpg" alt="">
           <p class="inner__name">Топы</p>
         </a>
-        <a href="" class="inner__block">
+        <a href="/catalog" class="inner__block">
           <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-3.jpg" alt="">
           <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-4-mobile.jpg" alt="">
           <p class="inner__name">Плавки</p>
         </a>
-        <a href="" class="inner__block">
+        <a href="/catalog" class="inner__block">
           <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-4.jpg" alt="">
           <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-1-mobile.jpg" alt="">
           <p class="inner__name">Слитные</p>
         </a>
-        <a href="" class="inner__block">
+        <a href="/catalog" class="inner__block">
           <img class="inner__img inner__img-desktop" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-2.jpg" alt="">
           <img class="inner__img inner__img-mobile" src="<?php echo SITE_TEMPLATE_PATH;?>/img/inner/inner-2-mobile.jpg" alt="">
           <p class="inner__name">Сертификаты</p>
@@ -157,10 +157,9 @@
       <div class="container">
         <div class="about__block">
           <div class="about__title">О бренде</div>
-          <p class="about__description">Sed ut perspiciatis unde omnis iste natus error 
-            sit voluptatem accusantium doloremque laudantium,
-            totam rem aperiam, eaque ipsa quae ab illo inventore veritatis 
-            et quasi architecto beatae vitae </p>
+          <p class="about__description">The Serpent - бренд премиальных купальников и нижнего белья🐍 <br>
+В своей работе мы используем современные технологии производства и ткани премиального качества, создаем оригинальный дизайн, учитывая комфорт и идеальную посадку. Мы хотим, чтобы каждая женщина чувствовала себя шикарно и уверенно в любой момент жизни. Наши коллекции - это воплощение женственности, сексуальности и бунтарства! 
+</p>
           <a class="about__ref" href="">Узнать больше</a>
         </div>
        

@@ -31,6 +31,29 @@
         <p>Данный текст будет заменен js-ом</p>
       </div>
     </div>
+
+    <div class="center">
+        <!-- popup code start -->
+         <div class="overlay-presale">
+            <div class="popup">
+                <div class="popup_top">
+                    <h2 class="popup_header">Предзаказ на новую коллекцию UnZip Me</h2>
+                    <p class="popup_text">Заполни форму и мы перезвоним тебе</p>
+                </div>
+                <div class="popup_bottom">
+                    <form class="popup_form" autocomplete="off" action='email.php' method='post'>
+                            <input class="popup_input" type='text' name='username' placeholder="Имя" required>
+                            <input class="popup_input" type='text' name='usernumber' placeholder="Телефон" required>
+                            <input class="popup_submit" value='Перезвонить мне'>
+                    </form>
+                </div>
+            </div>
+         </div>
+       
+        <!-- popup code end -->
+    </div>
+
+
     <footer>
       <div class="container">
         <div class="footer-flex">

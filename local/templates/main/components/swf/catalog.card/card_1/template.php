@@ -67,12 +67,15 @@
           </div>
         <?php endif;?>
       </div>
-      <div touch-event="<?php echo $arParams["arParamsDef"]["TOUCH_EVENT"];?>" class="product-slide__swiper swiper link_detail_on_click_photo_section_action" link-detail="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>">
-        <div class="swiper-wrapper">
+      <div  class="product-slide__swiper swiper">
+      <!-- touch-event="<?php echo $arParams["arParamsDef"]["TOUCH_EVENT"];?>"-->  
+      <!-- link-detail="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" -->
+      <!-- link_detail_on_click_photo_section_action -->
+      <div class="swiper-wrapper">
           <?php if(count($val["arPhotos"])>0):?>
             <?php foreach($val["arPhotos"] AS $key_ph=>$val_ph):?>
-              <div class="swiper-slide">
-                <img src="<?php echo $val_ph;?>" alt="">
+              <div class="swiper-slide element-presale">
+                <img src="<?php echo $val_ph;?>"  alt="">
               </div>
             <?php endforeach;?>
           <?php else:?>
@@ -101,7 +104,7 @@
 
   <div class="product-slide__info">
     <div class="product-slide__content">
-      <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="product-slide__title"><?php echo $val["arFields"]["NAME"];?></a>
+      <a href="<?php echo $val["arFields"]["DETAIL_PAGE_URL"];?>" class="product-slide__title element-presale"><?php echo $val["arFields"]["NAME"];?></a>
       <div class="product-slide__price">
         <span><?php echo swf_util::get_num_form_2($val["OFFERS"][0]["arPrice"][$arParams["arParamsDef"]["SETT_SHOP_1"]["BASE_PRICE_CODE"]]["PRICE"]);?></span>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
       </div>

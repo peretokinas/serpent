@@ -7,6 +7,31 @@ window.addEventListener('load', function (){
       document.querySelector('header').classList.add('menu-active')
     }
   })*/
+  const elementsArr = document.querySelectorAll(".element-presale");
+  const modal = document.querySelector(".overlay-presale");
+  const buttonSubmit = document.querySelector(".popup_submit");
+
+  elementsArr.forEach(item => {
+    item.addEventListener("click", handlerClickElementPresale);
+  });
+
+  modal.addEventListener("click", (e) => handlerModalClose(e));
+  buttonSubmit.addEventListener("click", handlerCloseButton);
+  
+  function handlerModalClose(e) {  
+    if (!e.target.classList.contains("overlay-presale")) return;
+    modal.classList.remove("visible");
+  }
+
+  function handlerCloseButton() {
+    modal.classList.remove("visible");
+  }
+
+  function handlerClickElementPresale() {
+    modal.classList.add("visible");
+  }
+
+
 
   document.querySelector('.header-burger').addEventListener('click', function (){
     if(document.querySelector('body').classList.contains('menu-active')){

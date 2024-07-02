@@ -2,11 +2,13 @@
 <?php if(count($arResult["ITEMS"])>0):?>
 <div class="slider-index swiper">
   <div class="swiper-wrapper">
-    <?php foreach($arResult["ITEMS"] AS $key=>$val):?>
+    <!-- <?php foreach($arResult["ITEMS"] AS $key=>$val):?> -->
     <div class="swiper-slide">
       <div class="slider-index__item" style="background-image: url('<?php echo $val["DETAIL_PICTURE"]["SRC"];?>')">
         <div class="slider-index__item__bg-tablet" style="">
-          <img src="<?php echo $val["PREVIEW_PICTURE"]["SRC"];?>" />
+          <!-- <img src="<?php echo $val["PREVIEW_PICTURE"]["SRC"];?>" /> -->
+           <!-- <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/main/main-desktop.jpg" class="main__desktop-picture" alt=""> -->
+          <img src="<?php echo SITE_TEMPLATE_PATH;?>/img/main/main-mobile.jpg" class="main__mobile-picture" alt="">
           <div class="container">
             <?php echo htmlspecialcharsBack($val["DETAIL_TEXT"]);?>
           </div>

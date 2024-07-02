@@ -201,40 +201,65 @@
               </div>
             </div>
             <div class="left-block">
-              <div class="filter-item" data-attr="price">
+              <div class="filter-item" > 
                 <span class="cast_local_caption_div">
                   Цена&nbsp;
+                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="filter-menu">
+                    <div class="filter-menu__content">
+                      <div class="filter-menu__price">
+                        <input type="number" placeholder="От">
+                        <span>-</span>
+                        <input type="number" placeholder="До">
+                      </div>
+                    </div>
+                  </div>
                 </span>
-                <span class="id_filter_val_span__price">
+                <!-- <span class="id_filter_val_span__price" data-attr="price">
                   <?php if($view_price_filter_use):?>
                     <?php echo swf_util::get_num_form_2($filter_price_start);?> - <?php echo swf_util::get_num_form_2($filter_price_end);?>&nbsp;<?php echo Loc::getMessage("CURR_RUB");?>
                   <?php endif;?>
-                </span>
+                </span> -->
               </div>
-              <div class="filter-item" data-attr="size">
+              <div class="filter-item" >
                 <span class="cast_local_caption_div">
                   Размер&nbsp;
+                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <div class="filter-menu">
+                    <div class="filter-menu__content">
+                      <div class="filter-menu__size menu-size">
+                          <div class="menu-size__head">
+                              <span>rus</span>
+                              <span>int</span>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
                 </span>
-                <span class="id_filter_val_span__size">
+                <!-- <span class="id_filter_val_span__size" data-attr="size">
                   <?php $sch_100=0;?>
                   <?php foreach($filter_size AS $key_100=>$val_100):?>
                     <?php echo trim(strtoupper($val_100));?><?php if($sch_100+1!=count($filter_size)){echo ",";}?>
                     <?php $sch_100++;?>
                   <?php endforeach;?>
-                </span>
+                </span> -->
               </div>
-              <div class="filter-item" data-attr="color">
+              <div class="filter-item" >
                 <span class="cast_local_caption_div">
                   Цвет
                 </span>
-                <span class="id_filter_val_span__color">
+                <!-- <span class="id_filter_val_span__color" data-attr="color">
                   <?php foreach($filter_color AS $key_100=>$val_100):?>
                     <div class="color_filter_use_1">
                       <div class="color_filter_use_1_center" style="background-color: <?php echo $arParams["arSettings"]["COLOR_1"][$val_100];?>">
                       </div>
                     </div>
                   <?php endforeach;?>
-                </span>
+                </span> -->
               </div>
             </div>
             
@@ -248,11 +273,11 @@
               }
             ?>
             <div class="right-block">
-              <div class="filter-item <?php echo $dop_class;?>" data-attr="collection">
+              <div class="filter-item " >
                 <span class="cast_local_caption_div">
                   Коллекция
                 </span>
-                <span class="id_filter_val_span__collect"><?php echo $dop_text;?></span>
+                <!-- <span class="id_filter_val_span__collect"><?php echo $dop_text;?></span> data-attr="collection"  <?php echo $dop_class;?>-->
               </div>
               <div class="filter-send btn btn-mobile cast_filter_send_mobile_action">Применить</div>
               <div class="filter-reset btn">Очистить</div>

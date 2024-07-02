@@ -3,16 +3,16 @@
   <nav class="header-menu-mobile">
     <a href="" class="mobile-menu-item">Новинки</a>
     <div class="mobile-menu-item mobile-menu-item_dropdown">
-      <span>каталог</span>
-      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <a href="/catalog"><span>каталог</span></a> 
+      <!-- <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      </svg> -->
     </div>
     <div class="mobile-menu-item mobile-menu-item_dropdown">
       <span>о бренде</span>
-      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 1L5 5L9 1" stroke="#263740" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      </svg> -->
     </div>
     <a href="" class="mobile-menu-item">Компании</a>
     <a href="" class="mobile-menu-item">Скидки</a>
